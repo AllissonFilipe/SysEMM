@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Styles -->
         <style>
             html, body {
@@ -69,26 +69,27 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                    <a href="{{ route('admin.home') }}">Home</a>
-                    <a href="{{ route('profile') }}">Meu Perfil</a>
+                    <a class="btn btn-warning" href="{{ route('admin.home') }}">Home</a>
+                    <a class="btn btn-warning" href="{{ route('profile') }}">Meu Perfil</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a class="btn btn-warning" href="{{ route('login') }}">Login</a>
+                        <a  class="btn btn-warning" href="{{ route('register') }}">Registrar</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div style="color:#ffc107;" class="title m-b-md">
+                    SysEMM
+                    <!-- <img src="logo.ico"/> -->
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
+                    <a class="btn btn-warning" href="https://laravel.com/docs">Documentação</a>
+                    <!-- <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://forge.laravel.com">Forge</a> -->
+                    <a class="btn btn-warning" href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>

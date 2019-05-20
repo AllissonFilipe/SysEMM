@@ -3,11 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Controllers\Admin\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileFormRequest;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        return view('admin.user.index');
+    }
+
+
+    public function create()
+    {
+        return view('admin.user.create');
+    }
+    
     public function profile()
     {
         return view('site.profile.profile');

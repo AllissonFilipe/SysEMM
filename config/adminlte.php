@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Sistema de Saldo com Laravel 5.5',
+    'title' => 'SysEMM',
 
     'title_prefix' => '',
 
@@ -30,9 +30,8 @@ return [
     |
     */
 
-    'logo' => '<b>Curso</b> L5.5',
-
-    'logo_mini' => '<b>L</b>5.5',
+    'logo' => "<p style='color:#ffc107;'>SysEMM</p>",
+    'logo_mini' => '<b>Sys</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +44,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'red',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +57,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' => 'top-nav',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,26 +109,66 @@ return [
     'menu' => [
         //'MENU',
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Home',
             'url'         => 'admin',
-            'icon'        => 'dashboard',
+            'icon'        => 'home',
         ],
+        // [
+        //     'text' => 'Financeiro',
+        //     'icon' => 'money',
+        //     'submenu' => [
+        //         [
+        //             'text'  => 'Saldo',
+        //             'url'   => 'admin/balance',
+        //             'icon'  => 'credit-card-alt'
+        //         ],
+        //         [
+        //             'text'  => 'Histórico',
+        //             'url'   => 'admin/historic',
+        //             'icon'  => 'history'
+        //         ]
+        //     ]
+        // ],
+        
         [
-            'text' => 'Financeiro',
-            'icon' => 'money',
+            'text' => 'Cadastros de Pessoas',
+            'icon' => 'id-card',
             'submenu' => [
                 [
-                    'text'  => 'Saldo',
-                    'url'   => 'admin/balance',
-                    'icon'  => 'credit-card-alt'
+                    'text'  => 'Usuário',
+                    'url'   => 'admin/user',
+                    'icon'  => 'user'
                 ],
                 [
-                    'text'  => 'Histórico',
-                    'url'   => 'admin/historic',
-                    'icon'  => 'history'
-                ]
+                    'text'  => 'Responsável',
+                    'url'   => 'admin/responsavel',
+                    'icon'  => 'user'
+                ],
+                [
+                    'text'  => 'Aluno',
+                    'url'   => 'admin/aluno',
+                    'icon'  => 'graduation-cap'
+                ],
+            ]
+        ],
+
+        [
+            'text' => 'Cadastros Acadêmicos',
+            'icon' => 'id-card',
+            'submenu' => [
+                [
+                    'text'  => 'Disciplina',
+                    'url'   => 'admin/disciplina',
+                    'icon'  => 'book'
+                ],
+                [
+                    'text'  => 'Turma',
+                    'url'   => 'admin/turma',
+                    'icon'  => 'users'
+                ],
             ]
         ]
+        
     ],
 
     /*

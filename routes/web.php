@@ -16,6 +16,27 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->get('deposit', 'BalanceController@deposit')->name('balance.deposit');
     $this->get('balance', 'BalanceController@index')->name('admin.balance');
 
+    //User
+    $this->get('user', 'UserController@index')->name('admin.user');
+    $this->get('createUser', 'UserController@create')->name('user.create');
+   
+
+    //Reponsavel
+    $this->get('responsavel', 'ResponsavelController@index')->name('admin.responsavel');
+    $this->get('createResponsavel', 'ResponsavelController@create')->name('responsavel.create');
+
+    //Discipilina
+    $this->get('disciplina', 'DisciplinaController@index')->name('admin.disciplina');
+    $this->get('createDisciplina', 'DisciplinaController@create')->name('disciplina.create');
+
+    //Aluno
+    $this->get('aluno', 'AlunoController@index')->name('admin.aluno');
+    $this->get('createAluno', 'AlunoController@create')->name('aluno.create');
+
+    //Turma
+    $this->get('turma', 'TurmaController@index')->name('admin.turma');
+    $this->get('createTurma', 'TurmaController@create')->name('turma.create');
+
     $this->get('/', 'AdminController@index')->name('admin.home');
 });
 
