@@ -30,4 +30,16 @@ Route::namespace('API')->name('api.')->group(function(){
 		Route::get('/', 'ResponsavelController@indexApi')->name('index_responsaveis');
 		Route::get('/{id}', 'ResponsavelController@showApi')->name('responsavel_especifico');
 	});
+
+	Route::prefix('notificacao_colabs')->group(function(){
+
+		Route::get('/', 'NotificacaoColabController@indexApi')->name('index_notificacao_colabs');
+		Route::get('/{id}', 'NotificacaoColabController@showApi')->name('notificacao_colab_especifico');
+	});
+
+	Route::prefix('notas')->group(function(){
+
+		Route::get('/', 'NotaController@indexApi')->name('index_notas');
+		Route::get('/{id}', 'NotaController@showApi')->name('nota_especifico');
+	});
 });
