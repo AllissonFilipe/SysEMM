@@ -32,4 +32,14 @@ class NotificacaoColabController extends Controller
     	$data = ['data' => $notificacaoColab];
 	    return response()->json($data);
 	}
+
+	public function index()
+    {
+        return view('admin.notificacaoColab.index');
+    }
+
+    public function create()
+    {
+        return view('admin.notificacaoColab.create');
+    }
 }

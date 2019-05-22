@@ -167,6 +167,17 @@ return [
                     'icon'  => 'users'
                 ],
             ]
+        ],
+
+        [
+            'text' => 'Notificações',
+            'url'  => 'admin/notificacao',
+            'icon' => 'sticky-note'     
+        ],
+
+        [
+            'text' => 'Relatórios',
+            'icon' => 'globe'
         ]
         
     ],

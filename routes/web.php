@@ -37,6 +37,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->get('turma', 'TurmaController@index')->name('admin.turma');
     $this->get('createTurma', 'TurmaController@create')->name('turma.create');
 
+    //Notificação do Colaborador
+    $this->get('notificacao', 'NotificacaoColabController@index')->name('admin.notificacaoColab');
+    $this->get('createNotificacao', 'NotificacaoColabController@create')->name('notificacaoColab.create');
+
     $this->get('/', 'AdminController@index')->name('admin.home');
 });
 
