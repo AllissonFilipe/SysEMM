@@ -17,7 +17,7 @@ class CreateResponsavelAlunosTable extends Migration
             $table->unsignedInteger('aluno_id');
             $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
             $table->unsignedInteger('responsavel_id');
-            $table->foreign('responsavel_id')->references('id')->on('responsaveis')->onDelete('cascade');
+            $table->foreign('responsavel_id')->references('id')->on('responsavels')->onDelete('cascade');
             $table->timestamps();
         });
     }

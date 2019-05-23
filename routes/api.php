@@ -21,31 +21,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('API')->name('api.')->group(function(){
 	Route::prefix('alunos')->group(function(){
 
-		Route::get('/', 'AlunoController@indexApi')->name('index_alunos');
-		Route::get('/{id}', 'AlunoController@showApi')->name('aluno_especifico');
+		Route::get('/', 'AlunoController@index')->name('index_alunos');
+		Route::get('/{id}', 'AlunoController@show')->name('aluno_especifico');
 	});
 
-	Route::prefix('responsaveis')->group(function(){
+	Route::prefix('responsavels')->group(function(){
 
-		Route::get('/', 'ResponsavelController@indexApi')->name('index_responsaveis');
-		Route::get('/{id}', 'ResponsavelController@showApi')->name('responsavel_especifico');
+		Route::get('/', 'ResponsavelController@index')->name('index_responsavels');
+		Route::get('/{id}', 'ResponsavelController@show')->name('responsavel_especifico');
 	});
 
 	Route::prefix('notificacao_colabs')->group(function(){
 
-		Route::get('/', 'NotificacaoColabController@indexApi')->name('index_notificacao_colabs');
-		Route::get('/{id}', 'NotificacaoColabController@showApi')->name('notificacao_colab_especifica');
+		Route::get('/', 'NotificacaoColabController@index')->name('index_notificacao_colabs');
+		Route::get('/{id}', 'NotificacaoColabController@show')->name('notificacao_colab_especifica');
 	});
 
 	Route::prefix('notas')->group(function(){
 
-		Route::get('/', 'NotaController@indexApi')->name('index_notas');
-		Route::get('/{id}', 'NotaController@showApi')->name('nota_especifica');
+		Route::get('/', 'NotaController@index')->name('index_notas');
+		Route::get('/{id}', 'NotaController@show')->name('nota_especifica');
 	});
 
 	Route::prefix('frequencias')->group(function(){
 
-		Route::get('/', 'FrenquenciaController@indexApi')->name('index_frequencias');
-		Route::get('/{id}', 'FrenquenciaController@showApi')->name('frequencia_especifica');
+		Route::get('/', 'FrequenciaController@index')->name('index_frequencias');
+		Route::get('/{id}', 'FrequenciaController@show')->name('frequencia_especifica');
 	});
 });

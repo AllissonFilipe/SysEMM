@@ -19,7 +19,7 @@ class CreateNotificacaoRespsTable extends Migration
             $table->text('descricao');
             $table->enum('categoria',['Dúvida','Ajuda','Reclamação']);
             $table->unsignedInteger('responsavel_id');
-            $table->foreign('responsavel_id')->references('id')->on('responsaveis')->onDelete('cascade');
+            $table->foreign('responsavel_id')->references('id')->on('responsavels')->onDelete('cascade');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
