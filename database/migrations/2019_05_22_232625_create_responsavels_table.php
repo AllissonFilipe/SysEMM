@@ -16,9 +16,7 @@ class CreateResponsavelsTable extends Migration
         Schema::create('responsavels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->string('email');
-            $table->string('senha');
-            $table->bigInteger('cpf');
+            $table->bigInteger('cpf')->unique();
             $table->bigInteger('telefone');
             $table->enum('grau_de_parentesco', ['Mãe', 'Pai','Irmão','Avô','Tia','Tio']);
             $table->timestamps();
