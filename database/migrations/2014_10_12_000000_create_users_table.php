@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('cep');
             $table->bigInteger('numero')->nullable();
             $table->string('logradouro');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('bairro');
             $table->string('cidade');
             $table->string('uf');

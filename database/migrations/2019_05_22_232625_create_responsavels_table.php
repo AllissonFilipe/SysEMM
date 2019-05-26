@@ -18,7 +18,14 @@ class CreateResponsavelsTable extends Migration
             $table->string('nome');
             $table->bigInteger('cpf')->unique();
             $table->bigInteger('telefone');
-            $table->enum('grau_de_parentesco', ['Mãe', 'Pai','Irmão','Avô','Tia','Tio']);
+            $table->string('grau_de_parentesco');
+            $table->bigInteger('cep');
+            $table->bigInteger('numero')->nullable();
+            $table->string('logradouro');
+            $table->string('complemento')->nullable();
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('uf');
             $table->timestamps();
         });
     }

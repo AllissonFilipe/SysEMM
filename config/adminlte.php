@@ -142,7 +142,7 @@ return [
                 [
                     'text'  => 'Responsável',
                     'url'   => 'admin/responsavel',
-                    'icon'  => 'user'
+                    'icon'  => 'fa fa-male'
                 ],
                 [
                     'text'  => 'Aluno',
@@ -154,7 +154,7 @@ return [
 
         [
             'text' => 'Cadastros Acadêmicos',
-            'icon' => 'id-card',
+            'icon' => 'fa fa-pencil-square',
             'submenu' => [
                 [
                     'text'  => 'Disciplina',
@@ -172,12 +172,12 @@ return [
         [
             'text' => 'Notificações',
             'url'  => 'admin/notificacao',
-            'icon' => 'sticky-note'     
+            'icon' => 'fa fa-bell'     
         ],
 
         [
             'text' => 'Relatórios',
-            'icon' => 'globe'
+            'icon' => 'fa fa-bar-chart'
         ]
         
     ],

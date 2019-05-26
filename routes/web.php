@@ -1,52 +1,56 @@
 <?php
 
-$this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
+Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
 
-    $this->any('historic-search', 'BalanceController@searchHistoric')->name('historic.search');
-    $this->get('historic', 'BalanceController@historic')->name('admin.historic');
+    Route::any('historic-search', 'BalanceController@searchHistoric')->name('historic.search');
+    Route::get('historic', 'BalanceController@historic')->name('admin.historic');
 
-    $this->post('transfer', 'BalanceController@transferStore')->name('transfer.store');
-    $this->post('confirm-transfer', 'BalanceController@confirmTransfer')->name('confirm.transfer');
-    $this->get('transfer', 'BalanceController@transfer')->name('balance.transfer');
+    Route::post('transfer', 'BalanceController@transferStore')->name('transfer.store');
+    Route::post('confirm-transfer', 'BalanceController@confirmTransfer')->name('confirm.transfer');
+    Route::get('transfer', 'BalanceController@transfer')->name('balance.transfer');
 
-    $this->post('withdraw', 'BalanceController@withdrawStore')->name('withdraw.store');
-    $this->get('withdraw', 'BalanceController@withdraw')->name('balance.withdraw');
+    Route::post('withdraw', 'BalanceController@withdrawStore')->name('withdraw.store');
+    Route::get('withdraw', 'BalanceController@withdraw')->name('balance.withdraw');
 
-    $this->post('deposit', 'BalanceController@depositStore')->name('deposit.store');
-    $this->get('deposit', 'BalanceController@deposit')->name('balance.deposit');
-    $this->get('balance', 'BalanceController@index')->name('admin.balance');
+    Route::post('deposit', 'BalanceController@depositStore')->name('deposit.store');
+    Route::get('deposit', 'BalanceController@deposit')->name('balance.deposit');
+    Route::get('balance', 'BalanceController@index')->name('admin.balance');
 
     //User
-    $this->get('user', 'UserController@index')->name('admin.user');
-    $this->get('createUser', 'UserController@create')->name('user.create');
+    Route::get('user', 'UserController@index')->name('admin.user');
+    Route::get('createUser', 'UserController@create')->name('user.create');
+    Route::post('createUserPost', 'UserController@createPost')->name('user.post');
+    Route::get('editUser/{id}', 'UserController@edit')->name('user.edit');
+    Route::put('editUserPost/{id}', 'UserController@editPost')->name('user.put');
+    Route::delete('deletetUser/{id}', 'UserController@destroy')->name('user.delete');
    
 
     //Reponsavel
-    $this->get('responsavel', 'ResponsavelController@index')->name('admin.responsavel');
-    $this->get('createResponsavel', 'ResponsavelController@create')->name('responsavel.create');
+    Route::get('responsavel', 'ResponsavelController@index')->name('admin.responsavel');
+    Route::get('createResponsavel', 'ResponsavelController@create')->name('responsavel.create');
 
     //Discipilina
-    $this->get('disciplina', 'DisciplinaController@index')->name('admin.disciplina');
-    $this->get('createDisciplina', 'DisciplinaController@create')->name('disciplina.create');
+    Route::get('disciplina', 'DisciplinaController@index')->name('admin.disciplina');
+    Route::get('createDisciplina', 'DisciplinaController@create')->name('disciplina.create');
 
     //Aluno
-    $this->get('aluno', 'AlunoController@index')->name('admin.aluno');
-    $this->get('createAluno', 'AlunoController@create')->name('aluno.create');
+    Route::get('aluno', 'AlunoController@index')->name('admin.aluno');
+    Route::get('createAluno', 'AlunoController@create')->name('aluno.create');
 
     //Turma
-    $this->get('turma', 'TurmaController@index')->name('admin.turma');
-    $this->get('createTurma', 'TurmaController@create')->name('turma.create');
+    Route::get('turma', 'TurmaController@index')->name('admin.turma');
+    Route::get('createTurma', 'TurmaController@create')->name('turma.create');
 
     //Notificação do Colaborador
-    $this->get('notificacao', 'NotificacaoColabController@index')->name('admin.notificacaoColab');
-    $this->get('createNotificacao', 'NotificacaoColabController@create')->name('notificacaoColab.create');
+    Route::get('notificacao', 'NotificacaoColabController@index')->name('admin.notificacaoColab');
+    Route::get('createNotificacao', 'NotificacaoColabController@create')->name('notificacaoColab.create');
 
-    $this->get('/', 'AdminController@index')->name('admin.home');
+    Route::get('/', 'AdminController@index')->name('admin.home');
 });
 
-$this->post('atualizar-perfil', 'Admin\UserController@profileUpdate')->name('profile.update')->middleware('auth');
-$this->get('meu-perfil', 'Admin\UserController@profile')->name('profile')->middleware('auth');
+Route::post('atualizar-perfil', 'Admin\UserController@profileUpdate')->name('profile.update')->middleware('auth');
+Route::get('meu-perfil', 'Admin\UserController@profile')->name('profile')->middleware('auth');
 
-$this->get('/', 'Site\SiteController@index')->name('home');
+Route::get('/', 'Site\SiteController@index')->name('home');
 
 Auth::routes();
