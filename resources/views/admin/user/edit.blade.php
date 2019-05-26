@@ -3,11 +3,11 @@
 @section('title', 'Editar Cadastro')
 
 @section('content_header')
-    <h1>Cadastrar Colaborador</h1>
+    <h1>Cadastrar Usuário</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Colaborador</a></li>
+        <li><a href="">Usuarios</a></li>
         <li><a href="">Editar</a></li>
     </ol>
 @stop

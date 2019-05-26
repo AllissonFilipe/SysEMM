@@ -36,6 +36,10 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     //Aluno
     Route::get('aluno', 'AlunoController@index')->name('admin.aluno');
     Route::get('createAluno', 'AlunoController@create')->name('aluno.create');
+    Route::post('createAlunoPost', 'AlunoController@createPost')->name('aluno.post');
+    Route::get('editAluno/{id}', 'AlunoController@edit')->name('aluno.edit');
+    Route::put('editAlunoPost/{id}', 'AlunoController@editPost')->name('aluno.put');
+    Route::delete('deletetAluno/{id}', 'AlunoController@destroy')->name('aluno.delete');
 
     //Turma
     Route::get('turma', 'TurmaController@index')->name('admin.turma');

@@ -17,6 +17,7 @@ class CreateAlunosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->date('data_de_nascimento');
+            $table->enum('sexo',['Masculino','Feminino']);
             $table->string('rg');
             $table->string('cpf');
             $table->string('senha');

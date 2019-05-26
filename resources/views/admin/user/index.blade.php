@@ -3,11 +3,11 @@
 @section('title', 'Usuário')
 
 @section('content_header')
-    <h1>Usuário</h1>
+    <h1>Usuários</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Usuário</a></li>
+        <li><a href="">Usuários</a></li>
     </ol>
 @stop
 
@@ -15,22 +15,12 @@
     <div class="box">
         <div class="box-header">
             <a href="{{route('user.create')}}" 
-                class="btn btn-default btn-sm pull-left">
-                <span class="glyphicon glyphicon-plus"></span> Adicionar</a>
-                <!-- <a href="" 
-                    class="btn btn-default btn-sm pull-right">
-                    <i class="fa fa-book"></i> Relatório</a> -->
-            <form class="form-group" method="post" action="#">   
-                <div class="col-sm-4">
-                <input type="text" name="pesquisar" 
-                    class="form-control input-sm pull-left" 
-                    placeholder="Pesquisar por nome..." required> 
-                <button class="btn btn-default btn-sm pull-right" id="color"> 
-                <span class="glyphicon glyphicon-search"></span>
-                </button>
-                </form>
-                </div>                                
-                
+            class="btn btn-default btn-sm pull-left">
+            <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
+            <div class="form-group input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+            </div>
         </div>
         @if (session('message'))
         <div class="alert alert-success alert-dismissible">
@@ -44,7 +34,7 @@
                 <div class="row">
                     <div class="box-body">   
                         <br />
-                        <center><h4><b>USUÁRIOS CADASTRADOS ({{$total}})</b></h4></center>
+                        <h4 style="text-align:center;"><b>USUÁRIOS CADASTRADOS ({{$total}})</b></h4>
                         <br>
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -89,5 +79,10 @@
             </div>
         </div>
     </div>
+    
+
+    <script>
+        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+    </script>
 @stop
 
