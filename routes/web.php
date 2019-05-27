@@ -22,16 +22,24 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::post('createUserPost', 'UserController@createPost')->name('user.post');
     Route::get('editUser/{id}', 'UserController@edit')->name('user.edit');
     Route::put('editUserPost/{id}', 'UserController@editPost')->name('user.put');
-    Route::delete('deletetUser/{id}', 'UserController@destroy')->name('user.delete');
+    Route::delete('deleteUser/{id}', 'UserController@destroy')->name('user.delete');
    
 
     //Reponsavel
     Route::get('responsavel', 'ResponsavelController@index')->name('admin.responsavel');
     Route::get('createResponsavel', 'ResponsavelController@create')->name('responsavel.create');
+    Route::post('createResponsavelPost', 'ResponsavelController@createPost')->name('responsavel.post');
+    Route::get('editResponsavel/{id}', 'ResponsavelController@edit')->name('responsavel.edit');
+    Route::put('editResponsavelPost/{id}', 'ResponsavelController@editPost')->name('responsavel.put');
+    Route::delete('deleteResponsavel/{id}', 'ResponsavelController@destroy')->name('responsavel.delete');
 
     //Discipilina
     Route::get('disciplina', 'DisciplinaController@index')->name('admin.disciplina');
     Route::get('createDisciplina', 'DisciplinaController@create')->name('disciplina.create');
+    Route::post('createDisciplinaPost', 'DisciplinaController@createPost')->name('disciplina.post');
+    Route::get('editDisciplina/{id}', 'DisciplinaController@edit')->name('disciplina.edit');
+    Route::put('editDisciplinaPost/{id}', 'DisciplinaController@editPost')->name('disciplina.put');
+    Route::delete('deleteDisciplina/{id}', 'DisciplinaController@destroy')->name('disciplina.delete');
 
     //Aluno
     Route::get('aluno', 'AlunoController@index')->name('admin.aluno');
@@ -39,7 +47,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::post('createAlunoPost', 'AlunoController@createPost')->name('aluno.post');
     Route::get('editAluno/{id}', 'AlunoController@edit')->name('aluno.edit');
     Route::put('editAlunoPost/{id}', 'AlunoController@editPost')->name('aluno.put');
-    Route::delete('deletetAluno/{id}', 'AlunoController@destroy')->name('aluno.delete');
+    Route::delete('deleteAluno/{id}', 'AlunoController@destroy')->name('aluno.delete');
 
     //Turma
     Route::get('turma', 'TurmaController@index')->name('admin.turma');

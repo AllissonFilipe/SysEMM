@@ -1,67 +1,58 @@
 @extends('adminlte::page')
 
-@section('title', 'Novo Cadastro')
+@section('title', 'Editar Cadastro')
 
 @section('content_header')
-    <h1>Cadastrar Usuário</h1>
+    <h1>Editar Responsável</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Usuários</a></li>
-        <li><a href="">Cadastrar</a></li>
+        <li><a href="">Responsáveis</a></li>
+        <li><a href="">Editar</a></li>
     </ol>
 @stop
 
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3>Fazer Cadastro</h3>
+            <h3>Fazer Edição</h3>
         </div>
         <div class="box-body">
             @include('admin.includes.alerts')
 
-            <form method="POST" action="{{ route('user.post') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('responsavel.put', $responsavel->id) }}" enctype="multipart/form-data">
+                {{ method_field('PUT') }}
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <fieldset class="form-froup">
-                        <legend>Informações Pessoais</legend>
-                        <label for="name">Nome</label> 
-                            <input type="text" id="name" name="name" placeholder="Nome" class="form-control"/>
-                        <label for="data_de_nascimento">Data de Nascimento</label>
-                            <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control"/>
-                        <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="E-mail" class="form-control"/>
-                        <label for="password">Senha</label>
-                            <input type="password" id="password" name="password" placeholder="Senha" class="form-control"/>
-                        <label for="telefone">Telefone</label>
-                            <input class="form-control" id="telefone" name="telefone" type="number" placeholder="Telefone">
-                        <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control"/>
-                        <label for="tipo">Tipo</label>
-                        <select class="form-control" id="tipo" name="tipo">
-                            <option selected disabled>Escolha uma opção</option>
-                            <option value="professor">Professor</option>
-                            <option value="coordenador">Coordenador</option>
-                        </select><br>
+                    <fieldset class="form-group">
+                    <legend>Informações Pessoais</legend> 
+                    <label for="nome">Nome</label> 
+                        <input type="text" id="nome" value="{{$responsavel->nome or old('nome')}}" name="nome" class="form-control" required>
+                    <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" value="{{$responsavel->cpf or old('cpf')}}" name="cpf" class="form-control" required>
+                    <label for="telefone">Telefone</label>
+		                <input class="form-control" id="telefone" type="number" value="{{$responsavel->telefone or old('telefone')}}" name="telefone" required>
+                    <label for="grau_de_parentesco">Grau de Parentesco</label>
+                        <input class="form-control" id="grau_de_parentesco" type="text" value="{{$responsavel->grau_de_parentesco or old('grau_de_parentesco')}}" name="grau_de_parentesco" required/>
                     </fieldset>
                     <fieldset class="form-group">
-                        <legend>Endereço</legend>
+                        <legend>Endereço</legend>  
                         <label for="cep">CEP</label>
-                            <input class="form-control" id="cep" name="cep" type="number" placeholder="CEP" required/>
+                            <input class="form-control" id="cep" type="text" value="{{$responsavel->cep or old('cep')}}" name="cep" required/>
                         <label for="logradouro">Logradouro</label>
-                            <input class="form-control" id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required/>
+                            <input class="form-control" id="logradouro" type="text" value="{{$responsavel->logradouro or old('logradouro')}}" name="logradouro" required/>
                         <label for="numero">Número</label>
-                            <input class="form-control" id="numero" name="numero" type="number" placeholder="Número" />
+                            <input class="form-control" id="numero" type="number" value="{{$responsavel->numero or old('numero')}}" name="numero"/>
                         <label for="complemento">Complemento</label>
-                            <input class="form-control" id="complemento" name="complemento" type="text" placeholder="Complemento"/>
+                            <input class="form-control" id="complemento" type="text" value="{{$responsavel->complemento or old('complemento')}}" name="complemento"/>
                         <label for="bairro">Bairro</label>
-                            <input class="form-control" id="bairro" name="bairro" type="text" placeholder="Bairro" required/>
+                            <input class="form-control" id="bairro" type="text" value="{{$responsavel->bairro or old('bairro')}}" name="bairro" required/>
                         <label for="cidade">Cidade</label>
-                            <input class="form-control" id="cidade" name="cidade" type="text" placeholder="Cidade" required/>
+                            <input class="form-control" id="cidade" type="text" value="{{$responsavel->cidade or old('cidade')}}" name="cidade" required/>
                         <label for="uf">Estado</label>
                         <select class="form-control" id="uf" name="uf">
-                            <option selected disabled>Escolha uma opção</option>
+                            <option value="{{$responsavel->nome or old('nome')}}" selected>{{$responsavel->nome or old('nome')}}</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
@@ -90,10 +81,10 @@
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                         </select>
-                    </fieldset>  
+                    </fieldset>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn btn-success">Editar</button>
                 </div>
             </form>
         </div>

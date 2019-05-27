@@ -7,7 +7,7 @@
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Responsável</a></li>
+        <li><a href="">Responsáveis</a></li>
         <li><a href="">Cadastrar</a></li>
     </ol>
 @stop
@@ -20,37 +20,37 @@
         <div class="box-body">
             @include('admin.includes.alerts')
 
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('responsavel.post') }}" enctype="multipart/form-data">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <fieldset class="form-group">
                     <legend>Informações Pessoais</legend> 
                     <label for="nome">Nome</label> 
-                        <input type="text" id="nome" placeholder="Nome" class="form-control" required>
+                        <input type="text" id="nome" placeholder="Nome" name="nome" class="form-control" required>
                     <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" placeholder="CPF" class="form-control" required>
+                        <input type="text" id="cpf" placeholder="CPF" name="cpf" class="form-control" required>
                     <label for="telefone">Telefone</label>
-		                <input class="form-control" id="telefone" type="number" placeholder="Telefone" required>
+		                <input class="form-control" id="telefone" type="number" placeholder="Telefone" name="telefone" required>
                     <label for="grau_de_parentesco">Grau de Parentesco</label>
-                        <input class="form-control" id="grau_de_parentesco" type="text" placeholder="Grau de Parentesco" required/>
+                        <input class="form-control" id="grau_de_parentesco" type="text" placeholder="Grau de Parentesco" name="grau_de_parentesco" required/>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend>  
                         <label for="cep">CEP</label>
-                            <input class="form-control" id="cep" type="text" placeholder="CEP" required/>
+                            <input class="form-control" id="cep" type="text" placeholder="CEP" name="cep" required/>
                         <label for="logradouro">Logradouro</label>
-                            <input class="form-control" id="logradouro" type="text" placeholder="Logradouro" required/>
+                            <input class="form-control" id="logradouro" type="text" placeholder="Logradouro" name="logradouro" required/>
                         <label for="numero">Número</label>
-                            <input class="form-control" id="numero" type="number" placeholder="Número" />
+                            <input class="form-control" id="numero" type="number" placeholder="Número" name="numero"/>
                         <label for="complemento">Complemento</label>
-                            <input class="form-control" id="complemento" type="text" placeholder="Complemento"/>
+                            <input class="form-control" id="complemento" type="text" placeholder="Complemento" name="complemento"/>
                         <label for="bairro">Bairro</label>
-                            <input class="form-control" id="bairro" type="text" placeholder="Bairro" required/>
+                            <input class="form-control" id="bairro" type="text" placeholder="Bairro" name="bairro" required/>
                         <label for="cidade">Cidade</label>
-                            <input class="form-control" id="cidade" type="text" placeholder="Cidade" required/>
+                            <input class="form-control" id="cidade" type="text" placeholder="Cidade" name="cidade" required/>
                         <label for="uf">Estado</label>
-                        <select class="form-control" id="uf">
+                        <select class="form-control" id="uf" name="uf">
                             <option selected disabled>Escolha uma opção</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
