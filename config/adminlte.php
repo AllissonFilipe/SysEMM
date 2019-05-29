@@ -113,23 +113,6 @@ return [
             'url'         => 'admin',
             'icon'        => 'home',
         ],
-        // [
-        //     'text' => 'Financeiro',
-        //     'icon' => 'money',
-        //     'submenu' => [
-        //         [
-        //             'text'  => 'Saldo',
-        //             'url'   => 'admin/balance',
-        //             'icon'  => 'credit-card-alt'
-        //         ],
-        //         [
-        //             'text'  => 'Histórico',
-        //             'url'   => 'admin/historic',
-        //             'icon'  => 'history'
-        //         ]
-        //     ]
-        // ],
-        
         [
             'text' => 'Cadastros de Pessoas',
             'icon' => 'id-card',
@@ -154,7 +137,7 @@ return [
 
         [
             'text' => 'Cadastros Acadêmicos',
-            'icon' => 'fa fa-pencil-square',
+            'icon' => 'fa fa-building',
             'submenu' => [
                 [
                     'text'  => 'Disciplina',
@@ -172,7 +155,7 @@ return [
         [
             'text' => 'Notificações',
             'url'  => 'admin/notificacao',
-            'icon' => 'fa fa-bell'     
+            'icon' => 'fa-bell'     
         ],
 
         [

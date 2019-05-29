@@ -31,7 +31,7 @@ class AlunoController extends Controller
         $aluno->sexo = $request->sexo;
         $aluno->rg = $request->rg;
         $aluno->cpf = $request->cpf;
-        $aluno->senha = $request->senha;
+        $aluno->senha = bcrypt($request->senha);
         $aluno->save();
       
         return redirect()
@@ -52,7 +52,7 @@ class AlunoController extends Controller
         $aluno->sexo = $request->sexo;
         $aluno->rg = $request->rg;
         $aluno->cpf = $request->cpf;
-        $aluno->senha = $request->senha;
+        $aluno->senha = bcrypt($request->senha);
         $aluno->save();
         return redirect()->route('admin.aluno')->with('message', 'Aluno alterado com sucesso!');
     }

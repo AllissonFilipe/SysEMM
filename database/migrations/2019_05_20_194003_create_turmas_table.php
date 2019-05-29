@@ -16,7 +16,7 @@ class CreateTurmasTable extends Migration
         Schema::create('turmas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->enum('turno', ['Manhã', 'Tarde']);
+            $table->enum('turno', ['Manhã', 'Tarde','Integral']);
             $table->bigInteger('qtd_vagas');
             $table->bigInteger('ano_letivo');
             $table->timestamps();

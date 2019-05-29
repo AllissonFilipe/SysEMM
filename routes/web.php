@@ -52,6 +52,10 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     //Turma
     Route::get('turma', 'TurmaController@index')->name('admin.turma');
     Route::get('createTurma', 'TurmaController@create')->name('turma.create');
+    Route::post('createTurmaPost', 'TurmaController@createPost')->name('turma.post');
+    Route::get('editTurma/{id}', 'TurmaController@edit')->name('turma.edit');
+    Route::put('editTurmaPost/{id}', 'TurmaController@editPost')->name('turma.put');
+    Route::delete('deleteTurma/{id}', 'TurmaController@destroy')->name('turma.delete');
 
     //Notificação do Colaborador
     Route::get('notificacao', 'NotificacaoColabController@index')->name('admin.notificacaoColab');
