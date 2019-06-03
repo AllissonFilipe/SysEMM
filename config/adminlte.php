@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => "<p style='color:#ffc107;'>SysEMM</p>",
+    'logo' => "SysEMM",
     'logo_mini' => '<b>Sys</b>',
 
     /*
@@ -125,7 +125,7 @@ return [
                 [
                     'text'  => 'Responsável',
                     'url'   => 'admin/responsavel',
-                    'icon'  => 'fa fa-male'
+                    'icon'  => 'male'
                 ],
                 [
                     'text'  => 'Aluno',
@@ -137,7 +137,7 @@ return [
 
         [
             'text' => 'Cadastros Acadêmicos',
-            'icon' => 'fa fa-building',
+            'icon' => 'building',
             'submenu' => [
                 [
                     'text'  => 'Disciplina',
@@ -155,12 +155,12 @@ return [
         [
             'text' => 'Notificações',
             'url'  => 'admin/notificacao',
-            'icon' => 'fa-bell'     
+            'icon' => 'bell'     
         ],
 
         [
             'text' => 'Relatórios',
-            'icon' => 'fa fa-bar-chart'
+            'icon' => 'pie-chart'
         ]
         
     ],

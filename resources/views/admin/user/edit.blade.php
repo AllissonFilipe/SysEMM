@@ -3,7 +3,7 @@
 @section('title', 'Editar Cadastro')
 
 @section('content_header')
-    <h1>Cadastrar Usuário</h1>
+    <h1>Editar Usuário</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
@@ -94,7 +94,7 @@
                     </fieldset>  
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Editar</button>
+                    <button type="submit" class="btn btn-success">Alterar</button>
                 </div>
             </form>
         </div>

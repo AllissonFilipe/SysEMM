@@ -3,6 +3,15 @@
 @section('title', 'Responsável')
 
 @section('content_header')
+    <style>
+        .fa-pencil, .fa-trash-o{
+            color: #ff8c1a;
+        }
+
+        .fa-pencil:hover, .fa-trash-o:hover {
+            color: #b35900;
+        }
+    </style>
     <h1>Responsáveis</h1>
 
     <ol class="breadcrumb">

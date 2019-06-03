@@ -40,7 +40,7 @@
 		                <input class="form-control" id="ano_letivo" name="ano_letivo" type="number" value="{{$turma->ano_letivo or old('ano_letivo')}}">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn btn-success">Alterar</button>
                 </div>
             </form>
         </div>

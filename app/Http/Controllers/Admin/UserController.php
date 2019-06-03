@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileFormRequest;
+use App\Http\Requests\UserValidationFormRequest;
 
 class UserController extends Controller
 {
@@ -24,7 +25,7 @@ class UserController extends Controller
         return view('admin.user.create');
     }
 
-    public function createPost(Request $request)
+    public function createPost(UserValidationFormRequest $request)
     {   
 
         $user = new User();
@@ -57,7 +58,7 @@ class UserController extends Controller
         return view('admin.user.edit', compact('user','id'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(UserValidationFormRequest $request, $id) {
         $user = User::findOrFail($id); 
         $user->name = $request->name;
         $user->email = $request->email;

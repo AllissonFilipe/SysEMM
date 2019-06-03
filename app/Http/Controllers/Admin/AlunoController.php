@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Aluno;
+use App\Http\Requests\AlunoValidationFormRequest;
 
 
 class AlunoController extends Controller
@@ -21,7 +22,7 @@ class AlunoController extends Controller
         return view('admin.aluno.create');
     }
 
-    public function createPost(Request $request)
+    public function createPost(AlunoValidationFormRequest $request)
     {   
 
         $aluno = new Aluno();
@@ -45,7 +46,7 @@ class AlunoController extends Controller
         return view('admin.aluno.edit', compact('aluno','id'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(AlunoValidationFormRequest $request, $id) {
         $aluno = Aluno::findOrFail($id); 
         $aluno->nome = $request->nome;
         $aluno->data_de_nascimento = $request->data_de_nascimento;

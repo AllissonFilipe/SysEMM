@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Turma;
+use App\Http\Requests\TurmaValidationFormRequest;
 
 class TurmaController extends Controller
 {
@@ -21,7 +22,7 @@ class TurmaController extends Controller
         return view('admin.turma.create');
     }
 
-    public function createPost(Request $request)
+    public function createPost(TurmaValidationFormRequest $request)
     {   
 
         $turma = new Turma();
@@ -42,7 +43,7 @@ class TurmaController extends Controller
         return view('admin.turma.edit', compact('turma','id'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(TurmaValidationFormRequest $request, $id) {
         $turma = Turma::findOrFail($id); 
         $turma->nome = $request->nome;
         $turma->turno = $request->turno;

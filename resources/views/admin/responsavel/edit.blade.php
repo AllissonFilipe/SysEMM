@@ -84,7 +84,7 @@
                     </fieldset>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Editar</button>
+                    <button type="submit" class="btn btn-success">Alterar</button>
                 </div>
             </form>
         </div>

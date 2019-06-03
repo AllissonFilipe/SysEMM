@@ -18,6 +18,7 @@
             <h3>Fazer Cadastro</h3>
         </div>
         <div class="box-body">
+
             @include('admin.includes.alerts')
 
             <form method="POST" action="{{ route('user.post') }}" enctype="multipart/form-data">

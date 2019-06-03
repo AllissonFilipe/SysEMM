@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
+use App\Http\Requests\DisciplinaValidationFormRequest;
 
 class DisciplinaController extends Controller
 {
@@ -20,7 +21,7 @@ class DisciplinaController extends Controller
         return view('admin.disciplina.create');
     }
 
-    public function createPost(Request $request)
+    public function createPost(DisciplinaValidationFormRequest $request)
     {   
 
         $disciplina = new Disciplina();
@@ -39,7 +40,7 @@ class DisciplinaController extends Controller
         return view('admin.disciplina.edit', compact('disciplina','id'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(DisciplinaValidationFormRequest $request, $id) {
         $disciplina = Disciplina::findOrFail($id); 
         $disciplina->nome = $request->nome;
         $disciplina->descricao = $request->descricao;

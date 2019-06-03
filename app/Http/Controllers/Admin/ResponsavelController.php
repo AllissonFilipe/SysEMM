@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Responsavel;
-
+use App\Http\Requests\ResponsavelValidationFormRequest;
 
 class ResponsavelController extends Controller
 {
@@ -22,7 +22,7 @@ class ResponsavelController extends Controller
         return view('admin.responsavel.create');
     }
 
-    public function createPost(Request $request)
+    public function createPost(ResponsavelValidationFormRequest $request)
     {   
 
         $responsavel = new Responsavel();
@@ -52,7 +52,7 @@ class ResponsavelController extends Controller
         return view('admin.responsavel.edit', compact('responsavel','id'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(ResponsavelValidationFormRequest $request, $id) {
         $responsavel = Responsavel::findOrFail($id); 
         $responsavel->nome = $request->nome;
         $responsavel->cpf = $request->cpf;
