@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Balance;
 use App\Models\Historic;
+use App\Models\NotificacaoColab;
 
 class User extends Authenticatable
 {
@@ -21,6 +22,10 @@ class User extends Authenticatable
         'name', 'email', 'password','tipo','cpf','data_de_nascimento','telefone','cep','numero','logradouro','complemento','bairro','cidade','uf'
     ];
     protected $guarded = ['id','created_at','update_at'];
+
+    public function notificacao() {
+        return $this->hasMany(NotificacaoColab::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

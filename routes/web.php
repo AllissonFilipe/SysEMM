@@ -60,6 +60,10 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     //Notificação do Colaborador
     Route::get('notificacao', 'NotificacaoColabController@index')->name('admin.notificacaoColab');
     Route::get('createNotificacao', 'NotificacaoColabController@create')->name('notificacaoColab.create');
+    Route::post('createNotificacaoColabPost', 'NotificacaoColabController@createPost')->name('notificacaoColab.post');
+    Route::get('editNotificacaoColab/{id}', 'NotificacaoColabController@edit')->name('notificacaoColab.edit');
+    Route::put('editNotificacaoColabPost/{id}', 'NotificacaoColabController@editPost')->name('notificacaoColab.put');
+    Route::delete('deleteNotificacaoColab/{id}', 'NotificacaoColabController@destroy')->name('notificacaoColab.delete');
 
     Route::get('/', 'AdminController@index')->name('admin.home');
 });
