@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\NotificacaoColab;
+use App\Models\TurmaAluno;
 
 class Turma extends Model
 {
@@ -15,4 +16,8 @@ class Turma extends Model
     public function notificacao() {
       return $this->hasMany(NotificacaoColab::class);
   }
+
+  public function matricula() {
+    return $this->hasMany(TurmaAluno::class);
+}
 }

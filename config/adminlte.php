@@ -149,6 +149,11 @@ return [
                     'url'   => 'admin/turma',
                     'icon'  => 'users'
                 ],
+                [
+                    'text'  => 'Matrícula',
+                    'url'   => 'admin/matricula',
+                    'icon'  => 'pencil-square'
+                ],
             ]
         ],
 

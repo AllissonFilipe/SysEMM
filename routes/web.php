@@ -65,6 +65,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('editNotificacaoColabPost/{id}', 'NotificacaoColabController@editPost')->name('notificacaoColab.put');
     Route::delete('deleteNotificacaoColab/{id}', 'NotificacaoColabController@destroy')->name('notificacaoColab.delete');
 
+    //Matrícula do aluno na turma
+    Route::get('matricula', 'TurmaAlunoController@index')->name('admin.turmaAluno');
+    Route::get('createMatricula', 'TurmaAlunoController@create')->name('turmaAluno.create');
+    Route::post('createMatriculaPost', 'TurmaAlunoController@createPost')->name('turmaAluno.post');
+    Route::get('editMatricula/{id}', 'TurmaAlunoController@edit')->name('turmaAluno.edit');
+    Route::put('editMatriculaPost/{id}', 'TurmaAlunoController@editPost')->name('turmaAluno.put');
+    Route::delete('deleteMatricula/{id}', 'TurmaAlunoController@destroy')->name('turmaAluno.delete');
+
     Route::get('/', 'AdminController@index')->name('admin.home');
 });
 
