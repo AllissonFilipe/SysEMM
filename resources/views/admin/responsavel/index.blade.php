@@ -46,14 +46,15 @@
                         <h4 style="text-align:center;"><b>RESPONSÁVEIS CADASTRADOS ({{$total}})</b></h4>
                         <br>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-striped table-hover table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr class="warning">
                                         <th id="center">Código</th>
                                         <th>Nome</th>
                                         <th>CPF</th>
                                         <th>Telefone</th> 
-                                        <th>Grau de Parentesco</th>                                       
+                                        <th>Grau de Parentesco</th>
+                                        <th></th>                                       
                                     </tr>
                                 </thead>
                                 <tbody>

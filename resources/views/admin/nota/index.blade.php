@@ -46,16 +46,17 @@
                         <h4 style="text-align:center;"><b>NOTAS CADASTRADAS ({{$total}})</b></h4>
                         <br>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-striped table-hover table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr class="warning">
                                         <th id="center">Código</th>
                                         <th>Nota</th>
                                         <th>Tipo</th>
                                         <th>Unidade</th> 
                                         <th>Data da Nota</th>  
                                         <th>Disciplina</th>  
-                                        <th>Aluno</th>                      
+                                        <th>Aluno</th>
+                                        <th></th>                      
                                     </tr>
                                 </thead>
                                 <tbody>

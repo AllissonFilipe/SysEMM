@@ -46,12 +46,13 @@
                         <h4 style="text-align:center;"><b>DISCIPLINAS CADASTRADAS ({{$total}})</b></h4>
                         <br>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-striped table-hover table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr class="warning">
                                         <th id="center">Código</th>
                                         <th>Nome</th>
-                                        <th>Descrição</th>                           
+                                        <th>Descrição</th>
+                                        <th></th>                           
                                     </tr>
                                 </thead>
                                 <tbody>

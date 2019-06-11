@@ -2,20 +2,6 @@
 
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function(){
 
-    Route::any('historic-search', 'BalanceController@searchHistoric')->name('historic.search');
-    Route::get('historic', 'BalanceController@historic')->name('admin.historic');
-
-    Route::post('transfer', 'BalanceController@transferStore')->name('transfer.store');
-    Route::post('confirm-transfer', 'BalanceController@confirmTransfer')->name('confirm.transfer');
-    Route::get('transfer', 'BalanceController@transfer')->name('balance.transfer');
-
-    Route::post('withdraw', 'BalanceController@withdrawStore')->name('withdraw.store');
-    Route::get('withdraw', 'BalanceController@withdraw')->name('balance.withdraw');
-
-    Route::post('deposit', 'BalanceController@depositStore')->name('deposit.store');
-    Route::get('deposit', 'BalanceController@deposit')->name('balance.deposit');
-    Route::get('balance', 'BalanceController@index')->name('admin.balance');
-
     //User
     Route::get('user', 'UserController@index')->name('admin.user');
     Route::get('createUser', 'UserController@create')->name('user.create');
@@ -24,7 +10,6 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('editUserPost/{id}', 'UserController@editPost')->name('user.put');
     Route::delete('deleteUser/{id}', 'UserController@destroy')->name('user.delete');
    
-
     //Reponsavel
     Route::get('responsavel', 'ResponsavelController@index')->name('admin.responsavel');
     Route::get('createResponsavel', 'ResponsavelController@create')->name('responsavel.create');
