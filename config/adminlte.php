@@ -154,6 +154,11 @@ return [
                     'url'   => 'admin/matricula',
                     'icon'  => 'pencil-square'
                 ],
+                [
+                    'text'  => 'Nota',
+                    'url'   => 'admin/nota',
+                    'icon'  => 'sticky-note '
+                ],
             ]
         ],
 

@@ -23,7 +23,7 @@ class User extends Authenticatable
     ];
     protected $guarded = ['id','created_at','update_at'];
 
-    public function notificacao() {
+    public function notificacoes() {
         return $this->hasMany(NotificacaoColab::class);
     }
 

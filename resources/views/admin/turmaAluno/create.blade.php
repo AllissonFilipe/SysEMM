@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <label for="dt_matricula">Data da Matrícula</label>
-                    <input type="date" id="dt_matricula" name="dt_matricula" class="form-control"/>
+                    <input type="date" id="dt_matricula" name="dt_matricula" class="form-control" required/>
                     
                     <label for="aluno_id">Aluno</label>
 		            <select class="form-control" id="aluno_id" name="aluno_id">

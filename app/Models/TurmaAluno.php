@@ -20,4 +20,8 @@ class TurmaAluno extends Model
     public function turma() {
       return $this->belongsTo(Turma::class);
     }
+
+    public function notas() {
+      return $this->hasMany(Nota::class);
+  }
 }

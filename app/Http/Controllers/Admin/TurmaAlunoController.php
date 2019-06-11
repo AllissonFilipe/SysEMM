@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\TurmaAluno;
 use App\Models\Aluno;
 use App\Models\Turma;
+use App\Http\Requests\TurmaAlunoValidationFormRequest;
 
 class TurmaAlunoController extends Controller
 {
@@ -27,7 +28,7 @@ class TurmaAlunoController extends Controller
         return view('admin.turmaAluno.create', compact('alunos','turmas'));
     }
 
-    public function createPost(Request $request)
+    public function createPost(TurmaAlunoValidationFormRequest $request)
     {   
 
         $turma_aluno = new TurmaAluno();
@@ -50,7 +51,7 @@ class TurmaAlunoController extends Controller
         return view('admin.turmaAluno.edit', compact('turma_aluno','id','alunos','turmas'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(TurmaAlunoValidationFormRequest $request, $id) {
         $turma_aluno = TurmaAluno::findOrFail($id); 
         $turma_aluno->dt_matricula = $request->dt_matricula;
         $turma_aluno->dt_cancelamento = $request->dt_cancelamento;

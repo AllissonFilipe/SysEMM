@@ -73,6 +73,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('editMatriculaPost/{id}', 'TurmaAlunoController@editPost')->name('turmaAluno.put');
     Route::delete('deleteMatricula/{id}', 'TurmaAlunoController@destroy')->name('turmaAluno.delete');
 
+    //Nota
+    Route::get('nota', 'NotaController@index')->name('admin.nota');
+    Route::get('createNota', 'NotaController@create')->name('nota.create');
+    Route::post('createNotaPost', 'NotaController@createPost')->name('nota.post');
+    Route::get('editNota/{id}', 'NotaController@edit')->name('nota.edit');
+    Route::put('editNotaPost/{id}', 'NotaController@editPost')->name('nota.put');
+    Route::delete('deleteNota/{id}', 'NotaController@destroy')->name('nota.delete');
+
     Route::get('/', 'AdminController@index')->name('admin.home');
 });
 

@@ -13,11 +13,11 @@ class Turma extends Model
     ];
     protected $guarded = ['id','created_at','update_at'];
 
-    public function notificacao() {
+    public function notificacaoColabs() {
       return $this->hasMany(NotificacaoColab::class);
   }
 
-  public function matricula() {
+  public function matriculas() {
     return $this->hasMany(TurmaAluno::class);
 }
 }
