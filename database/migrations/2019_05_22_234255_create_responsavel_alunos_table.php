@@ -14,6 +14,7 @@ class CreateResponsavelAlunosTable extends Migration
     public function up()
     {
         Schema::create('responsavel_alunos', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('aluno_id');
             $table->foreign('aluno_id')->references('id')->on('alunos')->onDelete('cascade');
             $table->unsignedInteger('responsavel_id');

@@ -27,63 +27,85 @@
                 <div class="form-group">
                     <fieldset class="form-group">
                     <legend>Informações Pessoais</legend> 
-                    <label for="nome">Nome</label> 
+                    <div class="form-group col-md-6">
+                        <label for="nome">Nome</label> 
                         <input type="text" id="nome" value="{{$responsavel->nome or old('nome')}}" name="nome" class="form-control" required>
-                    <label for="cpf">CPF</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cpf">CPF</label>
                         <input type="text" id="cpf" value="{{$responsavel->cpf or old('cpf')}}" name="cpf" class="form-control" required>
-                    <label for="telefone">Telefone</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="telefone">Telefone</label>
 		                <input class="form-control" id="telefone" type="number" value="{{$responsavel->telefone or old('telefone')}}" name="telefone" required>
-                    <label for="grau_de_parentesco">Grau de Parentesco</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="grau_de_parentesco">Grau de Parentesco</label>
                         <input class="form-control" id="grau_de_parentesco" type="text" value="{{$responsavel->grau_de_parentesco or old('grau_de_parentesco')}}" name="grau_de_parentesco" required/>
+                    </div>  
                     </fieldset>
                     <fieldset class="form-group">
-                        <legend>Endereço</legend>  
-                        <label for="cep">CEP</label>
+                        <legend>Endereço</legend> 
+                        <div class="form-group col-md-12">
+                            <label for="cep">CEP</label>
                             <input class="form-control" id="cep" type="text" value="{{$responsavel->cep or old('cep')}}" name="cep" required/>
-                        <label for="logradouro">Logradouro</label>
+                        </div> 
+                        <div class="form-group col-md-6">
+                            <label for="logradouro">Logradouro</label>
                             <input class="form-control" id="logradouro" type="text" value="{{$responsavel->logradouro or old('logradouro')}}" name="logradouro" required/>
-                        <label for="numero">Número</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="numero">Número</label>
                             <input class="form-control" id="numero" type="number" value="{{$responsavel->numero or old('numero')}}" name="numero"/>
-                        <label for="complemento">Complemento</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="complemento">Complemento</label>
                             <input class="form-control" id="complemento" type="text" value="{{$responsavel->complemento or old('complemento')}}" name="complemento"/>
-                        <label for="bairro">Bairro</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="bairro">Bairro</label>
                             <input class="form-control" id="bairro" type="text" value="{{$responsavel->bairro or old('bairro')}}" name="bairro" required/>
-                        <label for="cidade">Cidade</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cidade">Cidade</label>
                             <input class="form-control" id="cidade" type="text" value="{{$responsavel->cidade or old('cidade')}}" name="cidade" required/>
-                        <label for="uf">Estado</label>
-                        <select class="form-control" id="uf" name="uf">
-                            <option value="{{$responsavel->nome or old('nome')}}" selected>{{$responsavel->nome or old('nome')}}</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="uf">Estado</label>
+                            <select class="form-control" id="uf" name="uf">
+                                <option value="{{$responsavel->uf or old('uf')}}" selected>{{$responsavel->uf or old('uf')}}</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div> 
                     </fieldset>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <button type="submit" class="btn btn-success">Alterar</button>
                 </div>
             </form>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Matrícula')
+@section('title', 'Alocar Professor')
 
 @section('content_header')
     <style>
@@ -12,18 +12,18 @@
             color: #b35900;
         }
     </style>
-    <h1>Matrículas</h1>
+    <h1>Alocações</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Matrículas</a></li>
+        <li><a href="">Alocações</a></li>
     </ol>
 @stop
 
 @section('content')
     <div class="box">
         <div class="box-header">
-            <a href="{{route('turmaAluno.create')}}" 
+            <a href="{{route('alocarUser.create')}}" 
             class="btn btn-default btn-sm pull-left">
             <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
             <div class="form-group input-group">
@@ -43,43 +43,45 @@
                 <div class="row">
                     <div class="box-body">   
                         <br />
-                        <h4 style="text-align:center;"><b>MATRÍCULAS REALIZADAS ({{$total}})</b></h4>
+                        <h4 style="text-align:center;"><b>ALOCAÇÕES REALIZADAS ({{$total}})</b></h4>
                         <br>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">
                                 <thead>
                                     <tr class="warning">
                                         <th id="center">Código</th>
-                                        <th>Data da Matrícula</th>
-                                        <th>Data do Cancelamento</th>
-                                        <th>Aluno</th> 
-                                        <th>Turma</th> 
-                                        <th></th>                                      
+                                        <th>Turma</th>
+                                        <th>Disciplina</th>
+                                        <th>Professor</th> 
+                                        <th></th>                           
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($turma_alunos as $turma_aluno)
+                                    @foreach($alocar_users as $alocar_user)
                                     <tr>
-                                        <td id="center">{{$turma_aluno->id}}</td>
-                                        <td title="Data da Matrícula">{{$turma_aluno->dt_matricula}}</td>
-                                        <td title="Data de Cancelamento">{{$turma_aluno->dt_cancelamento}}</td>
-                                        @foreach($alunos as $aluno)
-                                            @if($aluno->id == $turma_aluno->aluno_id)
-                                                <td title="Aluno">{{$aluno->nome}}</td>
-                                            @endif
-                                        @endforeach
+                                        <td id="center">{{$alocar_user->id}}</td>
                                         @foreach($turmas as $turma)
-                                            @if($turma->id == $turma_aluno->turma_id)
+                                            @if($alocar_user->turma_id == $turma->id)
                                                 <td title="Turma">{{$turma->nome}}/{{$turma->turno}}</td>
                                             @endif
                                         @endforeach
+                                        @foreach($disciplinas as $disciplina)
+                                            @if($alocar_user->disciplina_id == $disciplina->id)
+                                                <td title="Disciplina">{{$disciplina->nome}}</td>
+                                            @endif
+                                        @endforeach
+                                        @foreach($users as $user)
+                                            @if($alocar_user->user_id == $user->id)
+                                                <td title="Professor">{{$user->name}}</td>
+                                            @endif
+                                        @endforeach
                                         <td id="center">
-                                            <a href="{{route('turmaAluno.edit', $turma_aluno->id)}}" 
+                                            <a href="{{route('alocarUser.edit', $alocar_user->id)}}" 
                                                data-toggle="tooltip" 
                                                data-placement="top"
                                                title="Alterar"><i class="fa fa-pencil"></i></a>
                                 &nbsp;<form style="display: inline-block;" method="POST" 
-                                        action="{{route('turmaAluno.delete', $turma_aluno->id)}}"                                                        
+                                        action="{{route('alocarUser.delete', $alocar_user->id)}}"                                                        
                                         data-toggle="tooltip" data-placement="top"
                                         title="Excluir" 
                                         onsubmit="return confirm('Confirma exclusão?')">

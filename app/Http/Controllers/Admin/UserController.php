@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 // use App\Controllers\Admin\User;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileFormRequest;
@@ -28,29 +29,35 @@ class UserController extends Controller
     public function createPost(UserValidationFormRequest $request)
     {   
 
-        $user = new User();
+        try {
+            DB::beginTransaction();
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->tipo = $request->tipo;
+            $user->cpf = $request->cpf;
+            $user->data_de_nascimento = $request->data_de_nascimento;
+            $user->telefone = $request->telefone;
+            $user->cep = $request->cep;
+            $user->numero = $request->numero;
+            $user->logradouro = $request->logradouro;
+            $user->complemento = $request->complemento;
+            $user->bairro = $request->bairro;
+            $user->cidade = $request->cidade;
+            $user->uf = $request->uf;
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->tipo = $request->tipo;
-        $user->cpf = $request->cpf;
-        $user->data_de_nascimento = $request->data_de_nascimento;
-        $user->telefone = $request->telefone;
-        $user->cep = $request->cep;
-        $user->numero = $request->numero;
-        $user->logradouro = $request->logradouro;
-        $user->complemento = $request->complemento;
-        $user->bairro = $request->bairro;
-        $user->cidade = $request->cidade;
-        $user->uf = $request->uf;
+            $user->save();
 
-        $user->save();
-      
-        return redirect()
+            DB::commit();
+            return redirect()
                     ->route('admin.user')
                     ->with('message', 'Usuário cadastrado com sucesso.');
 
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 
     public function edit($id) {
@@ -59,29 +66,44 @@ class UserController extends Controller
     }
 
     public function editPost(UserValidationFormRequest $request, $id) {
-        $user = User::findOrFail($id); 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->tipo = $request->tipo;
-        $user->cpf = $request->cpf;
-        $user->data_de_nascimento = $request->data_de_nascimento;
-        $user->telefone = $request->telefone;
-        $user->cep = $request->cep;
-        $user->numero = $request->numero;
-        $user->logradouro = $request->logradouro;
-        $user->complemento = $request->complemento;
-        $user->bairro = $request->bairro;
-        $user->cidade = $request->cidade;
-        $user->uf = $request->uf;
-        $user->save();
-        return redirect()->route('admin.user')->with('message', 'Usuário alterado com sucesso!');
+
+        try {
+            DB::beginTransaction();
+            $user = User::findOrFail($id); 
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->tipo = $request->tipo;
+            $user->cpf = $request->cpf;
+            $user->data_de_nascimento = $request->data_de_nascimento;
+            $user->telefone = $request->telefone;
+            $user->cep = $request->cep;
+            $user->numero = $request->numero;
+            $user->logradouro = $request->logradouro;
+            $user->complemento = $request->complemento;
+            $user->bairro = $request->bairro;
+            $user->cidade = $request->cidade;
+            $user->uf = $request->uf;
+            $user->save();
+
+            DB::commit();
+            return redirect()->route('admin.user')->with('message', 'Usuário alterado com sucesso!');
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 
     public function destroy($id) {
-        $user = User::findOrFail($id);
-        $user->delete();
-        return redirect()->route('admin.user')->with('message', 'Usuário     excluído com sucesso!');
+        try {
+            $user = User::findOrFail($id);
+            $user->delete();
+            return redirect()->route('admin.user')->with('message', 'Usuário     excluído com sucesso!');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
     
     public function profile()

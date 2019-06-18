@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Aluno;
 use App\Http\Requests\AlunoValidationFormRequest;
+use App\Models\Responsavel;
 
 
 class AlunoController extends Controller
@@ -19,48 +21,92 @@ class AlunoController extends Controller
 
     public function create()
     {
-        return view('admin.aluno.create');
+        $responsaveis = Responsavel::all();
+        return view('admin.aluno.create', compact('responsaveis'));
     }
 
     public function createPost(AlunoValidationFormRequest $request)
     {   
 
-        $aluno = new Aluno();
+        try {
+            
+            DB::beginTransaction();
+            $aluno = new Aluno();
 
-        $aluno->nome = $request->nome;
-        $aluno->data_de_nascimento = $request->data_de_nascimento;
-        $aluno->sexo = $request->sexo;
-        $aluno->rg = $request->rg;
-        $aluno->cpf = $request->cpf;
-        $aluno->senha = bcrypt($request->senha);
-        $aluno->save();
-      
-        return redirect()
+            $aluno->nome = $request->nome;
+            $aluno->data_de_nascimento = $request->data_de_nascimento;
+            $aluno->sexo = $request->sexo;
+            $aluno->rg = $request->rg;
+            $aluno->cpf = $request->cpf;
+            $aluno->senha = bcrypt($request->senha);
+            $aluno->save();
+
+            if(is_array($request->responsavel)) {
+                foreach ($request->responsavel as $r) {
+                    $responsavel = Responsavel::find($r);
+                    $aluno->responsavels()->attach($responsavel);
+                }
+            }
+
+            DB::commit();
+            return redirect()
                     ->route('admin.aluno')
                     ->with('message', 'Aluno cadastrado com sucesso.');
+
+        }catch(\Exception $e) {   
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
+      
 
     }
 
     public function edit($id) {
+        $responsaveis = Responsavel::all();
         $aluno = Aluno::findOrFail($id);
-        return view('admin.aluno.edit', compact('aluno','id'));
+        return view('admin.aluno.edit', compact('aluno','id','responsaveis'));
     }
 
     public function editPost(AlunoValidationFormRequest $request, $id) {
-        $aluno = Aluno::findOrFail($id); 
-        $aluno->nome = $request->nome;
-        $aluno->data_de_nascimento = $request->data_de_nascimento;
-        $aluno->sexo = $request->sexo;
-        $aluno->rg = $request->rg;
-        $aluno->cpf = $request->cpf;
-        $aluno->senha = bcrypt($request->senha);
-        $aluno->save();
-        return redirect()->route('admin.aluno')->with('message', 'Aluno alterado com sucesso!');
+
+        try {
+            DB::beginTransaction();
+            $aluno = Aluno::findOrFail($id); 
+            $aluno->nome = $request->nome;
+            $aluno->data_de_nascimento = $request->data_de_nascimento;
+            $aluno->sexo = $request->sexo;
+            $aluno->rg = $request->rg;
+            $aluno->cpf = $request->cpf;
+            $aluno->senha = bcrypt($request->senha);
+            $aluno->save();
+            $aluno->responsavels()->detach();
+
+            if(is_array($request->responsavel)) {
+                foreach ($request->responsavel as $r) {
+                    $responsavel = Responsavel::find($r);
+                    $aluno->responsavels()->attach($responsavel);
+                }
+            }
+
+            DB::commit();
+            return redirect()->route('admin.aluno')->with('message', 'Aluno alterado com sucesso!');
+
+        } catch(\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
+        
     }
 
     public function destroy($id) {
-        $aluno = Aluno::findOrFail($id);
-        $aluno->delete();
-        return redirect()->route('admin.aluno')->with('message', 'Aluno excluído com sucesso!');
+        try {
+            $aluno = Aluno::findOrFail($id);
+            $aluno->delete();
+            return redirect()->route('admin.aluno')->with('message', 'Aluno excluído com sucesso!');
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 }

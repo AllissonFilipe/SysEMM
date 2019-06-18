@@ -66,6 +66,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('editNotaPost/{id}', 'NotaController@editPost')->name('nota.put');
     Route::delete('deleteNota/{id}', 'NotaController@destroy')->name('nota.delete');
 
+    //Alocar User
+    Route::get('alocarUser', 'AlocarUserController@index')->name('admin.alocarUser');
+    Route::get('createAlocarUser', 'AlocarUserController@create')->name('alocarUser.create');
+    Route::post('createAlocarUserPost', 'AlocarUserController@createPost')->name('alocarUser.post');
+    Route::get('editAlocarUser/{id}', 'AlocarUserController@edit')->name('alocarUser.edit');
+    Route::put('editAlocarUserPost/{id}', 'AlocarUserController@editPost')->name('alocarUser.put');
+    Route::delete('deleteAlocarUser/{id}', 'AlocarUserController@destroy')->name('alocarUser.delete');
+
     Route::get('/', 'AdminController@index')->name('admin.home');
 });
 

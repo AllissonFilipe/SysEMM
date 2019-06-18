@@ -159,6 +159,11 @@ return [
                     'url'   => 'admin/nota',
                     'icon'  => 'sticky-note '
                 ],
+                [
+                    'text'  => 'Alocar Professores',
+                    'url'   => 'admin/alocarUser',
+                    'icon'  => 'exchange '
+                ],
             ]
         ],
 

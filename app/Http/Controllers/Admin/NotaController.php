@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Nota;
 use App\Models\TurmaAluno;
@@ -33,20 +34,25 @@ class NotaController extends Controller
 
     public function createPost(NotaValidationFormRequest $request)
     {   
+        try {
+            DB::beginTransaction();
+            $nota = new Nota();
+            $nota->nota = $request->nota;
+            $nota->tipo = $request->tipo;
+            $nota->unidade = $request->unidade;
+            $nota->data_nota = $request->data_nota;
+            $nota->disciplina_id = $request->disciplina_id;
+            $nota->turma_aluno_id = $request->turma_aluno_id;
+            $nota->save();
 
-        $nota = new Nota();
-        $nota->nota = $request->nota;
-        $nota->tipo = $request->tipo;
-        $nota->unidade = $request->unidade;
-        $nota->data_nota = $request->data_nota;
-        $nota->disciplina_id = $request->disciplina_id;
-        $nota->turma_aluno_id = $request->turma_aluno_id;
-        $nota->save();
-      
-        return redirect()
+            DB::commit();
+            return redirect()
                     ->route('admin.nota')
                     ->with('message', 'Nota cadastrada com sucesso.');
-
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 
     public function edit($id) {
@@ -58,20 +64,34 @@ class NotaController extends Controller
     }
 
     public function editPost(NotaValidationFormRequest $request, $id) {
-        $nota = Nota::findOrFail($id); 
-        $nota->nota = $request->nota;
-        $nota->tipo = $request->tipo;
-        $nota->unidade = $request->unidade;
-        $nota->data_nota = $request->data_nota;
-        $nota->disciplina_id = $request->disciplina_id;
-        $nota->turma_aluno_id = $request->turma_aluno_id;
-        $nota->save();
-        return redirect()->route('admin.nota')->with('message', 'Nota alterada com sucesso!');
+
+        try {
+            DB::beginTransaction();
+            $nota = Nota::findOrFail($id); 
+            $nota->nota = $request->nota;
+            $nota->tipo = $request->tipo;
+            $nota->unidade = $request->unidade;
+            $nota->data_nota = $request->data_nota;
+            $nota->disciplina_id = $request->disciplina_id;
+            $nota->turma_aluno_id = $request->turma_aluno_id;
+            $nota->save();
+
+            DB::commit();
+            return redirect()->route('admin.nota')->with('message', 'Nota alterada com sucesso!');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 
     public function destroy($id) {
-        $nota = Nota::findOrFail($id);
-        $nota->delete();
-        return redirect()->route('admin.nota')->with('message', 'Nota excluída com sucesso!');
+        try {
+            $nota = Nota::findOrFail($id);
+            $nota->delete();
+            return redirect()->route('admin.nota')->with('message', 'Nota excluída com sucesso!');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 }

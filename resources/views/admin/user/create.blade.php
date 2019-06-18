@@ -27,73 +27,102 @@
                 <div class="form-group">
                     <fieldset class="form-froup">
                         <legend>Informações Pessoais</legend>
-                        <label for="name">Nome</label> 
+                        <div class="col-md-6">
+                            <label for="name">Nome</label> 
                             <input type="text" id="name" name="name" placeholder="Nome" class="form-control"/>
-                        <label for="data_de_nascimento">Data de Nascimento</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="data_de_nascimento">Data de Nascimento</label>
                             <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control"/>
-                        <label for="email">E-mail</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">E-mail</label>
                             <input type="email" id="email" name="email" placeholder="E-mail" class="form-control"/>
-                        <label for="password">Senha</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Senha</label>
                             <input type="password" id="password" name="password" placeholder="Senha" class="form-control"/>
-                        <label for="telefone">Telefone</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="telefone">Telefone</label>
                             <input class="form-control" id="telefone" name="telefone" type="number" placeholder="Telefone">
-                        <label for="cpf">CPF</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cpf">CPF</label>
                             <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control"/>
-                        <label for="tipo">Tipo</label>
-                        <select class="form-control" id="tipo" name="tipo">
-                            <option selected disabled>Escolha uma opção</option>
-                            <option value="professor">Professor</option>
-                            <option value="coordenador">Coordenador</option>
-                        </select><br>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="tipo">Tipo</label>
+                            <select class="form-control" id="tipo" name="tipo">
+                                <option selected disabled>Escolha uma opção</option>
+                                <option value="professor">Professor</option>
+                                <option value="coordenador">Coordenador</option>
+                            </select><br>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend>
-                        <label for="cep">CEP</label>
+                        <div class="form-group col-md-12">
+                            <label for="cep">CEP</label>
                             <input class="form-control" id="cep" name="cep" type="number" placeholder="CEP" required/>
-                        <label for="logradouro">Logradouro</label>
+                        </div>
+                        <br>
+                        <div class="form-group col-md-4">
+                            <label for="logradouro">Logradouro</label>
                             <input class="form-control" id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required/>
-                        <label for="numero">Número</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="numero">Número</label>
                             <input class="form-control" id="numero" name="numero" type="number" placeholder="Número" />
-                        <label for="complemento">Complemento</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="complemento">Complemento</label>
                             <input class="form-control" id="complemento" name="complemento" type="text" placeholder="Complemento"/>
-                        <label for="bairro">Bairro</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="bairro">Bairro</label>
                             <input class="form-control" id="bairro" name="bairro" type="text" placeholder="Bairro" required/>
-                        <label for="cidade">Cidade</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cidade">Cidade</label>
                             <input class="form-control" id="cidade" name="cidade" type="text" placeholder="Cidade" required/>
-                        <label for="uf">Estado</label>
-                        <select class="form-control" id="uf" name="uf">
-                            <option selected disabled>Escolha uma opção</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
-                    </fieldset>  
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="uf">Estado</label>
+                            <select class="form-control" id="uf" name="uf">
+                                <option selected disabled>Escolha uma opção</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>  
+                    </fieldset>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <button type="submit" class="btn btn-success">Cadastrar</button>
                 </div>
             </form>

@@ -26,74 +26,102 @@
                 <div class="form-group">
                     <fieldset class="form-froup">
                         <legend>Informações Pessoais</legend>
-                        <label for="name">Nome</label> 
+                        <div class="form-group col-md-6">
+                            <label for="name">Nome</label> 
                             <input type="text" id="name" name="name" class="form-control" value="{{$user->name or old('name')}}"/>
-                        <label for="data_de_nascimento">Data de Nascimento</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="data_de_nascimento">Data de Nascimento</label>
                             <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control" 
                             value="{{$user->data_de_nascimento or old('data_de_nascimento')}}"/>
-                        <label for="email">E-mail</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">E-mail</label>
                             <input type="email" id="email" name="email" class="form-control" value="{{$user->email or old('email')}}"/>
-                        <label for="password">Senha</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Senha</label>
                             <input type="password" id="password" name="password" class="form-control" value="{{$user->password or old('password')}}"/>
-                        <label for="telefone">Telefone</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="telefone">Telefone</label>
                             <input class="form-control" id="telefone" name="telefone" type="number" value="{{$user->telefone or old('telefone')}}"/>
-                        <label for="cpf">CPF</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cpf">CPF</label>
                             <input type="text" id="cpf" name="cpf" class="form-control" value="{{$user->cpf or old('cpf')}}"/>
-                        <label for="tipo">Tipo</label>
-                        <select class="form-control" id="tipo" name="tipo">
-                            <option value="{{$user->tipo or old('tipo')}}" selected>{{$user->tipo or old('tipo')}}</option>
-                            <option value="professor">Professor</option>
-                            <option value="coordenador">Coordenador</option>
-                        </select><br>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="tipo">Tipo</label>
+                            <select class="form-control" id="tipo" name="tipo">
+                                <option value="{{$user->tipo or old('tipo')}}" selected>{{$user->tipo or old('tipo')}}</option>
+                                <option value="professor">Professor</option>
+                                <option value="coordenador">Coordenador</option>
+                            </select><br>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend>
-                        <label for="cep">CEP</label>
+                        <div class="form-group col-md-12">
+                            <label for="cep">CEP</label>
                             <input class="form-control" id="cep" name="cep" type="number" value="{{$user->cep or old('cep')}}" required/>
-                        <label for="logradouro">Logradouro</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="logradouro">Logradouro</label>
                             <input class="form-control" id="logradouro" name="logradouro" type="text" value="{{$user->logradouro or old('logradouro')}}" required/>
-                        <label for="numero">Número</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="numero">Número</label>
                             <input class="form-control" id="numero" name="numero" type="number" value="{{$user->numero or old('numero')}}" />
-                        <label for="complemento">Complemento</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="complemento">Complemento</label>
                             <input class="form-control" id="complemento" name="complemento" type="text" value="{{$user->complemento or old('complemento')}}"/>
-                        <label for="bairro">Bairro</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="bairro">Bairro</label>
                             <input class="form-control" id="bairro" name="bairro" type="text" value="{{$user->bairro or old('bairro')}}" required/>
-                        <label for="cidade">Cidade</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="cidade">Cidade</label>
                             <input class="form-control" id="cidade" name="cidade" type="text" value="{{$user->cidade or old('cidade')}}" required/>
-                        <label for="uf">Estado</label>
-                        <select class="form-control" id="uf" name="uf">
-                            <option value="{{$user->uf or old('uf')}}" selected>{{$user->uf or old('uf')}}</option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="PA">Pará</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PR">Paraná</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="RN">Rio Grande do Norte</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                            <option value="RO">Rondônia</option>
-                            <option value="RR">Roraima</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="SE">Sergipe</option>
-                            <option value="TO">Tocantins</option>
-                        </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="uf">Estado</label>
+                            <select class="form-control" id="uf" name="uf">
+                                <option value="{{$user->uf or old('uf')}}" selected>{{$user->uf or old('uf')}}</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
                     </fieldset>  
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <button type="submit" class="btn btn-success">Alterar</button>
                 </div>
             </form>

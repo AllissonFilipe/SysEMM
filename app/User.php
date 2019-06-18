@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Balance;
 use App\Models\Historic;
 use App\Models\NotificacaoColab;
+use App\Models\AlocarUser;
 
 class User extends Authenticatable
 {
@@ -27,6 +28,10 @@ class User extends Authenticatable
         return $this->hasMany(NotificacaoColab::class);
     }
 
+    public function alocarUsers() {
+        return $this->hasMany(AlocarUser::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -36,16 +41,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function balance()
-    {
-        return $this->hasOne(Balance::class);
-    }
-
-    public function historics()
-    {
-        return $this->hasMany(Historic::class);
-    }
-
     public function getSender($sender)
     {
         return $this->where('name', 'LIKE', "%$sender%")
@@ -53,4 +48,5 @@ class User extends Authenticatable
                         ->get()
                         ->first();
     }
+
 }

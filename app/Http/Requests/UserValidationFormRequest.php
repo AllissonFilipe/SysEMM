@@ -26,8 +26,8 @@ class UserValidationFormRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'tipo' => 'required',
-            'cpf' => 'required|numeric',
-            'data_de_nascimento' => 'required',
+            'cpf' => 'required|numeric|cpf',
+            'data_de_nascimento' => 'required|date|before:today',
             'telefone' => 'required|numeric',
             'cep' => 'required|numeric',
             'logradouro' => 'required',

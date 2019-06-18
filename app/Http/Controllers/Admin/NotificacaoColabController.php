@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\NotificacaoColab;
 use App\User;
@@ -30,21 +31,26 @@ class NotificacaoColabController extends Controller
 
     public function createPost(NotificacaoColabValidationFormRequest $request)
     {   
+        try {
+            DB::beginTransaction();
+            $notificacao_colab = new NotificacaoColab();
+            $notificacao_colab->titulo = $request->titulo;
+            $notificacao_colab->descricao = $request->descricao;
+            $notificacao_colab->tipo = $request->tipo;
+            $notificacao_colab->categoria = $request->categoria;
+            $notificacao_colab->user_id = $request->user_id;
+            $notificacao_colab->aluno_id = $request->aluno_id;
+            $notificacao_colab->turma_id = $request->turma_id;
+            $notificacao_colab->save();
 
-        $notificacao_colab = new NotificacaoColab();
-        $notificacao_colab->titulo = $request->titulo;
-        $notificacao_colab->descricao = $request->descricao;
-        $notificacao_colab->tipo = $request->tipo;
-        $notificacao_colab->categoria = $request->categoria;
-        $notificacao_colab->user_id = $request->user_id;
-        $notificacao_colab->aluno_id = $request->aluno_id;
-        $notificacao_colab->turma_id = $request->turma_id;
-        $notificacao_colab->save();
-      
-        return redirect()
+            DB::commit();
+            return redirect()
                     ->route('admin.notificacaoColab')
                     ->with('message', 'Notificação cadastrada com sucesso.');
-
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 
     public function edit($id) {
@@ -57,21 +63,35 @@ class NotificacaoColabController extends Controller
     }
 
     public function editPost(NotificacaoColabValidationFormRequest $request, $id) {
-        $notificacao_colab = NotificacaoColab::findOrFail($id); 
-        $notificacao_colab->titulo = $request->titulo;
-        $notificacao_colab->descricao = $request->descricao;
-        $notificacao_colab->tipo = $request->tipo;
-        $notificacao_colab->categoria = $request->categoria;
-        $notificacao_colab->user_id = $request->user_id;
-        $notificacao_colab->aluno_id = $request->aluno_id;
-        $notificacao_colab->turma_id = $request->turma_id;
-        $notificacao_colab->save();
-        return redirect()->route('admin.notificacaoColab')->with('message', 'Notificação alterada com sucesso!');
+
+        try {
+            DB::beginTransaction();
+            $notificacao_colab = NotificacaoColab::findOrFail($id); 
+            $notificacao_colab->titulo = $request->titulo;
+            $notificacao_colab->descricao = $request->descricao;
+            $notificacao_colab->tipo = $request->tipo;
+            $notificacao_colab->categoria = $request->categoria;
+            $notificacao_colab->user_id = $request->user_id;
+            $notificacao_colab->aluno_id = $request->aluno_id;
+            $notificacao_colab->turma_id = $request->turma_id;
+            $notificacao_colab->save();
+
+            DB::commit();
+            return redirect()->route('admin.notificacaoColab')->with('message', 'Notificação alterada com sucesso!');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 
     public function destroy($id) {
-        $notificacao_colab = NotificacaoColab::findOrFail($id);
-        $notificacao_colab->delete();
-        return redirect()->route('admin.notificacaoColab')->with('message', 'Notificação excluída com sucesso!');
+        try {
+            $notificacao_colab = NotificacaoColab::findOrFail($id);
+            $notificacao_colab->delete();
+            return redirect()->route('admin.notificacaoColab')->with('message', 'Notificação excluída com sucesso!');
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
     }
 }

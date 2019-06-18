@@ -25,7 +25,7 @@ class ResponsavelValidationFormRequest extends FormRequest
     {
         return [
             'nome' => 'required|string|max:255',
-            'cpf' => 'required|numeric',
+            'cpf' => 'required|numeric|cpf',
             'telefone' => 'required|numeric',
             'grau_de_parentesco' => 'required',
             'cep' => 'required|numeric',

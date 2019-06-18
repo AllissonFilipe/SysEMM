@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Nota;
+use App\Models\AlocarUser;
 
 class Disciplina extends Model
 {
@@ -14,5 +15,9 @@ class Disciplina extends Model
 
     public function notas() {
       return $this->hasMany(Nota::class);
-  }
+    }
+
+    public function alocarUsers() {
+      return $this->hasMany(AlocarUser::class);
+    }
 }

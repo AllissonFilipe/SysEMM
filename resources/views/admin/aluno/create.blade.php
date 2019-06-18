@@ -24,24 +24,47 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <label for="nome">Nome</label> 
+                    <div class="form-group col-md-6">
+                        <label for="nome">Nome</label> 
                         <input type="text" id="nome" name="nome" placeholder="Nome" class="form-control" require/>
-                    <label for="data_de_nascimento">Data de Nascimento</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="data_de_nascimento">Data de Nascimento</label>
                         <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control"/>
-                    <label for="sexo">Sexo</label>
-                    <select class="form-control" id="sexo" name="sexo">
-                            <option selected disabled>Escolha uma opção</option>
-                            <option value="Feminino">Feminino</option>
-                            <option value="Masculino">Masculino</option>
-                    </select><br>
-                    <label for="rg">RG</label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="sexo">Sexo</label>
+                        <select class="form-control" id="sexo" name="sexo">
+                                <option selected disabled>Escolha uma opção</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Masculino">Masculino</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="rg">RG</label>
                         <input type="text" id="rg" name="rg" placeholder="RG" class="form-control"/>
-                    <label for="cpf">CPF</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="cpf">CPF</label>
                         <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control"/>
-                    <label for="senha">Senha para acesso ao sistema</label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="senha">Senha para acesso ao sistema</label>
                         <input type="password" id="senha" name="senha" placeholder="Senha" class="form-control">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="responsavel">Responsavel:</label>
+                        <select multiple name="responsavel[]" id="responsavel" class="form-control" required>
+                            <option selected disabled>Escolha uma opção</option>
+                            @if(!empty($responsaveis))
+                                @foreach($responsaveis as $responsavel)
+                                    <option value="{{$responsavel->id}}">{{$responsavel->nome}}</option>
+                                @endforeach
+                            @endif
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-6">
                     <button type="submit" class="btn btn-success">Cadastrar</button>
                 </div>
             </form>

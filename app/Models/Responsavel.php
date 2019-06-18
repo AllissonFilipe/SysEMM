@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Aluno;
 
 class Responsavel extends Model
 {
@@ -10,4 +11,8 @@ class Responsavel extends Model
 		'nome', 'email', 'senha','cpf','telefone','grau_de_parentesco'
     ];
     protected $guarded = ['id','created_at','update_at'];
+
+    public function alunos() {
+      return $this->belongsToMany(Aluno::class,"responsavel_alunos","aluno_id","responsavel_id");
+    }
 }
