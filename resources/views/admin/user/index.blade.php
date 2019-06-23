@@ -24,7 +24,7 @@
     <div class="box">
         <div class="box-header">
             <a href="{{route('user.create')}}" 
-            class="btn btn-default btn-sm pull-left">
+            class="btn_1">
             <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -48,7 +48,7 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">
                                 <thead>
-                                    <tr class="warning">
+                                    <tr style="background-color: #ffdab3;">
                                         <th id="center">Código</th>
                                         <th>Nome</th>
                                         <th>E-mail</th>

@@ -24,11 +24,11 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-2">
                         <label for="nota">Nota</label>
-                        <input type="number" id="nota" name="nota" class="form-control" required/>
+                        <input type="number" step="0.01" id="nota" name="nota" class="form-control" required/>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <label for="tipo">Tipo</label>
                         <select class="form-control" id="tipo" name="tipo">
                             <option selected disabled>Escolha uma opção</option>
@@ -37,15 +37,11 @@
                             <option value="Trabalho">Trabalho</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-1">
                         <label for="unidade">Unidade</label>
                         <input type="number" id="unidade" name="unidade" class="form-control" required/>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="data_nota">Data da Nota</label>
-                        <input type="date" id="data_nota" name="data_nota" class="form-control"/>
-                    </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <label for="turma_aluno_id">Aluno</label>
                         <select class="form-control" id="turma_aluno_id" name="turma_aluno_id">
                             <option selected disabled>Escolha uma opção</option>
@@ -56,7 +52,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <label for="disciplina_id">Disciplina</label>
                         <select class="form-control" id="disciplina_id" name="disciplina_id">
                             <option selected disabled>Escolha uma opção</option>
@@ -67,7 +63,7 @@
                     </div> 
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn_1">Cadastrar</button>
                 </div>
             </form>
         </div>

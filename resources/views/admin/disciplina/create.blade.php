@@ -30,7 +30,7 @@
                         <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao"></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn_1">Cadastrar</button>
                 </div>
             </form>
         </div>

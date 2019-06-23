@@ -105,7 +105,7 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn_1">Cadastrar</button>
                 </div>
             </form>
         </div>

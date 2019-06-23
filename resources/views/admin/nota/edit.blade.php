@@ -25,11 +25,11 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-2">
                         <label for="nota">Nota</label>
                         <input type="number" id="nota" name="nota" value="{{$nota->nota or old('nota')}}" class="form-control" required/>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <label for="tipo">Tipo</label>
                         <select class="form-control" id="tipo" name="tipo">
                             @if($nota->tipo == "Prova")
@@ -47,15 +47,11 @@
                             @endif
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-1">
                         <label for="unidade">Unidade</label>
                         <input type="number" id="unidade" name="unidade" value="{{$nota->unidade or old('unidade')}}" class="form-control" required/>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="data_nota">Data da Nota</label>
-                        <input type="date" id="data_nota" name="data_nota" value="{{$nota->data_nota or old('data_nota')}}" class="form-control"/>
-                    </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <label for="turma_aluno_id">Aluno</label>
                         <select class="form-control" id="turma_aluno_id" name="turma_aluno_id">
                             <option selected disabled>Escolha uma opção</option>
@@ -70,7 +66,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3">
                         <label for="disciplina_id">Disciplina</label>
                         <select class="form-control" id="disciplina_id" name="disciplina_id">
                             <option selected disabled>Escolha uma opção</option>
@@ -85,7 +81,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn btn-success">Alterar</button>
+                    <button type="submit" class="btn_1">Alterar</button>
                 </div>
             </form>
         </div>

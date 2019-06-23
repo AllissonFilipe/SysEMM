@@ -27,7 +27,6 @@ class NotaValidationFormRequest extends FormRequest
             'nota' => 'required',
             'tipo' => 'required',
             'unidade' => 'required',
-            'data_nota' => 'required',
             'disciplina_id' => 'required',
             'turma_aluno_id' => 'required'
         ];

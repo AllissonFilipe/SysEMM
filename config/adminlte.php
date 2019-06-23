@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => "SysEMM",
+    'logo' => "<p style='color:white;'>SysEMM</p>",
     'logo_mini' => '<b>Sys</b>',
 
     /*

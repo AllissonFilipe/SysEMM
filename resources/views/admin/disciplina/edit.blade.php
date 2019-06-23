@@ -31,7 +31,7 @@
                         <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao">{{$disciplina->descricao or old('descricao')}}</textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Alterar</button>
+                    <button type="submit" class="btn_1">Alterar</button>
                 </div>
             </form>
         </div>

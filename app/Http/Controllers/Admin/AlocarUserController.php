@@ -9,6 +9,7 @@ use App\Models\AlocarUser;
 use App\Models\Turma;
 use App\Models\Disciplina;
 use App\User;
+use App\Http\Requests\AlocarUserValidationFormRequest;
 
 class AlocarUserController extends Controller
 {
@@ -30,7 +31,7 @@ class AlocarUserController extends Controller
         return view('admin.alocarUser.create', compact('turmas','disciplinas','users'));
     }
 
-    public function createPost(Request $request)
+    public function createPost(AlocarUserValidationFormRequest $request)
     {   
 
         try {
@@ -64,7 +65,7 @@ class AlocarUserController extends Controller
         return view('admin.alocarUser.edit', compact('alocar_user','id','turmas','disciplinas','users'));
     }
 
-    public function editPost(Request $request, $id) {
+    public function editPost(AlocarUserValidationFormRequest $request, $id) {
 
         try {
             DB::beginTransaction();

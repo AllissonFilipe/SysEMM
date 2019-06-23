@@ -1,167 +1,188 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>SysEMM</title>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <!-- Styles -->
-        <style>
-            .btn {
-                background-color:#ff8c1a;
-            }
-            
-            .btn:hover {
-                background-color:#b35900;
-            }
+    <title>SysEMM</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/bootstrap.min.css')}}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/animate.css')}}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/owl.carousel.min.css')}}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/themify-icons.css')}}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/flaticon.css')}}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/magnific-popup.css')}}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/slick.css')}}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{asset('template/css/style.css')}}">
+</head>
 
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+<body>
+    <!--::header part start::-->
+    <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="{{ route('home') }}"> <img src="{{asset('template/img/Logo_SysEMM.jpg')}}" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a class="btn" style="color:white;" href="{{ route('admin.home') }}">Home</a>
-                    <a class="btn" style="color:white;" href="{{ route('profile') }}">Meu Perfil</a>
-                    @else
-                        <a class="btn" style="color:white;" href="{{ route('login') }}">Login</a>
-                        <!-- <a  class="btn btn-warning" href="{{ route('register') }}">Registrar</a> -->
-                    @endauth
-                </div>
-            @endif
-            <br><br>
-            <div class="content">
-                <div style="color:#ff8c1a;" class="title m-b-md">
-                    SysEMM
-                    <!-- <img src="logo.ico"/> -->
-                </div>
-
-                <div class="links">
-                    <a class="btn" style="color:white;" href="https://laravel.com/docs">Documentação</a>
-                    <!-- <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a> -->
-                    <!-- <a class="btn btn-warning" href="https://github.com/laravel/laravel">GitHub</a> -->
+                        <div class="collapse navbar-collapse main-menu-item justify-content-end"
+                            id="navbarSupportedContent">
+                            <ul class="navbar-nav align-items-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Sobre</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contato</a>
+                                </li>
+                                @if (Route::has('login'))
+                                    @auth
+                                    <li class="d-none d-lg-block">
+                                        <a class="btn_1" href="{{ route('admin.home') }}">Home</a>
+                                    </li>
+                                    <li class="d-none d-lg-block">
+                                        <a class="btn_1" href="{{ route('profile') }}">Meu Perfil</a>
+                                    </li>
+                                    @else
+                                    <li class="d-none d-lg-block">
+                                        <a class="btn_1" href="{{ route('login') }}">Login</a>
+                                    </li>
+                                    @endauth
+                                @endif
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
-        <br><br>
-        <div class="container">
-	    <div class="row justify-content-center">
-		    <div class="col-6 col-md-6 col-lg-6 pb-2">
-                    <!--Form with header-->
-
-                    <form action="mail.php" method="post">
-                        <div class="card rounded-0" style="border-color:#ff8c1a;">
-                            <div class="card-header p-0">
-                                <div class="text-white text-center py-2" style="background-color:#ff8c1a;">
-                                    <h3><i class="fa fa-envelope"></i> Entre em Contato</h3>
-                                    <p class="m-0">Para obter mais informações sobre o sistema</p>
-                                </div>
-                            </div>
-                            <div class="card-body p-3">
-                                <!--Body-->
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user" style="color:#ff8c1a;"></i></div>
-                                        </div>
-                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope" style="color:#ff8c1a;"></i></div>
-                                        </div>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@gmail.com" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment" style="color:#ff8c1a;"></i></div>
-                                        </div>
-                                        <textarea class="form-control" placeholder="Envie a sua Mensagem" required></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="text-center">
-                                    <input type="submit" value="Enviar" class="btn btn-block rounded-0 py-2" style="color:white;">
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                    <!--Form with header-->
-                </div>
-	        </div>
         </div>
-        <footer class="my-1 pt-1 text-muted text-center text-small">
-            <p class="mb-1">© 2019 SysEMM</p>
-            <ul class="list-inline">
-            <li class="list-inline-item"><a href="#" style="color:#ff8c1a;">Privacidade</a></li>
-            <li class="list-inline-item"><a href="#" style="color:#ff8c1a;">Termos</a></li>
-            <li class="list-inline-item"><a href="#" style="color:#ff8c1a;">Suporte</a></li>
-            </ul>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
+    </header>
+    <!-- Header part end-->
+
+    <!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-6">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <h4>Todo Aluno Precisa de Atenção</h4>
+                            <h1>Administrar Sua Instituição de Ensino Ficou Ainda Melhor</h1>
+                            <p><h4>Faça já o uso desse sistema que trará mais praticidade 
+                                no gerenciamento escolar de sua instituição.</h4> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner part start-->
+
+    <!-- footer part start-->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-6 col-md-4 col-xl-3">
+                    <div class="single-footer-widget footer_1">
+                    <a href="#"> <img src="{{asset('template/img/Code_Date.png')}}" alt=""></a>
+                        <p>Desde de 2019 a Code Date Soluções Inteligentes proporciona 
+                        aos seus clientes produtos de alta  tecnologia com foco na 
+                        qualidade e segurança, contribuindo de forma significativa na vida 
+                        dos seus usuários.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-4">
+                    <div class="single-footer-widget footer_2">
+                        <h4>Newsletter</h4>
+                        <p>Mantenha-se atualizado com as nossas últimas novidades</p>
+                        <form action="#">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder='Digite seu endereço de Email'
+                                        onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter email address'">
+                                    <div class="input-group-append">
+                                        <button class="btn btn_1" type="button"><i class="ti-angle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="social_icon">
+                            <a href="#"> <i class="ti-facebook"></i> </a>
+                            <a href="#"> <i class="ti-twitter-alt"></i> </a>
+                            <a href="#"> <i class="ti-instagram"></i> </a>
+                            <a href="#"> <i class="ti-skype"></i> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-md-4">
+                    <div class="single-footer-widget footer_2">
+                        <h4>Contate-nos</h4>
+                        <div class="contact_info">
+                            <p><span> Endereço :</span> Rua 40, Nº 166, Maranguape I</p>
+                            <p><span> Telefone :</span> +55 81 98475-4828</p>
+                            <p><span> Email : </span> sysemm@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright_part_text text-center">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os Direitos Reservados | Este template foi feito com <i class="ti-heart" aria-hidden="true"></i> pela <a href="https://colorlib.com" target="_blank">Colorlib</a> Para o sistema SysEMM
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="{{asset('template/js/jquery-1.12.1.min.js')}}"></script>
+    <!-- popper js -->
+    <script src="{{asset('template/js/popper.min.js')}}"></script>
+    <!-- bootstrap js -->
+    <script src="{{asset('template/js/bootstrap.min.js')}}"></script>
+    <!-- easing js -->
+    <script src="{{asset('template/js/jquery.magnific-popup.js')}}"></script>
+    <!-- swiper js -->
+    <script src="{{asset('template/js/swiper.min.js')}}"></script>
+    <!-- swiper js -->
+    <script src="{{asset('template/js/masonry.pkgd.js')}}"></script>
+    <!-- particles js -->
+    <script src="{{asset('template/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('template/js/jquery.nice-select.min.js')}}"></script>
+    <!-- swiper js -->
+    <script src="{{asset('template/js/slick.min.js')}}"></script>
+    <script src="{{asset('template/js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('template/js/waypoints.min.js')}}"></script>
+    <!-- custom js -->
+    <script src="{{asset('template/js/custom.js')}}"></script>
+</body>
+
 </html>

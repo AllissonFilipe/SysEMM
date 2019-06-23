@@ -24,12 +24,27 @@
     <div class="box">
         <div class="box-header">
             <a href="{{route('nota.create')}}" 
-            class="btn btn-default btn-sm pull-left">
+            class="btn_1">
             <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
-            <div class="form-group input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
-            </div>
+            <form method="GET" action="{{ route('admin.nota') }}">
+                {!! csrf_field() !!}
+                <div class="form-group">   
+                    <div class="form-group col-md-6">
+                        <label for="turma_aluno_id">Aluno</label>
+                        <select class="form-control" id="turma_aluno_id" name="turma_aluno_id">
+                                <option selected disabled>Escolha uma opção</option>
+                                @foreach($turma_alunos as $index => $turma_aluno)
+                                    @if($turma_aluno->aluno_id == $alunos[$index]->id)
+                                        <option value="{{$turma_aluno->id}}">{{$alunos[$index]->nome}} - {{$turmas[$turma_aluno->turma_id - 1]->nome}}({{$turmas[$turma_aluno->turma_id - 1]->turno}})</option>
+                                    @endif
+                                @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-success">Buscar</button>
+                    </div>
+                </div>
+            </form>
         </div>
         @if (session('message'))
         <div class="alert alert-success alert-dismissible">
@@ -43,12 +58,11 @@
                 <div class="row">
                     <div class="box-body">   
                         <br />
-                        <h4 style="text-align:center;"><b>NOTAS CADASTRADAS ({{$total}})</b></h4>
                         <br>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">
                                 <thead>
-                                    <tr class="warning">
+                                    <tr style="background-color: #ffdab3;">
                                         <th id="center">Código</th>
                                         <th>Nota</th>
                                         <th>Tipo</th>
@@ -59,41 +73,44 @@
                                         <th></th>                      
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach($notas as $nota)
-                                    <tr>
-                                        <td id="center">{{$nota->id}}</td>
-                                        <td title="Nota">{{$nota->nota}}</td>
-                                        <td title="Tipo">{{$nota->tipo}}</td>
-                                        <td title="Unidade">{{$nota->unidade}}</td>
-                                        <td title="Data da Nota">{{$nota->data_nota}}</td>
-                                        @foreach($disciplinas as $disciplina)
-                                            @if($disciplina->id == $nota->disciplina_id)
-                                                <td title="Disciplina">{{$disciplina->nome}}</td>
-                                            @endif
-                                        @endforeach
-                                        @foreach($turma_alunos as $index => $turma_aluno)
-                                            @if($turma_aluno->id == $nota->turma_aluno_id)
-                                                @if($turma_aluno->aluno_id == $alunos[$index]->id)
-                                                    <td title="Aluno">{{$alunos[$index]->nome}}</td>
-                                                @endif
-                                            @endif
-                                        @endforeach
-                                        <td id="center">
-                                            <a href="{{route('nota.edit', $nota->id)}}" 
-                                               data-toggle="tooltip" 
-                                               data-placement="top"
-                                               title="Alterar"><i class="fa fa-pencil"></i></a>
-                                &nbsp;<form style="display: inline-block;" method="POST" 
-                                        action="{{route('nota.delete', $nota->id)}}"                                                        
-                                        data-toggle="tooltip" data-placement="top"
-                                        title="Excluir" 
-                                        onsubmit="return confirm('Confirma exclusão?')">
-                                {{method_field('DELETE')}}{{ csrf_field() }}                                                
-                                <button type="submit" style="background-color: #fff">
-                                    <a><i class="fa fa-trash-o"></i></a>                                                    
-                                </button></form></td>               
-                            </tr>
+                        <tbody>
+                            @foreach($notas as $nota)
+                                @if($turma_aluno_id == $nota->turma_aluno_id)
+                                        <tr>
+                                                <td id="center">{{$nota->id}}</td>
+                                                <td title="Nota">{{$nota->nota}}</td>
+                                                <td title="Tipo">{{$nota->tipo}}</td>
+                                                <td title="Unidade">{{$nota->unidade}}</td>
+                                                <td title="Data da Nota">{{$nota->data_nota}}</td>
+                                                @foreach($disciplinas as $disciplina)
+                                                    @if($disciplina->id == $nota->disciplina_id)
+                                                        <td title="Disciplina">{{$disciplina->nome}}</td>
+                                                    @endif
+                                                @endforeach
+                                                @foreach($turma_alunos as $index => $turma_aluno)
+                                                    @if($turma_aluno->id == $nota->turma_aluno_id)
+                                                        @if($turma_aluno->aluno_id == $alunos[$index]->id)
+                                                            <td title="Aluno">{{$alunos[$index]->nome}}</td>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                                <td id="center">
+                                                    <a href="{{route('nota.edit', $nota->id)}}" 
+                                                    data-toggle="tooltip" 
+                                                    data-placement="top"
+                                                    title="Alterar"><i class="fa fa-pencil"></i></a>
+                                        &nbsp;<form style="display: inline-block;" method="POST" 
+                                                action="{{route('nota.delete', $nota->id)}}"                                                        
+                                                data-toggle="tooltip" data-placement="top"
+                                                title="Excluir" 
+                                                onsubmit="return confirm('Confirma exclusão?')">
+                                        {{method_field('DELETE')}}{{ csrf_field() }}                                                
+                                        <button type="submit" style="background-color: #fff">
+                                            <a><i class="fa fa-trash-o"></i></a>                                                    
+                                        </button></form></td>               
+                                    </tr>
+                                @endif
+                                    
                             @endforeach
                         </tbody>
                     </table>
@@ -101,10 +118,5 @@
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
-
+    

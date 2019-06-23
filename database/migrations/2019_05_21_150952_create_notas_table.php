@@ -18,7 +18,6 @@ class CreateNotasTable extends Migration
             $table->double('nota', 10, 2);
             $table->enum('tipo',['Prova','Teste','Trabalho']);
             $table->integer('unidade');
-            $table->date('data_nota');
             $table->unsignedInteger('disciplina_id');
             $table->foreign('disciplina_id')->references('id')->on('disciplinas')->onDelete('cascade');
             $table->unsignedInteger('turma_aluno_id');

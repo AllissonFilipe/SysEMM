@@ -106,7 +106,7 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn btn-success">Alterar</button>
+                    <button type="submit" class="btn_1">Alterar</button>
                 </div>
             </form>
         </div>

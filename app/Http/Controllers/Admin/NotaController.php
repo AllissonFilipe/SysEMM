@@ -9,19 +9,26 @@ use App\Models\Nota;
 use App\Models\TurmaAluno;
 use App\Models\Disciplina;
 use App\Models\Aluno;
+use App\Models\Turma;
 use App\Http\Requests\NotaValidationFormRequest;
 
 
 class NotaController extends Controller
 {
-    public function index()
+
+    
+    public function index(Request $request)
     {
+        $turma_aluno_id = $request->turma_aluno_id;
+        if(!$turma_aluno_id) {
+            $turma_aluno_id = 0;
+        }
         $notas = Nota::all();
-        $total = Nota::all()->count();
         $turma_alunos = TurmaAluno::all();
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
-        return view('admin.nota.index', compact('notas','total','turma_alunos','disciplinas','alunos'));
+        $turmas = Turma::all();
+        return view('admin.nota.index', compact('notas','turma_alunos','disciplinas','alunos','turmas','turma_aluno_id'));
     }
 
     public function create()
@@ -40,7 +47,6 @@ class NotaController extends Controller
             $nota->nota = $request->nota;
             $nota->tipo = $request->tipo;
             $nota->unidade = $request->unidade;
-            $nota->data_nota = $request->data_nota;
             $nota->disciplina_id = $request->disciplina_id;
             $nota->turma_aluno_id = $request->turma_aluno_id;
             $nota->save();
@@ -71,7 +77,6 @@ class NotaController extends Controller
             $nota->nota = $request->nota;
             $nota->tipo = $request->tipo;
             $nota->unidade = $request->unidade;
-            $nota->data_nota = $request->data_nota;
             $nota->disciplina_id = $request->disciplina_id;
             $nota->turma_aluno_id = $request->turma_aluno_id;
             $nota->save();
