@@ -36,7 +36,8 @@ class NotaController extends Controller
         $turma_alunos = TurmaAluno::all();
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
-        return view('admin.nota.create', compact('turma_alunos','disciplinas','alunos'));
+        $turmas = Turma::all();
+        return view('admin.nota.create', compact('turma_alunos','disciplinas','alunos','turmas'));
     }
 
     public function createPost(NotaValidationFormRequest $request)
@@ -64,9 +65,10 @@ class NotaController extends Controller
     public function edit($id) {
         $turma_alunos = TurmaAluno::all();
         $disciplinas = Disciplina::all();
+        $turmas = Turma::all();
         $alunos = Aluno::all();
         $nota = Nota::findOrFail($id);
-        return view('admin.nota.edit', compact('nota','id','turma_alunos','disciplinas','alunos'));
+        return view('admin.nota.edit', compact('nota','id','turma_alunos','disciplinas','alunos','turmas'));
     }
 
     public function editPost(NotaValidationFormRequest $request, $id) {

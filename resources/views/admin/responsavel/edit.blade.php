@@ -29,51 +29,65 @@
                     <legend>Informações Pessoais</legend> 
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label> 
-                        <input type="text" id="nome" value="{{$responsavel->nome or old('nome')}}" name="nome" class="form-control" required>
+                        <input type="text" id="nome" value="{{$responsavel->nome}}" name="nome" class="form-control" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" value="{{$responsavel->cpf or old('cpf')}}" name="cpf" class="form-control" required>
+                        <input type="text" id="cpf" value="{{$responsavel->cpf}}" name="cpf" class="form-control" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telefone">Telefone</label>
-		                <input class="form-control" id="telefone" type="number" value="{{$responsavel->telefone or old('telefone')}}" name="telefone" required>
+		                <input class="form-control" id="telefone" type="number" value="{{$responsavel->telefone}}" name="telefone" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="grau_de_parentesco">Grau de Parentesco</label>
-                        <input class="form-control" id="grau_de_parentesco" type="text" value="{{$responsavel->grau_de_parentesco or old('grau_de_parentesco')}}" name="grau_de_parentesco" required/>
-                    </div>  
+                        <input class="form-control" id="grau_de_parentesco" type="text" value="{{$responsavel->grau_de_parentesco}}" name="grau_de_parentesco" required/>
+                    </div> 
+                    <div class="form-group col-md-2">
+                        <label for="ativo">Ativo</label>
+                        <select class="form-control" id="ativo" name="ativo">
+                            @if($responsavel->ativo == true)
+                                <option value="1" selected>Sim</option>
+                                <option value="">Não</option>
+                            @else
+                                <option value="" selected>Não</option>
+                                <option value="1">Sim</option>
+                            @endif
+                        </select>
+                    </div> 
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend> 
-                        <div class="form-group col-md-12">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" id="cep" type="text" value="{{$responsavel->cep or old('cep')}}" name="cep" required/>
+                        <div class="row">
+                            <div style="margin-left:15px;" class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input class="form-control" id="cep" type="text" value="{{$responsavel->cep}}" name="cep" required/>
+                            </div> 
                         </div> 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="logradouro">Logradouro</label>
-                            <input class="form-control" id="logradouro" type="text" value="{{$responsavel->logradouro or old('logradouro')}}" name="logradouro" required/>
+                            <input class="form-control" id="logradouro" type="text" value="{{$responsavel->logradouro}}" name="logradouro" required/>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="numero">Número</label>
-                            <input class="form-control" id="numero" type="number" value="{{$responsavel->numero or old('numero')}}" name="numero"/>
+                            <input class="form-control" id="numero" type="number" value="{{$responsavel->numero}}" name="numero"/>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="complemento">Complemento</label>
-                            <input class="form-control" id="complemento" type="text" value="{{$responsavel->complemento or old('complemento')}}" name="complemento"/>
+                            <input class="form-control" id="complemento" type="text" value="{{$responsavel->complemento}}" name="complemento"/>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="bairro">Bairro</label>
-                            <input class="form-control" id="bairro" type="text" value="{{$responsavel->bairro or old('bairro')}}" name="bairro" required/>
+                            <input class="form-control" id="bairro" type="text" value="{{$responsavel->bairro}}" name="bairro" required/>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="cidade">Cidade</label>
-                            <input class="form-control" id="cidade" type="text" value="{{$responsavel->cidade or old('cidade')}}" name="cidade" required/>
+                            <input class="form-control" id="cidade" type="text" value="{{$responsavel->cidade}}" name="cidade" required/>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="uf">Estado</label>
                             <select class="form-control" id="uf" name="uf">
-                                <option value="{{$responsavel->uf or old('uf')}}" selected>{{$responsavel->uf or old('uf')}}</option>
+                                <option value="{{$responsavel->uf}}" selected>{{$responsavel->uf}}</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
                                 <option value="AP">Amapá</option>
@@ -106,7 +120,8 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.responsavel') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

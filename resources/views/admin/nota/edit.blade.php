@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <div class="form-group col-md-2">
                         <label for="nota">Nota</label>
-                        <input type="number" id="nota" name="nota" value="{{$nota->nota or old('nota')}}" class="form-control" required/>
+                        <input type="number" id="nota" name="nota" value="{{$nota->nota}}" class="form-control" required/>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="tipo">Tipo</label>
@@ -49,20 +49,27 @@
                     </div>
                     <div class="form-group col-md-1">
                         <label for="unidade">Unidade</label>
-                        <input type="number" id="unidade" name="unidade" value="{{$nota->unidade or old('unidade')}}" class="form-control" required/>
+                        <input type="number" id="unidade" name="unidade" value="{{$nota->unidade}}" class="form-control" required/>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="turma_aluno_id">Aluno</label>
                         <select class="form-control" id="turma_aluno_id" name="turma_aluno_id">
-                            <option selected disabled>Escolha uma opção</option>
-                            @foreach($turma_alunos as $index => $turma_aluno)
-                                @if($turma_aluno->aluno_id == $alunos[$index]->id)
-                                    @if($nota->turma_aluno_id or old('turma_aluno_id') == $turma_aluno->id)
-                                        <option value="{{$turma_aluno->id}}" selected>{{$alunos[$index]->nome}}</option>
-                                    @else
-                                        <option value="{{$turma_aluno->id}}">{{$alunos[$index]->nome}}</option>
-                                    @endif
-                                @endif
+                            @foreach($turma_alunos as $turma_aluno)
+                                @foreach($alunos as $aluno) 
+                                    @if($turma_aluno->ativo == true)
+                                        @if($turma_aluno->aluno_id == $aluno->id)  
+                                            @foreach($turmas as $turma) 
+                                                @if($turma_aluno->turma_id == $turma->id)
+                                                    @if($turma_aluno->id == $nota->turma_aluno_id)
+                                                        <option value="{{$turma_aluno->id}}" selected>{{$aluno->nome}} ({{$turma->nome}}/{{$turma->turno}})</option>
+                                                    @else
+                                                        <option value="{{$turma_aluno->id}}">{{$aluno->nome}} ({{$turma->nome}}/{{$turma->turno}})</option>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @endif 
+                                    @endif   
+                                @endforeach
                             @endforeach
                         </select>
                     </div>
@@ -71,7 +78,7 @@
                         <select class="form-control" id="disciplina_id" name="disciplina_id">
                             <option selected disabled>Escolha uma opção</option>
                             @foreach($disciplinas as $disciplina)
-                                @if($nota->disciplina_id or old('disciplina_id') == $disciplina->id)
+                                @if($nota->disciplina_id == $disciplina->id)
                                     <option value="{{$disciplina->id}}" selected>{{$disciplina->nome}}</option>
                                 @else
                                     <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
@@ -81,7 +88,8 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.nota') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

@@ -26,12 +26,13 @@
 
                 <div class="form-group">
                     <label for="nome">Nome</label> 
-                        <input type="text" id="nome" value="{{$disciplina->nome or old('nome')}}" name="nome" class="form-control">
+                        <input type="text" id="nome" value="{{$disciplina->nome}}" name="nome" class="form-control">
                     <label for="descricao">Descrição</label>
-                        <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao">{{$disciplina->descricao or old('descricao')}}</textarea>
+                        <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao">{{$disciplina->descricao}}</textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.disciplina') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

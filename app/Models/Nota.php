@@ -9,7 +9,7 @@ use App\Models\TurmaAluno;
 class Nota extends Model
 {
     protected $fillable = [
-		'nome', 'tipo', 'unidade','disciplina_id','turma_aluno_id'
+		'nota', 'tipo', 'unidade','disciplina_id','turma_aluno_id'
     ];
     protected $guarded = ['id','created_at','update_at'];
 

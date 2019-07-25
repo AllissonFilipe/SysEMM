@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
 
     protected $fillable = [
-        'name', 'email', 'password','tipo','cpf','data_de_nascimento','telefone','cep','numero','logradouro','complemento','bairro','cidade','uf'
+        'name', 'email', 'password','tipo','cpf','data_de_nascimento','telefone','cep','numero','logradouro','complemento','bairro','cidade','uf','ativo'
     ];
     protected $guarded = ['id','created_at','update_at'];
 

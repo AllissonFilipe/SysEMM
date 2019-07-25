@@ -26,6 +26,7 @@ class CreateResponsavelsTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('uf');
+            $table->boolean('ativo')->nullable()->default(true);
             $table->timestamps();
         });
     }

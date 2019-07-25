@@ -25,6 +25,7 @@ class UserValidationFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'password' =>'required|max:20',
             'tipo' => 'required',
             'cpf' => 'required|numeric|cpf',
             'data_de_nascimento' => 'required|date|before:today',

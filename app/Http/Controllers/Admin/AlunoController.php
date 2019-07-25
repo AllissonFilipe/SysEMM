@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Aluno;
 use App\Http\Requests\AlunoValidationFormRequest;
 use App\Models\Responsavel;
+use Illuminate\Support\Facades\Input;
 
 
 class AlunoController extends Controller
@@ -17,6 +18,18 @@ class AlunoController extends Controller
         $alunos = Aluno::all();
         $total = Aluno::all()->count();
         return view('admin.aluno.index',compact('alunos','total'));
+    }
+
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        $alunos = Aluno::where('nome','LIKE','%'.$q.'%')->orWhere('rg','LIKE','%'.$q.'%')->orWhere('cpf','LIKE','%'.$q.'%')->get();
+        $total = count($alunos);
+        if(count($alunos) > 0)
+            return view('admin.aluno.index', compact('alunos','total'));
+        else 
+            return redirect()->back();
+        
     }
 
     public function create()
@@ -78,6 +91,7 @@ class AlunoController extends Controller
             $aluno->rg = $request->rg;
             $aluno->cpf = $request->cpf;
             $aluno->senha = bcrypt($request->senha);
+            $aluno->ativo = $request->ativo;
             $aluno->save();
             $aluno->responsavels()->detach();
 

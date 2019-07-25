@@ -9,7 +9,7 @@ use App\Models\Turma;
 class TurmaAluno extends Model
 {
     protected $fillable = [
-		'dt_matricula', 'dt_cancelamento', 'aluno_id','turma_id'
+		'aluno_id','turma_id','dt_cancelamento','ativo'
     ];
     protected $guarded = ['id','created_at','update_at'];
 

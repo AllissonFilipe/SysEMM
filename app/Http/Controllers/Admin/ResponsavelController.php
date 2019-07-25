@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Responsavel;
 use App\Http\Requests\ResponsavelValidationFormRequest;
+use Illuminate\Support\Facades\Input;
 
 class ResponsavelController extends Controller
 {
@@ -16,6 +17,18 @@ class ResponsavelController extends Controller
         $responsavels = Responsavel::all();
         $total = Responsavel::all()->count();
         return view('admin.responsavel.index', compact('responsavels','total'));
+    }
+
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        $responsavels = Responsavel::where('nome','LIKE','%'.$q.'%')->orWhere('cpf','LIKE','%'.$q.'%')->get();
+        $total = count($responsavels);
+        if(count($responsavels) > 0)
+            return view('admin.responsavel.index', compact('responsavels','total'));
+        else 
+            return redirect()->back();
+        
     }
 
     public function create()
@@ -73,6 +86,7 @@ class ResponsavelController extends Controller
             $responsavel->bairro = $request->bairro;
             $responsavel->cidade = $request->cidade;
             $responsavel->uf = $request->uf;
+            $responsavel->ativo = $request->ativo;
             $responsavel->save();
 
             DB::commit();

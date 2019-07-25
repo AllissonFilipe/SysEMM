@@ -25,11 +25,21 @@
         <div class="box-header">
             <a href="{{route('notificacaoColab.create')}}" 
             class="btn_1">
-            <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
-            <div class="form-group input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+            <span class="glyphicon glyphicon-plus"></span> Adicionar</a>
+            <div style="float: right;" class="form-group input-group">
+                <form action="{{ route('admin.notificacaoColab') }}" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input  type="text" class="form-control" name="q"
+                        placeholder="Buscar Notificação"><span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                         <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                     </div>
+                </form>
             </div>
+            <br><br>
         </div>
         @if (session('message'))
         <div class="alert alert-success alert-dismissible">
@@ -40,10 +50,9 @@
         </div>
         @endif 
             <div class="box-body">
-                <div class="row">
-                    <div class="box-body">   
+                    <div>   
                         <br />
-                        <h4 style="text-align:center;"><b>NOTIFICAÇÕES CADASTRADAS ({{$total}})</b></h4>
+                        <h5><b>Total: {{$total}}</b></h5>
                         <br>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">
@@ -81,7 +90,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
     </div>

@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('uf');
+            $table->boolean('ativo')->nullable()->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -61,7 +61,55 @@
             background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
             background-position: right center;
             box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
-        }    
+        }  
+
+        .btn_2 {
+            display: inline-block;
+            padding: 8.5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: #fff;
+            background-image: linear-gradient(to right, #28a745, #33cc00, #28a745);
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            text-transform: capitalize;
+            background-size: 200% auto;
+            border: 1px solid transparent;
+            box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+        }
+
+            /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
+        .btn_2:hover {
+            color: #fff !important;
+            background-image: linear-gradient(to left, #28a745 0%, #33cc00 51%, #28a745 100%);
+            background-position: right center;
+            box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
+        }  
+
+        .btn_3 {
+            display: inline-block;
+            padding: 8.5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: #fff;
+            background-image: linear-gradient(to right, #6c757d, #bbc0c4, #6c757d);
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            text-transform: capitalize;
+            background-size: 200% auto;
+            border: 1px solid transparent;
+            box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+        }
+
+            /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
+        .btn_3:hover {
+            color: #fff !important;
+            background-image: linear-gradient(to left, #6c757d 0%, #bbc0c4 51%, #6c757d 100%);
+            background-position: right center;
+            box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
+        } 
     </style>
 </head>
 <body class="hold-transition @yield('body_class')">

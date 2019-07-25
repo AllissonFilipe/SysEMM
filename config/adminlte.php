@@ -160,6 +160,11 @@ return [
                     'icon'  => 'sticky-note '
                 ],
                 [
+                    'text'  => 'Frequência',
+                    'url'   => 'admin/frequencia',
+                    'icon'  => 'check-square '
+                ],
+                [
                     'text'  => 'Alocar Professores',
                     'url'   => 'admin/alocarUser',
                     'icon'  => 'exchange '

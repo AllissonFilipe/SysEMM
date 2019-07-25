@@ -45,10 +45,18 @@
                         <label for="turma_aluno_id">Aluno</label>
                         <select class="form-control" id="turma_aluno_id" name="turma_aluno_id">
                             <option selected disabled>Escolha uma opção</option>
-                            @foreach($turma_alunos as $index => $turma_aluno)
-                                @if($turma_aluno->aluno_id == $alunos[$index]->id)
-                                    <option value="{{$turma_aluno->id}}">{{$alunos[$index]->nome}}</option>
-                                @endif
+                            @foreach($turma_alunos as $turma_aluno)
+                                @foreach($alunos as $aluno) 
+                                    @if($turma_aluno->ativo == true)
+                                        @if($turma_aluno->aluno_id == $aluno->id)  
+                                            @foreach($turmas as $turma) 
+                                                @if($turma_aluno->turma_id == $turma->id)
+                                                    <option value="{{$turma_aluno->id}}">{{$aluno->nome}} ({{$turma->nome}}/{{$turma->turno}})</option>
+                                                @endif
+                                            @endforeach
+                                        @endif 
+                                    @endif   
+                                @endforeach
                             @endforeach
                         </select>
                     </div>
@@ -63,7 +71,8 @@
                     </div> 
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Cadastrar</button>
+                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.nota') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

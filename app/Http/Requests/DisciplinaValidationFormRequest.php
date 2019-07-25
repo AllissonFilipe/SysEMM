@@ -24,7 +24,9 @@ class DisciplinaValidationFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|string|max:255'
+            'nome' => 'required|string|max:255',
+            'descricao' => 'required'
+
         ];
     }
 }

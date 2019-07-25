@@ -10,6 +10,7 @@ use App\User;
 use App\Models\Aluno;
 use App\Models\Turma;
 use App\Http\Requests\NotificacaoColabValidationFormRequest;
+use Illuminate\Support\Facades\Input;
 
 
 class NotificacaoColabController extends Controller
@@ -19,6 +20,18 @@ class NotificacaoColabController extends Controller
         $notificacao_colabs = NotificacaoColab::all();
         $total = NotificacaoColab::all()->count();
         return view('admin.notificacaoColab.index', compact('notificacao_colabs','total'));
+    }
+
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        $notificacao_colabs = NotificacaoColab::where('titulo','LIKE','%'.$q.'%')->orWhere('categoria','LIKE','%'.$q.'%')->get();
+        $total = count($notificacao_colabs);
+        if(count($notificacao_colabs) > 0)
+            return view('admin.notificacaoColab.index', compact('notificacao_colabs','total'));
+        else 
+            return redirect()->back();
+        
     }
 
     public function create()

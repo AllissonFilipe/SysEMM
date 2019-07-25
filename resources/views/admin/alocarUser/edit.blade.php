@@ -30,10 +30,12 @@
                         <label for="turma_id">Turma</label>
                         <select class="form-control" id="turma_id" name="turma_id">
                             @foreach($turmas as $turma)
-                                @if($alocar_user->turma_id == $turma->id)
-                                    <option value="{{$turma->id}}" selected>{{$turma->nome}}/{{$turma->turno}}</option>
-                                @else
-                                    <option value="{{$turma->id}}">{{$turma->nome}}</option>
+                                @if($turma->ativo == true)
+                                    @if($alocar_user->turma_id == $turma->id)
+                                        <option value="{{$turma->id}}" selected>{{$turma->nome}}/{{$turma->turno}}</option>
+                                    @else
+                                        <option value="{{$turma->id}}">{{$turma->nome}}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </select>
@@ -54,17 +56,20 @@
                         <label for="user_id">Professor</label>
                         <select class="form-control" id="user_id" name="user_id" readOnly>
                             @foreach($users as $user)
-                                @if($alocar_user->user_id == $user->id)
-                                    <option value="{{$user->id}}" selected>{{$user->name}}</option>
-                                @else
-                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @if($user->ativo == true)
+                                    @if($alocar_user->user_id == $user->id)
+                                        <option value="{{$user->id}}" selected>{{$user->name}}</option>
+                                    @else
+                                        <option value="{{$user->id}}">{{$user->name}}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.alocarUser') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

@@ -24,7 +24,6 @@ class TurmaAlunoValidationFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'dt_matricula' => 'required',
             'aluno_id' => 'required',
             'turma_id' => 'required'
         ];

@@ -10,7 +10,7 @@ use App\Models\Responsavel;
 class Aluno extends Model
 {
     protected $fillable = [
-		'nome', 'cpf', 'data_de_nascimento','cep','numero','logradouro','complemento','bairro','cidade','uf'
+		'nome', 'cpf', 'data_de_nascimento','cep','numero','logradouro','complemento','bairro','cidade','uf','ativo'
     ];
     protected $guarded = ['id','created_at','update_at'];
 

@@ -26,17 +26,15 @@
 
                 <div class="form-group">
                     <div class="form-group col-md-3">
-                        <label for="dt_matricula">Data da Matrícula</label>
-                        <input type="date" id="dt_matricula" name="dt_matricula" value="{{$turma_aluno->dt_matricula or old('dt_matricula')}}" class="form-control"/>
-                    </div>
-                    <div class="form-group col-md-3">
                         <label for="aluno_id">Aluno</label>
                         <select class="form-control" id="aluno_id" name="aluno_id">
                             @foreach($alunos as $aluno)
-                                @if($aluno->id == $turma_aluno->id)
-                                    <option value="{{$aluno->id}}" selected>{{$aluno->nome}}</option>
-                                @else
-                                    <option value="{{$aluno->id}}">{{$aluno->nome}}</option>
+                                @if($aluno->ativo == true)
+                                    @if($aluno->id == $turma_aluno->aluno_id)
+                                        <option value="{{$aluno->id}}" selected>{{$aluno->nome}}</option>
+                                    @else
+                                        <option value="{{$aluno->id}}">{{$aluno->nome}}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </select>
@@ -45,10 +43,12 @@
                         <label for="turma_id">Turma</label>
                         <select class="form-control" id="turma_id" name="turma_id">
                             @foreach($turmas as $turma)
-                                @if($turma->id == $turma_aluno->id)
-                                    <option value="{{$turma->id}}" selected>{{$turma->nome}}/{{$turma->turno}}</option>
-                                @else
-                                    <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                                @if($turma->ativo == true)
+                                    @if($turma->id == $turma_aluno->turma_id)
+                                        <option value="{{$turma->id}}" selected>{{$turma->nome}}/{{$turma->turno}}</option>
+                                    @else
+                                        <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </select>
@@ -59,12 +59,25 @@
                             <input type="date" id="dt_cancelamento" name="dt_cancelamento" class="form-control"/>
                         @else
                             <label for="dt_cancelamento">Data do Cancelamento</label>
-                            <input type="date" id="dt_cancelamento" name="dt_cancelamento" value="{{$turma_aluno->dt_cancelamento or old('dt_cancelamento')}}" class="form-control"/>
+                            <input type="date" id="dt_cancelamento" name="dt_cancelamento" value="{{$turma_aluno->dt_cancelamento}}" class="form-control"/>
                         @endif
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="ativo">Ativo</label>
+                        <select class="form-control" id="ativo" name="ativo">
+                            @if($turma_aluno->ativo == true)
+                                <option value="1" selected>Sim</option>
+                                <option value="">Não</option>
+                            @else
+                                <option value="" selected>Não</option>
+                                <option value="1">Sim</option>
+                            @endif
+                        </select>
                     </div>  
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.turmaAluno') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

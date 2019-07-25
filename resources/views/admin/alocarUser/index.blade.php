@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="box-body">   
                         <br />
-                        <h4 style="text-align:center;"><b>ALOCAÇÕES REALIZADAS ({{$total}})</b></h4>
+                        <h5><b>Total: {{$total}}</b></h5>
                         <br>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">

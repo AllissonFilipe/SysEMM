@@ -26,22 +26,28 @@
             <a href="{{route('nota.create')}}" 
             class="btn_1">
             <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
-            <form method="GET" action="{{ route('admin.nota') }}">
+            <form method="POST" action="{{ route('admin.nota') }}">
                 {!! csrf_field() !!}
                 <div class="form-group">   
                     <div class="form-group col-md-6">
                         <label for="turma_aluno_id">Aluno</label>
                         <select class="form-control" id="turma_aluno_id" name="turma_aluno_id">
                                 <option selected disabled>Escolha uma opção</option>
-                                @foreach($turma_alunos as $index => $turma_aluno)
-                                    @if($turma_aluno->aluno_id == $alunos[$index]->id)
-                                        <option value="{{$turma_aluno->id}}">{{$alunos[$index]->nome}} - {{$turmas[$turma_aluno->turma_id - 1]->nome}}({{$turmas[$turma_aluno->turma_id - 1]->turno}})</option>
-                                    @endif
+                                @foreach($turma_alunos as $turma_aluno)
+                                    @foreach($alunos as $aluno)
+                                        @if($turma_aluno->aluno_id == $aluno->id)
+                                            @foreach($turmas as $turma)
+                                                @if($turma_aluno->turma_id == $turma->id)
+                                                    <option value="{{$turma_aluno->id}}">{{$aluno->nome}} - ({{$turma->nome}}/{{$turma->turno}})</option>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endforeach
                                 @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-success">Buscar</button>
+                        <button type="submit" class="btn_1">Buscar</button>
                     </div>
                 </div>
             </form>
@@ -87,11 +93,13 @@
                                                         <td title="Disciplina">{{$disciplina->nome}}</td>
                                                     @endif
                                                 @endforeach
-                                                @foreach($turma_alunos as $index => $turma_aluno)
+                                                @foreach($turma_alunos as $turma_aluno)
                                                     @if($turma_aluno->id == $nota->turma_aluno_id)
-                                                        @if($turma_aluno->aluno_id == $alunos[$index]->id)
-                                                            <td title="Aluno">{{$alunos[$index]->nome}}</td>
-                                                        @endif
+                                                        @foreach($alunos as $aluno)
+                                                            @if($turma_aluno->aluno_id == $aluno->id)
+                                                                <td title="Aluno">{{$aluno->nome}}</td>
+                                                            @endif
+                                                        @endforeach
                                                     @endif
                                                 @endforeach
                                                 <td id="center">

@@ -44,11 +44,13 @@
                     </div>
                     </fieldset>
                     <fieldset class="form-group">
-                        <legend>Endereço</legend>  
-                        <div class="form-group col-md-12">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" id="cep" type="text" placeholder="CEP" name="cep" required/>
-                        </div>
+                        <legend>Endereço</legend> 
+                        <div class="row">
+                            <div style="margin-left:15px;" class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input class="form-control" id="cep" type="text" placeholder="CEP" name="cep" required/>
+                            </div>
+                        </div> 
                         <div class="form-group col-md-4">
                             <label for="logradouro">Logradouro</label>
                             <input class="form-control" id="logradouro" type="text" placeholder="Logradouro" name="logradouro" required/>
@@ -105,7 +107,8 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Cadastrar</button>
+                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.responsavel') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

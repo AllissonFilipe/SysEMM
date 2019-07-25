@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Turma;
 use App\Http\Requests\TurmaValidationFormRequest;
+use Illuminate\Support\Facades\Input;
 
 class TurmaController extends Controller
 {
@@ -15,6 +16,18 @@ class TurmaController extends Controller
         $turmas = Turma::all();
         $total = Turma::all()->count();
         return view('admin.turma.index', compact('turmas','total'));
+    }
+
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        $turmas = Turma::where('nome','LIKE','%'.$q.'%')->orWhere('turno','LIKE','%'.$q.'%')->orWhere('qtd_vagas','LIKE','%'.$q.'%')->orWhere('ano_letivo','LIKE','%'.$q.'%')->orWhere('ativo','LIKE','%'.$q.'%')->get();
+        $total = count($turmas);
+        if(count($turmas) > 0)
+            return view('admin.turma.index', compact('turmas','total'));
+        else 
+            return redirect()->back();
+        
     }
 
 
@@ -59,6 +72,7 @@ class TurmaController extends Controller
             $turma->turno = $request->turno;
             $turma->qtd_vagas = $request->qtd_vagas;
             $turma->ano_letivo = $request->ano_letivo;
+            $turma->ativo = $request->ativo;
             $turma->save();
 
             DB::commit();

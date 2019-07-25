@@ -28,68 +28,86 @@
                         <legend>Informações Pessoais</legend>
                         <div class="form-group col-md-6">
                             <label for="name">Nome</label> 
-                            <input type="text" id="name" name="name" class="form-control" value="{{$user->name or old('name')}}"/>
+                            <input type="text" id="name" name="name" class="form-control" value="{{$user->name}}"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="data_de_nascimento">Data de Nascimento</label>
                             <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control" 
-                            value="{{$user->data_de_nascimento or old('data_de_nascimento')}}"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" class="form-control" value="{{$user->email or old('email')}}"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="password">Senha</label>
-                            <input type="password" id="password" name="password" class="form-control" value="{{$user->password or old('password')}}"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="telefone">Telefone</label>
-                            <input class="form-control" id="telefone" name="telefone" type="number" value="{{$user->telefone or old('telefone')}}"/>
+                            value="{{$user->data_de_nascimento}}"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" name="cpf" class="form-control" value="{{$user->cpf or old('cpf')}}"/>
+                            <input type="text" id="cpf" name="cpf" class="form-control" value="{{$user->cpf}}"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="telefone">Telefone</label>
+                            <input class="form-control" id="telefone" name="telefone" type="number" value="{{$user->telefone}}"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-control" value="{{$user->email}}"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="tipo">Tipo</label>
                             <select class="form-control" id="tipo" name="tipo">
-                                <option value="{{$user->tipo or old('tipo')}}" selected>{{$user->tipo or old('tipo')}}</option>
+                                <option value="{{$user->tipo}}" selected>{{$user->tipo}}</option>
                                 <option value="professor">Professor</option>
                                 <option value="coordenador">Coordenador</option>
                             </select><br>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" class="form-control" value="{{$user->password}}"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password_confirm">Confirmar a Senha</label>
+                            <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control"/>
+                        </div>                                   
+                        <div class="form-group col-md-2">
+                            <label for="ativo">Ativo</label>
+                            <select class="form-control" id="ativo" name="ativo">
+                                @if($user->ativo == true)
+                                    <option value="1" selected>Sim</option>
+                                    <option value="">Não</option>
+                                @else
+                                    <option value="" selected>Não</option>
+                                    <option value="1">Sim</option>
+                                @endif
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend>
-                        <div class="form-group col-md-12">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" id="cep" name="cep" type="number" value="{{$user->cep or old('cep')}}" required/>
+                        <div class="row">
+                            <div style="margin-left: 15px;" class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input class="form-control" id="cep" name="cep" type="number" value="{{$user->cep}}" required/>
+                            </div>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="logradouro">Logradouro</label>
-                            <input class="form-control" id="logradouro" name="logradouro" type="text" value="{{$user->logradouro or old('logradouro')}}" required/>
+                            <input class="form-control" id="logradouro" name="logradouro" type="text" value="{{$user->logradouro}}" required/>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="numero">Número</label>
-                            <input class="form-control" id="numero" name="numero" type="number" value="{{$user->numero or old('numero')}}" />
+                            <input class="form-control" id="numero" name="numero" type="number" value="{{$user->numero}}" />
                         </div>
                         <div class="form-group col-md-4">
                             <label for="complemento">Complemento</label>
-                            <input class="form-control" id="complemento" name="complemento" type="text" value="{{$user->complemento or old('complemento')}}"/>
+                            <input class="form-control" id="complemento" name="complemento" type="text" value="{{$user->complemento}}"/>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="bairro">Bairro</label>
-                            <input class="form-control" id="bairro" name="bairro" type="text" value="{{$user->bairro or old('bairro')}}" required/>
+                            <input class="form-control" id="bairro" name="bairro" type="text" value="{{$user->bairro}}" required/>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="cidade">Cidade</label>
-                            <input class="form-control" id="cidade" name="cidade" type="text" value="{{$user->cidade or old('cidade')}}" required/>
+                            <input class="form-control" id="cidade" name="cidade" type="text" value="{{$user->cidade}}" required/>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="uf">Estado</label>
                             <select class="form-control" id="uf" name="uf">
-                                <option value="{{$user->uf or old('uf')}}" selected>{{$user->uf or old('uf')}}</option>
+                                <option value="{{$user->uf}}" selected>{{$user->uf}}</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
                                 <option value="AP">Amapá</option>
@@ -122,7 +140,8 @@
                     </fieldset>  
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.user') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

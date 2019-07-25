@@ -9,17 +9,29 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProfileFormRequest;
 use App\Http\Requests\UserValidationFormRequest;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
 
     public function index()
     {
-        $users = User::all();
+        $users = User::all(); ///////////////////////////////////
         $total = User::all()->count();
         return view('admin.user.index', compact('users','total'));
     }
 
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+        $total = count($users);
+        if(count($users) > 0)
+            return view('admin.user.index', compact('users','total'));
+        else 
+            return redirect()->back();
+        
+    }
 
     public function create()
     {
@@ -30,6 +42,9 @@ class UserController extends Controller
     {   
 
         try {
+            if($request->password != $request->password_confirm) {
+                return redirect()->back()->with('error','O campo senha e o campo confirmar a senha não coincidem');
+            }
             DB::beginTransaction();
             $user = new User();
             $user->name = $request->name;
@@ -68,6 +83,9 @@ class UserController extends Controller
     public function editPost(UserValidationFormRequest $request, $id) {
 
         try {
+            if($request->password != $request->password_confirm) {
+                return redirect()->back()->with('error','O campo senha e o campo confirmar a senha não coincidem');
+            }
             DB::beginTransaction();
             $user = User::findOrFail($id); 
             $user->name = $request->name;
@@ -84,6 +102,7 @@ class UserController extends Controller
             $user->bairro = $request->bairro;
             $user->cidade = $request->cidade;
             $user->uf = $request->uf;
+            $user->ativo = $request->ativo;
             $user->save();
 
             DB::commit();

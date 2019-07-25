@@ -9,6 +9,7 @@ use App\Models\TurmaAluno;
 use App\Models\Aluno;
 use App\Models\Turma;
 use App\Http\Requests\TurmaAlunoValidationFormRequest;
+use Illuminate\Support\Facades\Input;
 
 class TurmaAlunoController extends Controller
 {
@@ -19,6 +20,18 @@ class TurmaAlunoController extends Controller
         $turmas = Turma::all();
         $total = TurmaAluno::all()->count();
         return view('admin.turmaAluno.index', compact('turma_alunos','total','alunos','turmas'));
+    }
+
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        // $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+        $total = count($turma_alunos);
+        if(count($turma_alunos) > 0)
+            return view('admin.turmaAluno.index', compact('turma_alunos','total'));
+        else 
+            return redirect()->back();
+        
     }
 
 
@@ -35,8 +48,6 @@ class TurmaAlunoController extends Controller
         try {
             DB::beginTransaction();
             $turma_aluno = new TurmaAluno();
-            $turma_aluno->dt_matricula = $request->dt_matricula;
-            $turma_aluno->dt_cancelamento = $request->dt_cancelamento;
             $turma_aluno->aluno_id = $request->aluno_id;
             $turma_aluno->turma_id = $request->turma_id;
             $turma_aluno->save();
@@ -64,10 +75,10 @@ class TurmaAlunoController extends Controller
         try {
             DB::beginTransaction();
             $turma_aluno = TurmaAluno::findOrFail($id); 
-            $turma_aluno->dt_matricula = $request->dt_matricula;
-            $turma_aluno->dt_cancelamento = $request->dt_cancelamento;
             $turma_aluno->aluno_id = $request->aluno_id;
             $turma_aluno->turma_id = $request->turma_id;
+            $turma_aluno->dt_cancelamento = $request->dt_cancelamento;
+            $turma_aluno->ativo = $request->ativo; 
             $turma_aluno->save();
 
             DB::commit();

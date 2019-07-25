@@ -25,11 +25,21 @@
         <div class="box-header">
             <a href="{{route('responsavel.create')}}" 
             class="btn_1">
-            <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
-            <div class="form-group input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+            <span class="glyphicon glyphicon-plus"></span> Adicionar</a>
+            <div style="float: right;" class="form-group input-group">
+                <form action="{{ route('admin.responsavel') }}" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input  type="text" class="form-control" name="q"
+                        placeholder="Buscar Responsavel"><span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                         <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                     </div>
+                </form>
             </div>
+            <br><br> 
         </div>
         @if (session('message'))
         <div class="alert alert-success alert-dismissible">
@@ -40,10 +50,9 @@
         </div>
         @endif 
             <div class="box-body">
-                <div class="row">
-                    <div class="box-body">   
+                    <div>   
                         <br />
-                        <h4 style="text-align:center;"><b>RESPONSÁVEIS CADASTRADOS ({{$total}})</b></h4>
+                        <h5><b>Total: {{$total}}</b></h5>
                         <br>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">
@@ -54,6 +63,7 @@
                                         <th>CPF</th>
                                         <th>Telefone</th> 
                                         <th>Grau de Parentesco</th>
+                                        <th>Ativo</th>
                                         <th></th>                                       
                                     </tr>
                                 </thead>
@@ -64,7 +74,12 @@
                                         <td title="Nome">{{$responsavel->nome}}</td>
                                         <td title="CPF">{{$responsavel->cpf}}</td>
                                         <td title="Telefone">{{$responsavel->telefone}}</td>
-                                        <td title="Grau de Parentesco">{{$responsavel->grau_de_parentesco}}</td>  
+                                        <td title="Grau de Parentesco">{{$responsavel->grau_de_parentesco}}</td>
+                                        @if($responsavel->ativo == true)
+                                            <td title="Ativo">Sim</td>
+                                        @else
+                                            <td title="Inativo">Não</td>
+                                        @endif  
                                         <td id="center">
                                             <a href="{{route('responsavel.edit', $responsavel->id)}}" 
                                                data-toggle="tooltip" 
@@ -83,7 +98,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
     </div>

@@ -36,20 +36,16 @@
                             <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="E-mail" class="form-control"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="password">Senha</label>
-                            <input type="password" id="password" name="password" placeholder="Senha" class="form-control"/>
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="telefone">Telefone</label>
                             <input class="form-control" id="telefone" name="telefone" type="number" placeholder="Telefone">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control"/>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="E-mail" class="form-control"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="tipo">Tipo</label>
@@ -59,14 +55,25 @@
                                 <option value="coordenador">Coordenador</option>
                             </select><br>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" placeholder="Senha" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password_confirm">Confirmar a Senha</label>
+                            <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control"/>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend>
-                        <div class="form-group col-md-12">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" id="cep" name="cep" type="number" placeholder="CEP" required/>
+                        <div class="row">
+                            <div style="margin-left: 15px;" class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input class="form-control" id="cep" name="cep" type="number" placeholder="CEP" required/>
+                            </div>
+                            <br>
                         </div>
-                        <br>
+                        
                         <div class="form-group col-md-4">
                             <label for="logradouro">Logradouro</label>
                             <input class="form-control" id="logradouro" name="logradouro" type="text" placeholder="Logradouro" required/>
@@ -123,7 +130,11 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Cadastrar</button>
+                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.user') }}" class="btn_3">Cancelar</a>
+                </div>
+                <div class="form-group col-md-6">
+                    
                 </div>
             </form>
         </div>

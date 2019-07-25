@@ -10,7 +10,7 @@ use App\Models\AlocarUser;
 class Turma extends Model
 {
     protected $fillable = [
-		'nome', 'turno', 'qtd_vagas','ano_letivo'
+		'nome', 'turno', 'qtd_vagas','ano_letivo','ativo'
     ];
     protected $guarded = ['id','created_at','update_at'];
 

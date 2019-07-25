@@ -19,6 +19,7 @@ class CreateTurmasTable extends Migration
             $table->enum('turno', ['Manhã', 'Tarde','Integral']);
             $table->bigInteger('qtd_vagas');
             $table->bigInteger('ano_letivo');
+            $table->boolean('ativo')->nullable()->default(true);
             $table->timestamps();
         });
     }

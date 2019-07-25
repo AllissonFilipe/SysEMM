@@ -47,7 +47,8 @@
                     </div>        
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Cadastrar</button>
+                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.turma') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

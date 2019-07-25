@@ -29,7 +29,9 @@
                         <select class="form-control" id="turma_id" name="turma_id">
                             <option selected disabled>Escolha uma opção</option>
                             @foreach($turmas as $turma)
-                                <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                                @if($turma->ativo == true)
+                                    <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div> 
@@ -47,13 +49,16 @@
                         <select class="form-control" id="user_id" name="user_id">
                             <option selected disabled>Escolha uma opção</option>
                             @foreach($users as $user)
-                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                @if($user->ativo == true)
+                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_1">Cadastrar</button>
+                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.alocarUser') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

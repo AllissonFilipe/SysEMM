@@ -28,7 +28,7 @@
                     <div class="form-group col-md-6">
                         <label for="tipo">Tipo de Notificação</label>
                         <select class="form-control" id="tipo" name="tipo" readOnly>
-                            <option value="{{$notificacao_colab->tipo or old('tipo')}}" selected>{{$notificacao_colab->tipo or old('tipo')}}</option>
+                            <option value="{{$notificacao_colab->tipo}}" selected>{{$notificacao_colab->tipo}}</option>
                             <option value="Geral">Geral</option>
                             <option value="Turma">Turma</option>
                             <option value="Individual">Individual</option>
@@ -36,16 +36,12 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="titulo">Título</label> 
-                        <input type="text" id="titulo" name="titulo" value="{{$notificacao_colab->titulo or old('titulo')}}" class="form-control"/>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="descricao">Descrição</label>
-                        <textarea class="form-control" id="descricao" name="descricao" cols="30" rows="10">{{$notificacao_colab->descricao or old('descricao')}}</textarea>
+                        <input type="text" id="titulo" name="titulo" value="{{$notificacao_colab->titulo}}" class="form-control"/>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="categoria">Categoria</label>
                         <select class="form-control" id="categoria" name="categoria">
-                            <option value="{{$notificacao_colab->categoria or old('categoria')}}" selected>{{$notificacao_colab->categoria or old('categoria')}}</option>
+                            <option value="{{$notificacao_colab->categoria}}" selected>{{$notificacao_colab->categoria}}</option>
                             <option value="Evento">Evento</option>
                             <option value="Reunião">Reunião</option>
                             <option value="Advertência">Advertência</option>
@@ -55,10 +51,12 @@
                         <label id="label_user_id" for="user_id">Colaborador</label>
                         <select class="form-control" id="user_id" name="user_id">
                             @foreach($users as $user)
-                                @if($user->id == $notificacao_colab->user_id)
-                                    <option value="{{$user->id}}" selected>{{$user->name}}</option>
-                                @else
-                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                @if($user->ativo == true)
+                                    @if($user->id == $notificacao_colab->user_id)
+                                        <option value="{{$user->id}}" selected>{{$user->name}}</option>
+                                    @else
+                                        <option value="{{$user->id}}">{{$user->name}}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </select>
@@ -73,10 +71,12 @@
                                 @endforeach
                             @else
                                 @foreach($turmas as $turma)
-                                    @if($turma->id == $notificacao_colab->turma_id)
-                                        <option value="{{$turma->id}}" selected>{{$turma->nome}}/{{$turma->turno}}</option>
-                                    @else
-                                        <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                                    @if($turma->ativo == true)
+                                        @if($turma->id == $notificacao_colab->turma_id)
+                                            <option value="{{$turma->id}}" selected>{{$turma->nome}}/{{$turma->turno}}</option>
+                                        @else
+                                            <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                                        @endif
                                     @endif
                                 @endforeach
                             @endif   
@@ -92,18 +92,25 @@
                                 @endforeach
                             @else
                                 @foreach($alunos as $aluno)
-                                    @if($aluno->id == $notificacao_colab->aluno_id)
-                                        <option value="{{$aluno->id}}" selected>{{$aluno->nome}}</option>
-                                    @else
-                                        <option value="{{$aluno->id}}">{{$aluno->nome}}</option>
+                                    @if($aluno->ativo == true)
+                                        @if($aluno->id == $notificacao_colab->aluno_id)
+                                            <option value="{{$aluno->id}}" selected>{{$aluno->nome}}</option>
+                                        @else
+                                            <option value="{{$aluno->id}}">{{$aluno->nome}}</option>
+                                        @endif
                                     @endif
                                 @endforeach
                             @endif   
                         </select>
                     </div>   
+                    <div class="form-group col-md-12">
+                        <label for="descricao">Descrição</label>
+                        <textarea class="form-control" id="descricao" name="descricao" cols="30" rows="10">{{$notificacao_colab->descricao}}</textarea>
+                    </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <button type="submit" class="btn_1">Alterar</button>
+                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.notificacaoColab') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>

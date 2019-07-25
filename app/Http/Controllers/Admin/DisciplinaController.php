@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Disciplina;
 use App\Http\Requests\DisciplinaValidationFormRequest;
+use Illuminate\Support\Facades\Input;
 
 class DisciplinaController extends Controller
 {
@@ -15,6 +16,18 @@ class DisciplinaController extends Controller
         $disciplinas = Disciplina::all();
         $total = Disciplina::all()->count();
         return view('admin.disciplina.index', compact('disciplinas','total'));
+    }
+
+    public function search() {
+        
+        $q = Input::get ( 'q' );
+        $disciplinas = Disciplina::where('nome','LIKE','%'.$q.'%')->get();
+        $total = count($disciplinas);
+        if(count($disciplinas) > 0)
+            return view('admin.disciplina.index', compact('disciplinas','total'));
+        else 
+            return redirect()->back();
+        
     }
 
     public function create()

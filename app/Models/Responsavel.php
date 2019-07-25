@@ -8,7 +8,7 @@ use App\Models\Aluno;
 class Responsavel extends Model
 {
     protected $fillable = [
-		'nome', 'email', 'senha','cpf','telefone','grau_de_parentesco'
+		'nome', 'email', 'senha','cpf','telefone','grau_de_parentesco','ativo'
     ];
     protected $guarded = ['id','created_at','update_at'];
 

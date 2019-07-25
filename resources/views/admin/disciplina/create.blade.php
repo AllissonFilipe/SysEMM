@@ -30,7 +30,8 @@
                         <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao"></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn_1">Cadastrar</button>
+                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.disciplina') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>
         </div>
