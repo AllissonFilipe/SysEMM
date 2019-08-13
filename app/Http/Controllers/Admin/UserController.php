@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all(); ///////////////////////////////////
+        $users = User::paginate(10);
         $total = User::all()->count();
         return view('admin.user.index', compact('users','total'));
     }
@@ -24,7 +24,7 @@ class UserController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+        $users = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->paginate(10);
         $total = count($users);
         if(count($users) > 0)
             return view('admin.user.index', compact('users','total'));
@@ -53,8 +53,8 @@ class UserController extends Controller
             $user->tipo = $request->tipo;
             $user->cpf = $request->cpf;
             $user->data_de_nascimento = $request->data_de_nascimento;
-            $user->telefone = $request->telefone;
-            $user->cep = $request->cep;
+            $user->telefone = intval($request->telefone);
+            $user->cep = intval($request->cep);
             $user->numero = $request->numero;
             $user->logradouro = $request->logradouro;
             $user->complemento = $request->complemento;
@@ -94,8 +94,8 @@ class UserController extends Controller
             $user->tipo = $request->tipo;
             $user->cpf = $request->cpf;
             $user->data_de_nascimento = $request->data_de_nascimento;
-            $user->telefone = $request->telefone;
-            $user->cep = $request->cep;
+            $user->telefone = intval($request->telefone);
+            $user->cep = intval($request->cep);
             $user->numero = $request->numero;
             $user->logradouro = $request->logradouro;
             $user->complemento = $request->complemento;

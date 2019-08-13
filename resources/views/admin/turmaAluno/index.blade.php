@@ -64,7 +64,7 @@
                                         <th>Aluno</th> 
                                         <th>Turma</th> 
                                         <th>Ativo</th>
-                                        <th></th>                                      
+                                        <th>Ações</th>                                      
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -106,13 +106,10 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    {!! $turma_alunos->links() !!}
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
 

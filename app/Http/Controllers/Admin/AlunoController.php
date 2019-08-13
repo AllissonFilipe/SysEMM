@@ -15,7 +15,7 @@ class AlunoController extends Controller
 {	
 	public function index()
     {
-        $alunos = Aluno::all();
+        $alunos = Aluno::paginate(10);
         $total = Aluno::all()->count();
         return view('admin.aluno.index',compact('alunos','total'));
     }
@@ -23,7 +23,7 @@ class AlunoController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        $alunos = Aluno::where('nome','LIKE','%'.$q.'%')->orWhere('rg','LIKE','%'.$q.'%')->orWhere('cpf','LIKE','%'.$q.'%')->get();
+        $alunos = Aluno::where('nome','LIKE','%'.$q.'%')->orWhere('rg','LIKE','%'.$q.'%')->orWhere('cpf','LIKE','%'.$q.'%')->paginate(10);
         $total = count($alunos);
         if(count($alunos) > 0)
             return view('admin.aluno.index', compact('alunos','total'));

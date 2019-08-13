@@ -62,7 +62,7 @@
                                         <th>Título</th>
                                         <th>Descrição</th>
                                         <th>Categoria</th> 
-                                        <th></th>                          
+                                        <th>Ações</th>                          
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,13 +90,10 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    {!! $notificacao_colabs->links() !!}
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
 

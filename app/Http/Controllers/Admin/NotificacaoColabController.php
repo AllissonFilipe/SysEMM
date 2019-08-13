@@ -17,7 +17,7 @@ class NotificacaoColabController extends Controller
 {
 	public function index()
     {
-        $notificacao_colabs = NotificacaoColab::all();
+        $notificacao_colabs = NotificacaoColab::paginate(10);
         $total = NotificacaoColab::all()->count();
         return view('admin.notificacaoColab.index', compact('notificacao_colabs','total'));
     }
@@ -25,7 +25,7 @@ class NotificacaoColabController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        $notificacao_colabs = NotificacaoColab::where('titulo','LIKE','%'.$q.'%')->orWhere('categoria','LIKE','%'.$q.'%')->get();
+        $notificacao_colabs = NotificacaoColab::where('titulo','LIKE','%'.$q.'%')->orWhere('categoria','LIKE','%'.$q.'%')->paginate(10);
         $total = count($notificacao_colabs);
         if(count($notificacao_colabs) > 0)
             return view('admin.notificacaoColab.index', compact('notificacao_colabs','total'));

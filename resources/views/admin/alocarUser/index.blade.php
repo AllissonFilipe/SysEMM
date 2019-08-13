@@ -53,7 +53,7 @@
                                         <th>Turma</th>
                                         <th>Disciplina</th>
                                         <th>Professor</th> 
-                                        <th></th>                           
+                                        <th>Ações</th>                           
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,10 +97,5 @@
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
 

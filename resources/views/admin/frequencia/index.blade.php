@@ -49,7 +49,42 @@
                         <input type="date" id="data_frequencia" name="data_frequencia" class="form-control">
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn_1">Selecionar</button>
+                        <button type="submit" class="btn_1">Criar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="box">
+        <div class="box-header">
+            <form method="GET" action="{{ route('admin.frequenciaPost') }}">
+                {!! csrf_field() !!}
+                <div class="form-group">   
+                    <div class="form-group col-md-4">
+                        <label for="turma_id">Turma</label>
+                        <select class="form-control" id="turma_id" name="turma_id">
+                            <option selected disabled>Escolha uma opção</option>
+                            @foreach($turmas as $turma)
+                                <option value="{{$turma->id}}">{{$turma->nome}}/{{$turma->turno}}</option>
+                            @endforeach
+                        </select>
+                    </div> 
+                    <div class="form-group col-md-4">
+                        <label for="disciplina_id">Disciplina</label>
+                        <select class="form-control" id="disciplina_id" name="disciplina_id">
+                            <option selected disabled>Escolha uma opção</option>
+                            @foreach($disciplinas as $disciplina)
+                                <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
+                            @endforeach
+                        </select>
+                    </div> 
+                    <div class="form-group col-md-4">
+                        <label for="data_frequencia">Data da Frequência</label>
+                        <input type="date" id="data_frequencia" name="data_frequencia" class="form-control">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn_1">Visualizar</button>
                     </div>
                 </div>
             </form>

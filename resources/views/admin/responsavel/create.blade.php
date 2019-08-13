@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telefone">Telefone</label>
-		                <input class="form-control" id="telefone" type="number" placeholder="Telefone" name="telefone" required>
+		                <input class="form-control" id="telefone" type="text" placeholder="Telefone" name="telefone" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="grau_de_parentesco">Grau de Parentesco</label>
@@ -114,6 +114,7 @@
         </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
     <script type="text/javascript">
 	$("#cep").focusout(function(){
 		//Início do Comando AJAX
@@ -141,6 +142,36 @@
 				$("#numero").focus();
                 }
             });
+        });
+
+        var elemento_cpf = document.getElementById('cpf');
+        var maskOptions_cpf = {
+            mask: '000.000.000-00'
+        };
+        var mascara_cpf = new IMask(elemento_cpf, maskOptions_cpf);
+        
+        $("form").submit(function(){
+            $("#cpf").val(mascara_cpf.unmaskedValue);
+        });
+
+        var elemento_telefone = document.getElementById('telefone');
+        var maskOptions_telefone = {
+            mask: '0000-00009'
+        };
+        var mascara_telefone = new IMask(elemento_telefone, maskOptions_telefone);
+        
+        $("form").submit(function(){
+            $("#telefone").val(mascara_telefone.unmaskedValue);
+        });
+
+        var elemento_cep = document.getElementById('cep');
+        var maskOptions_cep = {
+            mask: '00000-000'
+        };
+        var mascara_cep = new IMask(elemento_cep, maskOptions_cep);
+        
+        $("form").submit(function(){
+            $("#cep").val(mascara_cep.unmaskedValue);
         });
     </script>
 @stop

@@ -32,62 +32,61 @@ class FrequenciaController extends Controller
         return view('admin.frequencia.create', compact('disciplina','data','turma_alunos','alunos'));
     }
 
-    // public function create(Resquest $request)
-    // {
-    //     $turma = $request->turma_id;
-    //     $turma_alunos = TurmaAluno::where('turma_id',$turma);
-    //     $disciplina = $request->disciplina_id;
-    //     $data = $request->disciplina_id;
-    //     $alunos = Aluno::all();
-    //     return view('admin.frequencia.create', compact('disciplina','data','turma_alunos','alunos'));
-    // }
+    public function create(Resquest $request)
+    {
+        $turma = $request->turma_id;
+        $turma_alunos = TurmaAluno::where('turma_id',$turma);
+        $disciplina = $request->disciplina_id;
+        $data = $request->disciplina_id;
+        $alunos = Aluno::all();
+        return view('admin.frequencia.create', compact('disciplina','data','turma_alunos','alunos'));
+    }
 
     public function createPost(Request $request)
     {   
-        
-        // try {
-        //     DB::beginTransaction();
-        //     $disciplina = new Disciplina();
-        //     $disciplina->nome = $request->nome;
-        //     $disciplina->descricao = $request->descricao;
-        //     $disciplina->save();
-            
-        //     DB::commit();
-        //     return redirect()
-        //                 ->route('admin.disciplina')
-        //                 ->with('message', 'Disciplina cadastrada com sucesso.');
-
-        // }catch (\Exception $e) {
-        //     DB::rollBack();
-        //     return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
-        // }
-        
-        ////////////////////////////////////////////////////////////////
-
         try {
-            $data=$request->all();
-            $lastid=Frequencia::create($data)->id;
-            if(count($request->presenca) > 0)
-            {
-            foreach($request->product_name as $item=>$v){
-                DB::beginTransaction();
+            DB::beginTransaction();
+            $dataForm = $request->all();
+            for($i = 0; $i<count($dataForm['turma_aluno_id']); $i++)
+            {   
+                // $arrayForm[] = array(
+                // 'disciplina_id' => $dataForm['disciplina_id'][$i],
+                // 'data_frequencia' => $dataForm['data_frequencia'][$i],
+                // 'turma_aluno_id' => $dataForm['turma_aluno_id'][$i], 
+                // 'presenca' => $dataForm['presenca'][$i]
+                // );
                 $frequencia = new Frequencia();
-                $frequencia->disciplina_id=$request->disciplina_id;
-                $frequencia->data_frequencia=$request->data_frequencia;
-                $frequencia->turma_aluno_id=$request->turma_aluno_id[$item];
-                $frequencia->presenca=$request->presenca[$item];
 
-                Frequencia::insert($frequencia);
-                }
+                // if($dataForm['presenca'][$i] == true) {
+                //     $dataForm['presenca'][$i] = 1;
+                // } else {
+                //     $dataForm['presenca'][$i] = 0;
+                // }
+
+                $array[] = array (
+                    $frequencia->disciplina_id = $dataForm['disciplina_id'][$i],
+                    $frequencia->data_frequencia = $dataForm['data_frequencia'][$i],
+                    $frequencia->turma_aluno_id = $dataForm['turma_aluno_id'][$i],
+                    $frequencia->presenca = isset($dataForm['presenca'][$i])? 1: 0,
+
+                    $frequencia->save()
+                );
+                
+
             }
-            return redirect()
-                        ->route('admin.frequencia')
-                        ->with('message', 'Disciplina cadastrada com sucesso.');
+            if (count($array) > 0) 
+            { 
+                DB::commit(); 
+                return redirect()
+                            ->route('admin.frequencia')
+                            ->with('message', 'Frequencia cadastrada com sucesso.');
+            }
 
-        }catch (\Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        } catch (\Exception $e) {
+                DB::rollBack();
+                return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
         }
+        
 
     }
 

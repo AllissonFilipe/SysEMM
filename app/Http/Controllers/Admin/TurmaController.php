@@ -13,7 +13,7 @@ class TurmaController extends Controller
 {
     public function index()
     {
-        $turmas = Turma::all();
+        $turmas = Turma::paginate(10);
         $total = Turma::all()->count();
         return view('admin.turma.index', compact('turmas','total'));
     }
@@ -21,7 +21,7 @@ class TurmaController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        $turmas = Turma::where('nome','LIKE','%'.$q.'%')->orWhere('turno','LIKE','%'.$q.'%')->orWhere('qtd_vagas','LIKE','%'.$q.'%')->orWhere('ano_letivo','LIKE','%'.$q.'%')->orWhere('ativo','LIKE','%'.$q.'%')->get();
+        $turmas = Turma::where('nome','LIKE','%'.$q.'%')->orWhere('turno','LIKE','%'.$q.'%')->orWhere('qtd_vagas','LIKE','%'.$q.'%')->orWhere('ano_letivo','LIKE','%'.$q.'%')->orWhere('ativo','LIKE','%'.$q.'%')->paginate(10);
         $total = count($turmas);
         if(count($turmas) > 0)
             return view('admin.turma.index', compact('turmas','total'));

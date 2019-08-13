@@ -64,7 +64,7 @@
                                         <th>Telefone</th> 
                                         <th>Grau de Parentesco</th>
                                         <th>Ativo</th>
-                                        <th></th>                                       
+                                        <th>Ações</th>                                       
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,13 +98,10 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    {!! $responsavels->links() !!}
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
 

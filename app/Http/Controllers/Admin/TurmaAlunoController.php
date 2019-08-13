@@ -15,7 +15,7 @@ class TurmaAlunoController extends Controller
 {
     public function index()
     {
-        $turma_alunos = TurmaAluno::all();
+        $turma_alunos = TurmaAluno::paginate(10);
         $alunos = Aluno::all();
         $turmas = Turma::all();
         $total = TurmaAluno::all()->count();
@@ -25,7 +25,7 @@ class TurmaAlunoController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        // $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+        // $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->paginate(10);
         $total = count($turma_alunos);
         if(count($turma_alunos) > 0)
             return view('admin.turmaAluno.index', compact('turma_alunos','total'));

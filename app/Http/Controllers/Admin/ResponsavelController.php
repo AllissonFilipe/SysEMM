@@ -14,7 +14,7 @@ class ResponsavelController extends Controller
 
     public function index()
     {
-        $responsavels = Responsavel::all();
+        $responsavels = Responsavel::paginate(10);
         $total = Responsavel::all()->count();
         return view('admin.responsavel.index', compact('responsavels','total'));
     }
@@ -22,7 +22,7 @@ class ResponsavelController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        $responsavels = Responsavel::where('nome','LIKE','%'.$q.'%')->orWhere('cpf','LIKE','%'.$q.'%')->get();
+        $responsavels = Responsavel::where('nome','LIKE','%'.$q.'%')->orWhere('cpf','LIKE','%'.$q.'%')->paginate(10);
         $total = count($responsavels);
         if(count($responsavels) > 0)
             return view('admin.responsavel.index', compact('responsavels','total'));
@@ -43,9 +43,9 @@ class ResponsavelController extends Controller
             $responsavel = new Responsavel();
             $responsavel->nome = $request->nome;
             $responsavel->cpf = $request->cpf;
-            $responsavel->telefone = $request->telefone;
+            $responsavel->telefone = intval($request->telefone);
             $responsavel->grau_de_parentesco = $request->grau_de_parentesco;
-            $responsavel->cep = $request->cep;
+            $responsavel->cep = intval($request->cep);
             $responsavel->numero = $request->numero;
             $responsavel->logradouro = $request->logradouro;
             $responsavel->complemento = $request->complemento;
@@ -77,9 +77,9 @@ class ResponsavelController extends Controller
             $responsavel = Responsavel::findOrFail($id); 
             $responsavel->nome = $request->nome;
             $responsavel->cpf = $request->cpf;
-            $responsavel->telefone = $request->telefone;
+            $responsavel->telefone = intval($request->telefone);
             $responsavel->grau_de_parentesco = $request->grau_de_parentesco;
-            $responsavel->cep = $request->cep;
+            $responsavel->cep = intval($request->cep);
             $responsavel->numero = $request->numero;
             $responsavel->logradouro = $request->logradouro;
             $responsavel->complemento = $request->complemento;

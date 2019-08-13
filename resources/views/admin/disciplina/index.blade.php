@@ -61,7 +61,7 @@
                                         <th id="center">Código</th>
                                         <th>Nome</th>
                                         <th>Descrição</th>
-                                        <th></th>                           
+                                        <th>Ações</th>                           
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,13 +88,10 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    {!! $disciplinas->links() !!}
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
 

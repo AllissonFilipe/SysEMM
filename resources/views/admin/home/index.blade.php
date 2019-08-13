@@ -84,13 +84,13 @@
         <!-- ./col -->
       </div>
       <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
+     
+      <!-- <div class="row">
+    
         <section class="col-lg-12 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
+         
           <div class="nav-tabs-custom">
-            <!-- Tabs within a box -->
+        
             <ul class="nav nav-tabs pull-right">
               <li class="active"><a href="#LineChart" data-toggle="tab">Area</a></li>
               <li><a href="#donutChart" data-toggle="tab">Donut</a></li>
@@ -106,7 +106,7 @@
             </div>
           </div>
         </section>
-      </div>
+      </div> -->
     </section>
   </div>
 @stop

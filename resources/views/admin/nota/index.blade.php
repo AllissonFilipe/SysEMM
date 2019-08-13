@@ -76,7 +76,7 @@
                                         <th>Data da Nota</th>  
                                         <th>Disciplina</th>  
                                         <th>Aluno</th>
-                                        <th></th>                      
+                                        <th>Ações</th>                      
                                     </tr>
                                 </thead>
                         <tbody>

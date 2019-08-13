@@ -65,7 +65,7 @@
                                         <th>CPF</th>              
                                         <th>Telefone</th>
                                         <th>Ativo</th>
-                                        <th></th>                          
+                                        <th>Ações</th>                          
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -100,13 +100,10 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    {!! $users->links() !!}
             </div>
         </div>
     </div>
-    
-
-    <script>
-        $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-    </script>
 @stop
 

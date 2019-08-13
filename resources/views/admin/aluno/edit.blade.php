@@ -93,4 +93,30 @@
             </form>
         </div>
     </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+
+    <script type="text/javascript">
+
+        var elemento_cpf = document.getElementById('cpf');
+        var maskOptions_cpf = {
+            mask: '000.000.000-00'
+        };
+        var mascara_cpf = new IMask(elemento_cpf, maskOptions_cpf);
+        
+        $("form").submit(function(){
+            $("#cpf").val(mascara_cpf.unmaskedValue);
+        });
+
+        var elemento_rg = document.getElementById('rg');
+        var maskOptions_rg = {
+            mask: '0000000'
+        };
+        var mascara_rg = new IMask(elemento_rg, maskOptions_rg);
+        
+        $("form").submit(function(){
+            $("#rg").val(mascara_rg.unmaskedValue);
+        });
+    </script>
 @stop

@@ -13,7 +13,7 @@ class DisciplinaController extends Controller
 {
     public function index()
     {
-        $disciplinas = Disciplina::all();
+        $disciplinas = Disciplina::paginate(10);
         $total = Disciplina::all()->count();
         return view('admin.disciplina.index', compact('disciplinas','total'));
     }
@@ -21,7 +21,7 @@ class DisciplinaController extends Controller
     public function search() {
         
         $q = Input::get ( 'q' );
-        $disciplinas = Disciplina::where('nome','LIKE','%'.$q.'%')->get();
+        $disciplinas = Disciplina::where('nome','LIKE','%'.$q.'%')->paginate(10);
         $total = count($disciplinas);
         if(count($disciplinas) > 0)
             return view('admin.disciplina.index', compact('disciplinas','total'));
