@@ -36,6 +36,7 @@
                                 @if($turma_aluno->ativo == true)
                                     <input type="hidden" value="{{$disciplina}}" id="disciplina_id" name="disciplina_id[]" class="form-control" required/>
                                     <input type="hidden" value="{{$data}}" id="data_frequencia" name="data_frequencia[]" class="form-control" required/>
+                                    <input type="hidden" value="{{$turma}}" id="turma_id" name="turma_id[]" class="form-control" required/>
                                     <tr>
                                         <td title="Matrícula">
                                             <h4>{{$turma_aluno->id}}</h4>
@@ -48,8 +49,9 @@
                                                 @endif
                                             @endforeach
                                         </td>
-                                        <td title="Frequência">
-                                            <input type="checkbox" id="presenca" name="presenca[]"> Presente
+                                        <td title="Frequência" class="tdPresenca">
+                                            <input type="checkbox" id="presenca" name="presenca[]" class="presenca" value="on"> Presente
+                                            <input type="hidden" id="presencaHidden" name="presenca[]" value="off" class="presencaHidden"> 
                                         </td>
                                 @endif
                             @endforeach
@@ -57,11 +59,25 @@
                         </table>
                 <div class="form-group col-md-6">
                     <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.nota') }}" class="btn_3">Cancelar</a>
+                    <a href="{{ route('admin.frequencia') }}" class="btn_3">Cancelar</a>
                 </div>
             </form>                      
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".tdPresenca").each(function() {
+                $("input").click(function() {
+                    if($(this).is(':checked')) {
+                        $(this).next('input').prop("disabled",true);
+                    }else if($(this).is(':unchecked')){
+                        $(this).next('input').prop("disabled",false);
+                    }
+                });
+            });              
+        });
+    </script>
 @stop
 
     

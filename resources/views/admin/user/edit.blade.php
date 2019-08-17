@@ -189,7 +189,7 @@
 
         var elemento_telefone = document.getElementById('telefone');
         var maskOptions_telefone = {
-            mask: '0000-00009'
+            mask: '0000-00000'
         };
         var mascara_telefone = new IMask(elemento_telefone, maskOptions_telefone);
         

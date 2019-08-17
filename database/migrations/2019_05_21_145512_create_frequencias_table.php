@@ -19,8 +19,10 @@ class CreateFrequenciasTable extends Migration
             $table->boolean('presenca');
             $table->unsignedInteger('disciplina_id');
             $table->foreign('disciplina_id')->references('id')->on('disciplinas')->onDelete('cascade');
-            $table->unsignedInteger('turma_aluno_id')->nullable();
+            $table->unsignedInteger('turma_aluno_id');
             $table->foreign('turma_aluno_id')->references('id')->on('turma_alunos')->onDelete('cascade');
+            $table->unsignedInteger('turma_id');
+            $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade');
             $table->timestamps();
         });
     }

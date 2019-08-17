@@ -77,11 +77,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     //Frequência
     Route::get('frequencia', 'FrequenciaController@index')->name('admin.frequencia');
     Route::get('frequenciaPost', 'FrequenciaController@indexPost')->name('admin.frequenciaPost');
+    Route::get('frequenciaEditPost', 'FrequenciaController@indexEditPost')->name('admin.frequenciaPut');
+    Route::get('frequenciaDeletePost', 'FrequenciaController@indexDeletePost')->name('admin.frequenciaDelete');
     // Route::get('createFrequencia', 'FrequenciaController@create')->name('frequencia.create');
     Route::post('createFrequenciaPost', 'FrequenciaController@createPost')->name('frequencia.post');
+    Route::put('editFrequenciaPost', 'FrequenciaController@editPost')->name('frequencia.put');
     // Route::get('editDisciplina/{id}', 'DisciplinaController@edit')->name('disciplina.edit');
     // Route::put('editDisciplinaPost/{id}', 'DisciplinaController@editPost')->name('disciplina.put');
-    // Route::delete('deleteDisciplina/{id}', 'DisciplinaController@destroy')->name('disciplina.delete');
+    Route::delete('deleteFrequenciaPost', 'FrequenciaController@destroy')->name('frequencia.delete');
 
     //Alocar User
     Route::get('alocarUser', 'AlocarUserController@index')->name('admin.alocarUser');
