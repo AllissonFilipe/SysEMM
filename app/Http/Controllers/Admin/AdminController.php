@@ -23,7 +23,8 @@ class AdminController extends Controller
         // $alunos = Aluno::select(DB::raw("COUNT(*) as count , MONTHNAME(created_at) as month")) mysql
         $alunos = Aluno::select(DB::raw("COUNT(*) as count , to_char(created_at, 'Month') as month"))
         ->orderBy("created_at")
-        ->groupBy(DB::raw("month(created_at)"))
+        // ->groupBy(DB::raw("month(created_at)")) mysql
+        ->groupBy(DB::raw("to_char(created_at,'Month')"))
         ->get()->toArray();
         $chart_array = array();
         foreach($alunos as $data){
@@ -53,7 +54,8 @@ class AdminController extends Controller
         // $users = User::select(DB::raw("COUNT(*) as count , MONTHNAME(created_at) as month")) mysql
         $users = User::select(DB::raw("COUNT(*) as count , to_char(created_at, 'Month') as month"))
         ->orderBy("created_at")
-        ->groupBy(DB::raw("month(created_at)"))
+        // ->groupBy(DB::raw("month(created_at)")) mysql
+        ->groupBy(DB::raw("to_char(created_at,'Month')"))
         ->get()->toArray();
         $chart_array_user = array();
         foreach($users as $data){
