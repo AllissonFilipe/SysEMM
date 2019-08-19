@@ -99,10 +99,10 @@
             <div class="tab-content no-padding">
       
               <div id="LineChart" class="chart tab-pane active" style="position: relative; height: 500px"></div>
-              <?= $lava->render('LineChart', 'demochart', 'LineChart') ?>
+              CODIGO DO GRAFICO DE LINHA VAI AQUI
 
               <div id="donutChart" class="chart tab-pane" style="position: relative; height: 500px;"></div>
-              <?= $lava->render('DonutChart', 'donutchart', 'donutChart') ?>
+              CODIGO DO GRAFICO DE PIZZA VAI AQUI
             </div>
           </div>
         </section>

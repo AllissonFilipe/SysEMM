@@ -86,3 +86,8 @@ class AdminController extends Controller
 }
 
 // ,'lava','lava_user'
+
+
+// <?= $lava->render('LineChart', 'demochart', 'LineChart') CODIGO DO GRAFICO DE LINHA
+
+// <?= $lava->render('DonutChart', 'donutchart', 'donutChart') CODIGO DO GRAFICO DE PIZZA
