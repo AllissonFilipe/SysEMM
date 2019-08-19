@@ -21,7 +21,7 @@ class AdminController extends Controller
         $total_turmas = Turma::all()->count();
         
         // $alunos = Aluno::select(DB::raw("COUNT(*) as count , MONTHNAME(created_at) as month")) mysql
-        $alunos = Aluno::select(DB::raw("COUNT(*) as count , MONTH(created_at) as month"))
+        $alunos = Aluno::select(DB::raw("COUNT(*) as count , to_char(created_at, 'Month') as month"))
         ->orderBy("created_at")
         ->groupBy(DB::raw("month(created_at)"))
         ->get()->toArray();
@@ -51,7 +51,7 @@ class AdminController extends Controller
 
         //Usuários
         // $users = User::select(DB::raw("COUNT(*) as count , MONTHNAME(created_at) as month")) mysql
-        $users = User::select(DB::raw("COUNT(*) as count , MONTH(created_at) as month"))
+        $users = User::select(DB::raw("COUNT(*) as count , to_char(created_at, 'Month') as month"))
         ->orderBy("created_at")
         ->groupBy(DB::raw("month(created_at)"))
         ->get()->toArray();
