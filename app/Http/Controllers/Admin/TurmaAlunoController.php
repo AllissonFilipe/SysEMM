@@ -24,11 +24,13 @@ class TurmaAlunoController extends Controller
 
     public function search() {
         
+        $alunos = Aluno::all();
+        $turmas = Turma::all();
         $q = Input::get ( 'q' );
-        // $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->paginate(10);
+        $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->orWhere('dt_cancelamento','LIKE','%'.$q.'%')->paginate(10);
         $total = count($turma_alunos);
         if(count($turma_alunos) > 0)
-            return view('admin.turmaAluno.index', compact('turma_alunos','total'));
+            return view('admin.turmaAluno.index', compact('turma_alunos','total','alunos','turmas'));
         else 
             return redirect()->back();
         

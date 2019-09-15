@@ -19,7 +19,10 @@ class NotificacaoColabController extends Controller
     {
         $notificacao_colabs = NotificacaoColab::paginate(10);
         $total = NotificacaoColab::all()->count();
-        return view('admin.notificacaoColab.index', compact('notificacao_colabs','total'));
+        $users = User::all();
+        $alunos = Aluno::all();
+        $turmas = Turma::all();
+        return view('admin.notificacaoColab.index', compact('notificacao_colabs','total','users','alunos','turmas'));
     }
 
     public function search() {

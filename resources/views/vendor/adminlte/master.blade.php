@@ -135,6 +135,30 @@
             box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
         } 
 
+        .btn_5 {
+            display: inline-block;
+            padding: 8.5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: #fff;
+            background-image: linear-gradient(to right, #0000b3, #8080ff, #0000b3);
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            text-transform: capitalize;
+            background-size: 200% auto;
+            border: 1px solid transparent;
+            box-shadow: 0px 12px 20px 0px rgba(255, 126, 95, 0.15);
+        }
+
+            /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
+        .btn_5:hover {
+            color: #fff !important;
+            background-image: linear-gradient(to left, #0000b3 0%, #8080ff 51%, #0000b3 100%);
+            background-position: right center;
+            box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
+        }
+
     </style>
 </head>
 <body class="hold-transition @yield('body_class')">
