@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name'      => 'Allisson Filipe',
             'email'     => 'allissonfiilipe@gmail.com',
-            'password'  => bcrypt('01201337'),
+            'password'  => bcrypt('12345'),
             'tipo'      => 'Coordenador',
             'cpf'       => '10252587452',
             'data_de_nascimento' => '1994-12-30',
@@ -31,9 +31,9 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            'name'      => 'Outro Usuário',
-            'email'     => 'contato@especializati.com.br',
-            'password'  => bcrypt('123456'),
+            'name'      => 'Tairine Mousinho',
+            'email'     => 'tairine@gmail.com.br',
+            'password'  => bcrypt('12345'),
             'tipo'      => 'Coordenador',
             'cpf'       => '10852597451',
             'data_de_nascimento' => '1994-11-21',
@@ -49,10 +49,10 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            'name'      => 'Tairine Mousinho',
-            'email'     => 'tairine@gmail.com',
-            'password'  => bcrypt('123456'),
-            'tipo'      => 'Professor',
+            'name'      => 'Mauro',
+            'email'     => 'mauro@gmail.com',
+            'password'  => bcrypt('12345'),
+            'tipo'      => 'Coordenador',
             'cpf'       => '41322068070',
             'data_de_nascimento' => '1984-07-11',
             'telefone'  => 34340877,
@@ -67,9 +67,9 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            'name'      => 'Josué',
-            'email'     => 'josue@gmail.com',
-            'password'  => bcrypt('123456'),
+            'name'      => 'Outro',
+            'email'     => 'outro@gmail.com',
+            'password'  => bcrypt('12345'),
             'tipo'      => 'Professor',
             'cpf'       => '02229084089',
             'data_de_nascimento' => '1994-07-07',
