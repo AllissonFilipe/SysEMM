@@ -83,5 +83,59 @@ class UsersTableSeeder extends Seeder
             'uf'        => 'PE',
             'ativo'     => true
         ]);
+
+        User::create([
+            'name'      => 'Luciana',
+            'email'     => 'luciana@gmail.com',
+            'password'  => bcrypt('12345'),
+            'tipo'      => 'Professor',
+            'cpf'       => '44781042040',
+            'data_de_nascimento' => '1994-09-07',
+            'telefone'  => 35328677,
+            'cep'       => 53444800,
+            'numero'    => 204,
+            'logradouro'=> 'Na Rua cucia',
+            'complemento' => 'Perto da Pani',
+            'bairro'    => 'Maranguape II',
+            'cidade'    => 'Paulista',
+            'uf'        => 'PE',
+            'ativo'     => true
+        ]);
+
+        User::create([
+            'name'      => 'Marcia',
+            'email'     => 'marcia@gmail.com',
+            'password'  => bcrypt('12345'),
+            'tipo'      => 'Professor',
+            'cpf'       => '68317274098',
+            'data_de_nascimento' => '1991-05-11',
+            'telefone'  => 35328677,
+            'cep'       => 53444804,
+            'numero'    => 234,
+            'logradouro'=> 'Na Rua badali',
+            'complemento' => 'Perto da fffff',
+            'bairro'    => 'Tabajara',
+            'cidade'    => 'Olinda',
+            'uf'        => 'PE',
+            'ativo'     => true
+        ]);
+
+        User::create([
+            'name'      => 'Cacia',
+            'email'     => 'cacia@gmail.com',
+            'password'  => bcrypt('12345'),
+            'tipo'      => 'Professor',
+            'cpf'       => '52584465060',
+            'data_de_nascimento' => '1990-06-11',
+            'telefone'  => 39328677,
+            'cep'       => 53445804,
+            'numero'    => 254,
+            'logradouro'=> 'Na Rua apolo',
+            'complemento' => 'Perto da gfgfgf',
+            'bairro'    => 'Paratibe',
+            'cidade'    => 'Paulista',
+            'uf'        => 'PE',
+            'ativo'     => true
+        ]);
     }
 }

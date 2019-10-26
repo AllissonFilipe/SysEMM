@@ -18,7 +18,7 @@ class CreateNotificacaoColabsTable extends Migration
             $table->string('titulo');
             $table->text('descricao');
             $table->enum('tipo',['Geral','Turma','Individual']);
-            $table->enum('categoria',['Evento','Reunião','Advertência']);
+            $table->enum('categoria',['Aviso','Evento','Reunião','Advertência']);
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('aluno_id')->nullable();

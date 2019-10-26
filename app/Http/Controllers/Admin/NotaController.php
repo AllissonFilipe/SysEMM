@@ -31,13 +31,27 @@ class NotaController extends Controller
         return view('admin.nota.index', compact('notas','turma_alunos','disciplinas','alunos','turmas','turma_aluno_id'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $turma_alunos = TurmaAluno::all();
+        
+        $turma_id = $request->turma_id;
+        $disciplina_id = $request->disciplina_id;
+        $unidade = $request->unidade;
+        $tipo = $request->tipo;
+        $turmas = Turma::all();
+        $turma_alunos = TurmaAluno::where('turma_id',$turma_id)->get();
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
-        $turmas = Turma::all();
-        return view('admin.nota.create', compact('turma_alunos','disciplinas','alunos','turmas'));
+        return view('admin.nota.create', compact('disciplina_id','unidade','tipo','turmas','turma_alunos','disciplinas','alunos'));
+    }
+
+    public function editList(Request $request) {
+        $notas = Nota::where('turma_aluno_id',$request->turma_aluno_id)->where('disciplina_id',$request->disciplina_id)->get();
+        $total = Nota::where('turma_aluno_id',$request->turma_aluno_id)->where('disciplina_id',$request->disciplina_id)->count();
+        $disciplinas = Disciplina::all();
+        $turma_aluno_id = $request->turma_aluno_id;
+        $disciplina_id = $request->disciplina_id;
+        return view('admin.nota.list', compact('notas','disciplinas','turma_aluno_id','disciplina_id','total'));
     }
 
     public function createPost(NotaValidationFormRequest $request)
@@ -59,6 +73,45 @@ class NotaController extends Controller
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
+    }
+
+    public function createPostTurma(Request $request)
+    {   
+        try {
+            DB::beginTransaction();
+
+            $dataForm = $request->all();
+
+
+            for($i = 0; $i<count($dataForm['turma_aluno_id']); $i++)
+            { 
+                $nota = new Nota();
+
+                $array[] = array (
+                    $nota->turma_aluno_id = $dataForm['turma_aluno_id'][$i],
+                    $nota->disciplina_id = $dataForm['disciplina_id'][$i],
+                    $nota->unidade = $dataForm['unidade'][$i],
+                    $nota->tipo = $dataForm['tipo'][$i],
+                    $nota->nota = $dataForm['nota'][$i],
+
+                    $nota->save()
+                );
+
+            }
+
+
+            if (count($array) > 0) 
+            { 
+                DB::commit(); 
+                return redirect()
+                            ->route('admin.nota')
+                            ->with('message', 'Notas cadastradas com sucesso.');
+            }
+
+        } catch (\Exception $e) {
+                DB::rollBack();
+                return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
         }
     }
 
@@ -84,7 +137,8 @@ class NotaController extends Controller
             $nota->save();
 
             DB::commit();
-            return redirect()->route('admin.nota')->with('message', 'Nota alterada com sucesso!');
+            return redirect()->back()->with('message', 'Nota alterada com sucesso!');s;
+            // route('admin.nota')->with('message', 'Nota alterada com sucesso!');
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
@@ -95,7 +149,8 @@ class NotaController extends Controller
         try {
             $nota = Nota::findOrFail($id);
             $nota->delete();
-            return redirect()->route('admin.nota')->with('message', 'Nota excluída com sucesso!');
+            return redirect()->back()->with('message', 'Nota excluída com sucesso!');;
+            // route('admin.nota')->with('message', 'Nota excluída com sucesso!');
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());

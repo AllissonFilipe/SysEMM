@@ -56,6 +56,15 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::put('editNotificacaoColabPost/{id}', 'NotificacaoColabController@editPost')->name('notificacaoColab.put');
     Route::delete('deleteNotificacaoColab/{id}', 'NotificacaoColabController@destroy')->name('notificacaoColab.delete');
 
+    //Parâmetro
+    Route::get('parametro', 'ParametroController@index')->name('admin.parametro');
+    Route::post('parametro', 'ParametroController@search')->name('admin.parametro');
+    Route::get('createParametro', 'ParametroController@create')->name('parametro.create');
+    Route::post('createParametroPost', 'ParametroController@createPost')->name('parametro.post');
+    Route::get('editParametro/{id}', 'ParametroController@edit')->name('parametro.edit');
+    Route::put('editParametroPost/{id}', 'ParametroController@editPost')->name('parametro.put');
+    Route::delete('deleteParametroColab/{id}', 'ParametroController@destroy')->name('parametro.delete');
+
     //Matrícula do aluno na turma
     Route::get('matricula', 'TurmaAlunoController@index')->name('admin.turmaAluno');
     Route::post('matricula', 'TurmaAlunoController@search')->name('admin.turmaAluno');
@@ -70,7 +79,9 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::post('nota', 'NotaController@index')->name('admin.nota');
     Route::get('createNota', 'NotaController@create')->name('nota.create');
     Route::post('createNotaPost', 'NotaController@createPost')->name('nota.post');
+    Route::post('createNotaPostTurma', 'NotaController@createPostTurma')->name('notaTurma.post');
     Route::get('editNota/{id}', 'NotaController@edit')->name('nota.edit');
+    Route::get('editNotaList', 'NotaController@editList')->name('nota.list');
     Route::put('editNotaPost/{id}', 'NotaController@editPost')->name('nota.put');
     Route::delete('deleteNota/{id}', 'NotaController@destroy')->name('nota.delete');
 

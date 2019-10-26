@@ -136,7 +136,7 @@ return [
         ],
 
         [
-            'text' => 'Cadastros Acadêmicos',
+            'text' => 'Acadêmico',
             'icon' => 'building',
             'submenu' => [
                 [
@@ -181,7 +181,19 @@ return [
         [
             'text' => 'Relatórios',
             'icon' => 'pie-chart'
-        ]
+        ],
+
+        [
+            'text' => 'Configurações',
+            'icon' => 'cogs',
+            'submenu' => [
+                [
+                    'text'  => 'Parâmetro',
+                    'url'   => 'admin/parametro',
+                    'icon'  => 'cog'
+                ]
+            ]
+        ],
         
     ],
 

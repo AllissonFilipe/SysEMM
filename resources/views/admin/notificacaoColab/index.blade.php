@@ -58,7 +58,7 @@
                         <tr>
                             <td id="center">{{$notificacao_colab->id}}</td>
                             <td title="Nome">{{$notificacao_colab->titulo}}</td>
-                            <td title="Descrição">{{$notificacao_colab->descricao}}</td>
+                            <td title="Descrição" class="w-10">{{$notificacao_colab->descricao}}</td>
                             <td title="Descrição">{{$notificacao_colab->categoria}}</td>
                             <td id="center">
                                 <!-- Botão para acionar modal -->
