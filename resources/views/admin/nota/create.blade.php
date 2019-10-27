@@ -3,7 +3,7 @@
 @section('title', 'Novo Cadastro')
 
 @section('content_header')
-<h1>Cadastrar Nota do Aluno</h1>
+<h1>Cadastrar Notas dos Alunos</h1>
 
 <ol class="breadcrumb">
     <li><a href="">Home</a></li>
@@ -59,7 +59,7 @@
                 @endforeach
             </div>
             <div class="form-group col-md-6">
-                <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
+                <button type="submit" class="btn_2">Cadastrar</button>&nbsp;&nbsp;&nbsp;
                 <a href="{{ route('admin.nota') }}" class="btn_3">Cancelar</a>
             </div>
         </form>

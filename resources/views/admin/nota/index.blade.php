@@ -72,7 +72,7 @@
                 </select>
             </div>
             <div class="col-md-12">
-                <button type="submit" class="btn btn-success">Adicionar</button>&nbsp;&nbsp;
+                <button type="submit" class="btn_2">Cadastrar</button>&nbsp;&nbsp;
             </div>
         </form>
         <form id="formAluno" method="POST" action="{{ route('nota.post') }}">
@@ -118,27 +118,40 @@
         <h3>Exibição de Notas</h3>
     </div>
     <div class="box-body">
-        <form id="formTurmaEdit" method="GET" action="{{ route('nota.post') }}">
-            <div class="form-group col-md-4">
-                <label for="turma">Turma</label>
-                <select name="turma" id="turma" class="form-control">
+        <form id="formTurmaEdit" method="GET" action="{{ route('nota.edit') }}">
+            <div class="form-group col-md-3">
+                <label for="turma_id">Turma</label>
+                <select name="turma_id" id="turma_id" class="form-control">
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($turmas as $turma)
                     <option value="{{$turma->id}}">{{$turma->nome}}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="form-group col-md-4">
-                <label for="disciplina">Disciplina</label>
-                <select name="disciplina" id="disciplina" class="form-control">
+            <div class="form-group col-md-3">
+                <label for="disciplina_id">Disciplina</label>
+                <select name="disciplina_id" id="disciplina_id" class="form-control">
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($disciplinas as $disciplina)
                     <option value="{{$disciplina->id}}">{{$disciplina->nome}}</option>
                     @endforeach
                 </select>
             </div>
+            <div class="form-group col-md-3">
+                <label for="unidade">Unidade</label>
+                <input type="number" id="unidade" name="unidade" class="form-control">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="tipo">Tipo</label>
+                <select class="form-control" id="tipo" name="tipo">
+                    <option selected disabled>Escolha uma opção</option>
+                    <option value="Prova">Prova</option>
+                    <option value="Teste">Teste</option>
+                    <option value="Trabalho">Trabalho</option>
+                </select>
+            </div>
             <div class="form-group col-md-12">
-                <button type="submit" formaction="{{ route('nota.create') }}"
+                <button type="submit" formaction="{{ route('nota.edit') }}"
                     class="btn_2">Buscar</button>
             </div>
         </form>

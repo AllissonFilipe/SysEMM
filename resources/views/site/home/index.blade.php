@@ -81,7 +81,7 @@
                     <div class="banner_text">
                         <div class="banner_text_iner">
                             <h4>Todo Aluno Precisa de Atenção</h4>
-                            <h1>Administrar Sua Instituição de Ensino Ficou Ainda Melhor</h1>
+                            <h1>Administrar Sua Instituição de Ensino Ficou Melhor</h1>
                             <p><h4>Faça já o uso desse sistema que trará mais praticidade 
                                 no gerenciamento escolar de sua instituição.</h4> 
                             </p>

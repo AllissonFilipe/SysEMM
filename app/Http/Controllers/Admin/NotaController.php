@@ -115,13 +115,22 @@ class NotaController extends Controller
         }
     }
 
-    public function edit($id) {
-        $turma_alunos = TurmaAluno::all();
-        $disciplinas = Disciplina::all();
+    public function edit(Request $request) {
+        $turma_id = $request->turma_id;
+        $disciplina_id = $request->disciplina_id;
+        $unidade = $request->unidade;
+        $tipo = $request->tipo;
         $turmas = Turma::all();
+        $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
-        $nota = Nota::findOrFail($id);
-        return view('admin.nota.edit', compact('nota','id','turma_alunos','disciplinas','alunos','turmas'));
+        $turma_alunos = TurmaAluno::where('turma_id',$turma_id)->get();
+        $array_turma_aluno_id = array();
+        foreach($turma_alunos as $turma_aluno) {
+            array_push($array_turma_aluno_id, $turma_aluno->id);
+        }
+
+        $notas = Nota::whereIn('turma_aluno_id', $array_turma_aluno_id)->where('disciplina_id',$turma_id)->where('unidade',$unidade)->where('tipo',$tipo)->get();
+        return view('admin.nota.edit', compact('turma_id','disciplina_id','unidade','tipo','turmas','notas','alunos','disciplinas','turma_alunos'));
     }
 
     public function editPost(NotaValidationFormRequest $request, $id) {
@@ -145,6 +154,40 @@ class NotaController extends Controller
         }
     }
 
+    public function editPostTurma(Request $request) {
+        try {
+            DB::beginTransaction();
+            $dataForm = $request->all();
+
+            for($i = 0; $i<count($dataForm['turma_aluno_id']); $i++)
+            { 
+                $nota = Nota::findOrFail($dataForm['nota_id'][$i]);
+
+                $array[] = array (
+                    $nota->turma_aluno_id = $dataForm['turma_aluno_id'][$i],
+                    $nota->disciplina_id = $dataForm['disciplina_id'][$i],
+                    $nota->unidade = $dataForm['unidade'][$i],
+                    $nota->tipo = $dataForm['tipo'][$i],
+                    $nota->nota = $dataForm['nota'][$i],
+
+                    $nota->save()
+                );
+
+            }
+            if (count($array) > 0) 
+            { 
+                DB::commit(); 
+                return redirect()
+                            ->route('admin.nota')
+                            ->with('message', 'Notas alteradas com sucesso.');
+            }
+
+        } catch (\Exception $e) {
+                DB::rollBack();
+                return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
+    }
+
     public function destroy($id) {
         try {
             $nota = Nota::findOrFail($id);
@@ -155,5 +198,24 @@ class NotaController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
         }
+    }
+
+    public function destroyTurma(Request $request) {
+        try {
+
+            $dataForm = $request->all();
+
+            for($i = 0; $i<count($dataForm['turma_aluno_id']); $i++)
+            { 
+                $nota = Nota::findOrFail($dataForm['nota_id'][$i]);
+                $nota->delete();
+            }
+            return redirect()->route('admin.nota')->with('message', 'Notas excluídas com sucesso!');
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
+        }
+        
     }
 }

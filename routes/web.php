@@ -80,10 +80,12 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('createNota', 'NotaController@create')->name('nota.create');
     Route::post('createNotaPost', 'NotaController@createPost')->name('nota.post');
     Route::post('createNotaPostTurma', 'NotaController@createPostTurma')->name('notaTurma.post');
-    Route::get('editNota/{id}', 'NotaController@edit')->name('nota.edit');
+    Route::get('editNotas', 'NotaController@edit')->name('nota.edit');
     Route::get('editNotaList', 'NotaController@editList')->name('nota.list');
     Route::put('editNotaPost/{id}', 'NotaController@editPost')->name('nota.put');
+    Route::put('editNotaPostTurma', 'NotaController@editPostTurma')->name('notaTurma.put');
     Route::delete('deleteNota/{id}', 'NotaController@destroy')->name('nota.delete');
+    Route::delete('deleteNotaTurma', 'NotaController@destroyTurma')->name('notaTurma.delete');
 
     //Frequência
     Route::get('frequencia', 'FrequenciaController@index')->name('admin.frequencia');
@@ -104,6 +106,11 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::get('editAlocarUser/{id}', 'AlocarUserController@edit')->name('alocarUser.edit');
     Route::put('editAlocarUserPost/{id}', 'AlocarUserController@editPost')->name('alocarUser.put');
     Route::delete('deleteAlocarUser/{id}', 'AlocarUserController@destroy')->name('alocarUser.delete');
+
+    //Relatório
+    Route::get('relatorio', 'RelatorioController@index')->name('admin.relatorio');
+    Route::post('relatorio', 'DisciplinaController@search')->name('admin.relatorio');
+
 
     Route::get('/', 'AdminController@index')->name('admin.home');
 });

@@ -38,7 +38,7 @@
 
                     @foreach($disciplinas as $disciplina)
                     @if($disciplina->id == $nota->disciplina_id)
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="disciplina">Disciplina</label>
                         <input class="form-control col-md-3" type="text" name="disciplina" value="{{$disciplina->nome}}"
                             readOnly>
@@ -47,24 +47,24 @@
                     @endif
                     @endforeach
 
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
                         <label for="unidade">Unidade</label>
                         <input class="form-control col-md-3" name="unidade" type="number" value="{{$nota->unidade}}"
                             readOnly>
                     </div>
 
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="tipo">Tipo</label>
                         <input class="form-control col-md-3" name="tipo" type="text" value="{{$nota->tipo}}" readOnly>
                     </div>
 
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-1">
                         <label for="nota">Nota</label>
                         <input class="form-control col-md-3" name="nota" type="number" step="0.01"
                             value="{{$nota->nota}}">
                     </div>
 
-                    <div class="form-group col-md-1">
+                    <div class="form-group col-md-1" style="margin-top:2rem;">
                         <button type="submit" class="btn_2">Alterar</button>
                     </div>
 
@@ -77,7 +77,7 @@
                 onsubmit="return confirm('Confirma exclusão?')">
                 {{method_field('DELETE')}}{{ csrf_field() }}
                 <div class="form-group col-md-1">
-                    <button class="btn_4" type="submit" style="background-color: #fff">
+                    <button class="btn_4" type="submit" style="margin-top:2rem;">
                         Apagar
                     </button>
                 </div>

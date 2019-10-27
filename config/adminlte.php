@@ -180,6 +180,7 @@ return [
 
         [
             'text' => 'Relatórios',
+            'url'   => 'admin/relatorio',
             'icon' => 'pie-chart'
         ],
 
