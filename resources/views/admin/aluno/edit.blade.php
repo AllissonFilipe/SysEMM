@@ -27,15 +27,15 @@
                 <div class="form-group">
                     <div class="form-group col-md-4">
                         <label for="nome">Nome</label> 
-                        <input type="text" id="nome" name="nome" value="{{$aluno->nome}}" class="form-control"/>
+                        <input type="text" id="nome" name="nome" value="{{$aluno->nome}}" class="form-control" required/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="data_de_nascimento">Data de Nascimento</label>
-                        <input type="date" id="data_de_nascimento" class="form-control" name="data_de_nascimento" value="{{$aluno->data_de_nascimento}}"/>
+                        <input type="date" id="data_de_nascimento" class="form-control" name="data_de_nascimento" value="{{$aluno->data_de_nascimento}}" required/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="sexo">Sexo</label>
-                        <select class="form-control" id="sexo" name="sexo">
+                        <select class="form-control" id="sexo" name="sexo" required>
                                 <option value="{{$aluno->sexo}}" selected>{{$aluno->sexo}}</option>
                                 <option value="Feminino">Feminino</option>
                                 <option value="Masculino">Masculino</option>
@@ -49,12 +49,8 @@
                         <label for="cpf">CPF</label>
                         <input type="text" id="cpf" name="cpf" value="{{$aluno->cpf}}" class="form-control"/>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="senha">Senha para acesso ao sistema</label>
-                        <input type="password" id="senha" name="senha" value="{{$aluno->senha}}" class="form-control">
-                    </div>
                     <div class="row">
-                        <div style="margin-left:15px;" class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="responsavel">Responsavel:</label>
                             <select multiple name="responsavel[]" id="responsavel" class="form-control" required>
                                 @if(!empty($responsaveis))
@@ -87,8 +83,8 @@
                     </div>  
                 </div>
                 <div class="form-group col-md-12">
-                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.aluno') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.aluno') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

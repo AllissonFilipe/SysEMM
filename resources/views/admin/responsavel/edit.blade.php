@@ -55,6 +55,14 @@
                             @endif
                         </select>
                     </div> 
+                    <div class="form-group col-md-6">
+                        <label for="senha">Senha para acesso ao sistema</label>
+                        <input type="password" id="senha" name="senha" value="{{$aluno->senha}}" class="form-control" required/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password_confirm">Confirmar a Senha</label>
+                        <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control" required/>
+                    </div>  
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend> 
@@ -86,7 +94,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="uf">Estado</label>
-                            <select class="form-control" id="uf" name="uf">
+                            <select class="form-control" id="uf" name="uf" required>
                                 <option value="{{$responsavel->uf}}" selected>{{$responsavel->uf}}</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -120,8 +128,8 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.responsavel') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.responsavel') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

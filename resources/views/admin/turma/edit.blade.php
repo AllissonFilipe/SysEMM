@@ -27,11 +27,11 @@
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label> 
-                        <input type="text" id="nome" name="nome" value="{{$turma->nome}}" class="form-control">
+                        <input type="text" id="nome" name="nome" value="{{$turma->nome}}" class="form-control" required/>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="turno">Turno</label>
-                        <select class="form-control" id="turno" name="turno">
+                        <select class="form-control" id="turno" name="turno" required>
                             <option value="{{$turma->turno}}" selected>{{$turma->turno}}</option>
                             <option value="Manhã">Manhã</option>
                             <option value="Tarde">Tarde</option>
@@ -40,11 +40,11 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="qtd_vagas">Quantidade de Vagas</label>
-                        <input type="number" id="qtd_vagas" name="qtd_vagas" value="{{$turma->qtd_vagas }}" class="form-control">
+                        <input type="number" id="qtd_vagas" name="qtd_vagas" value="{{$turma->qtd_vagas }}" class="form-control" required/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="ano_letivo">Ano Letivo</label>
-		                <input class="form-control" id="ano_letivo" name="ano_letivo" type="number" value="{{$turma->ano_letivo}}">
+		                <input class="form-control" id="ano_letivo" name="ano_letivo" type="number" value="{{$turma->ano_letivo}}" required/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="ativo">Ativo</label>
@@ -60,8 +60,8 @@
                     </div>   
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.turma') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.turma') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

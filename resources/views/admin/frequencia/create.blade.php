@@ -58,8 +58,8 @@
                             </tbody>
                         </table>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.frequencia') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.frequencia') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>                      
         </div>

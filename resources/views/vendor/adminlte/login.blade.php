@@ -50,7 +50,7 @@
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
-                                class="btn_1">{{ trans('adminlte::adminlte.sign_in') }}</button>
+                                class="btn btn-warning">{{ trans('adminlte::adminlte.sign_in') }}</button>
                     </div>
                     <!-- /.col -->
                 </div>

@@ -21,7 +21,7 @@
 		
 	}
 }
-.btn_1{
+.btn btn-warning{
 	display: inline-block;
 	padding: 13.5px 45px;
 	border-radius: 50px;
@@ -57,7 +57,7 @@
 	}
 
 }
-.btn_2{
+.btn btn-success{
 	display: inline-block;
 	padding: 13px 39px;
 	border-radius: 50px;
@@ -94,7 +94,7 @@
 	
 	}
 }
-.btn_4{
+.btn btn-danger{
 	background-color: $btn_bg;
 	padding: 3.5px 21px;
 	background: rgba(255, 102, 59, 1);

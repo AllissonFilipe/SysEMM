@@ -39,12 +39,16 @@ class ResponsavelController extends Controller
     public function createPost(ResponsavelValidationFormRequest $request)
     {   
         try {
+            if($request->senha != $request->password_confirm) {
+                return redirect()->back()->with('error','O campo senha e o campo confirmar a senha não coincidem');
+            }
             DB::beginTransaction();
             $responsavel = new Responsavel();
             $responsavel->nome = $request->nome;
             $responsavel->cpf = $request->cpf;
             $responsavel->telefone = intval($request->telefone);
             $responsavel->grau_de_parentesco = $request->grau_de_parentesco;
+            $aluno->senha = bcrypt($request->senha);
             $responsavel->cep = intval($request->cep);
             $responsavel->numero = $request->numero;
             $responsavel->logradouro = $request->logradouro;
@@ -73,12 +77,16 @@ class ResponsavelController extends Controller
     public function editPost(ResponsavelValidationFormRequest $request, $id) {
 
         try {
+            if($request->senha != $request->password_confirm) {
+                return redirect()->back()->with('error','O campo senha e o campo confirmar a senha não coincidem');
+            }
             DB::beginTransaction();
             $responsavel = Responsavel::findOrFail($id); 
             $responsavel->nome = $request->nome;
             $responsavel->cpf = $request->cpf;
             $responsavel->telefone = intval($request->telefone);
             $responsavel->grau_de_parentesco = $request->grau_de_parentesco;
+            $aluno->senha = bcrypt($request->senha);
             $responsavel->cep = intval($request->cep);
             $responsavel->numero = $request->numero;
             $responsavel->logradouro = $request->logradouro;

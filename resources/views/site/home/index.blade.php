@@ -53,14 +53,14 @@
                                 @if (Route::has('login'))
                                     @auth
                                     <li class="d-none d-lg-block">
-                                        <a class="btn_1" href="{{ route('admin.home') }}">Home</a>
-                                    </li>
+                                        <a class="btn btn-warning" href="{{ route('admin.home') }}">Home</a>
+                                    </li>&nbsp;&nbsp;
                                     <li class="d-none d-lg-block">
-                                        <a class="btn_1" href="{{ route('profile') }}">Meu Perfil</a>
+                                        <a class="btn btn-warning" href="{{ route('profile') }}">Meu Perfil</a>
                                     </li>
                                     @else
                                     <li class="d-none d-lg-block">
-                                        <a class="btn_1" href="{{ route('login') }}">Login</a>
+                                        <a class="btn btn-warning" href="{{ route('login') }}">Login</a>
                                     </li>
                                     @endauth
                                 @endif
@@ -81,7 +81,7 @@
                     <div class="banner_text">
                         <div class="banner_text_iner">
                             <h4>Todo Aluno Precisa de Atenção</h4>
-                            <h1>Administrar Sua Instituição de Ensino Ficou Melhor</h1>
+                            <h1>Administrar Sua Instituição de Ensino Com Qualidade</h1>
                             <p><h4>Faça já o uso desse sistema que trará mais praticidade 
                                 no gerenciamento escolar de sua instituição.</h4> 
                             </p>
@@ -117,7 +117,7 @@
                                         onfocus="this.placeholder = ''"
                                         onblur="this.placeholder = 'Enter email address'">
                                     <div class="input-group-append">
-                                        <button class="btn btn_1" type="button"><i class="ti-angle-right"></i></button>
+                                        <button class="btn btn btn-warning" type="button"><i class="ti-angle-right"></i></button>
                                     </div>
                                 </div>
                             </div>

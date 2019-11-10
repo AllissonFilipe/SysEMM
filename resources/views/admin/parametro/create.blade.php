@@ -65,8 +65,8 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6 panel-body">
-                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.parametro') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.parametro') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

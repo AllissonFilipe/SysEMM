@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <style>
-        .btn_1 {
+        .btn btn-warning {
             display: inline-block;
             padding: 8.5px 15px;
             border-radius: 50px;
@@ -57,14 +57,14 @@
         }
 
             /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
-        .btn_1:hover {
+        .btn btn-warning:hover {
             color: #fff !important;
             background-image: linear-gradient(to left, #ee390f 0%, #f9b700 51%, #ee390f 100%);
             background-position: right center;
             box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
         }  
 
-        .btn_2 {
+        .btn btn-success {
             display: inline-block;
             padding: 8.5px 15px;
             border-radius: 50px;
@@ -81,14 +81,14 @@
         }
 
             /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
-        .btn_2:hover {
+        .btn btn-success:hover {
             color: #fff !important;
             background-image: linear-gradient(to left, #28a745 0%, #33cc00 51%, #28a745 100%);
             background-position: right center;
             box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
         }  
 
-        .btn_3 {
+        .btn btn-default {
             display: inline-block;
             padding: 8.5px 15px;
             border-radius: 50px;
@@ -105,14 +105,14 @@
         }
 
             /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
-        .btn_3:hover {
+        .btn btn-default:hover {
             color: #fff !important;
             background-image: linear-gradient(to left, #6c757d 0%, #bbc0c4 51%, #6c757d 100%);
             background-position: right center;
             box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
         } 
 
-        .btn_4 {
+        .btn btn-danger {
             display: inline-block;
             padding: 8.5px 15px;
             border-radius: 50px;
@@ -129,14 +129,14 @@
         }
 
             /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
-        .btn_4:hover {
+        .btn btn-danger:hover {
             color: #fff !important;
             background-image: linear-gradient(to left, #b30000 0%, #ff8080 51%, #b30000 100%);
             background-position: right center;
             box-shadow: 0px 10px 30px 0px rgba(193, 34, 10, 0.2);
         } 
 
-        .btn_5 {
+        .btn btn-primary {
             display: inline-block;
             padding: 8.5px 15px;
             border-radius: 50px;
@@ -153,7 +153,7 @@
         }
 
             /* line 38, E:/172 Etrain Education/172_Etrain_Education_html/sass/_button.scss */
-        .btn_5:hover {
+        .btn btn-primary:hover {
             color: #fff !important;
             background-image: linear-gradient(to left, #0000b3 0%, #8080ff 51%, #0000b3 100%);
             background-position: right center;

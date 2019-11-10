@@ -19,7 +19,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Feminino',
             'rg'              => '330213076',
             'cpf'             => '09631335003',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -29,7 +28,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Maculino',
             'rg'              => '357918137',
             'cpf'             => '96042560093',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -39,7 +37,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Masculino',
             'rg'              => '215626321',
             'cpf'             => '42275190040',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -49,7 +46,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Masculino',
             'rg'              => '253631269',
             'cpf'             => '68540077043',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
         
@@ -59,7 +55,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Feminino',
             'rg'              => '351915631',
             'cpf'             => '48633230003',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -69,7 +64,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Feminino',
             'rg'              => '309432029',
             'cpf'             => '16400118039',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -79,7 +73,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Masculino',
             'rg'              => '136731788',
             'cpf'             => '50535102020',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -89,7 +82,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Masculino',
             'rg'              => '390013006',
             'cpf'             => '26035107036',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -99,7 +91,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Masculino',
             'rg'              => '276776434',
             'cpf'             => '48613704000',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
 
@@ -109,7 +100,6 @@ class AlunosTableSeeder extends Seeder
             'sexo'            => 'Ferminino',
             'rg'              => '259851942',
             'cpf'             => '77347746019',
-            'senha'           => '12345',
             'ativo'           => true
         ]);
     }

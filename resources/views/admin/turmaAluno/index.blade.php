@@ -15,14 +15,14 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <a href="{{route('turmaAluno.create')}}" class="btn_1">
+        <a href="{{route('turmaAluno.create')}}" class="btn btn-warning">
             <span class="glyphicon glyphicon-plus"></span> Adicionar</a>
         <div style="float: right;" class="form-group input-group">
             <form action="{{ route('admin.turmaAluno') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="form-control" name="q" placeholder="Buscar Matrícula"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-warning">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
@@ -48,7 +48,6 @@
                         <tr style="background-color: #ffdab3;">
                             <th id="center">Código</th>
                             <th>Data da Matrícula</th>
-                            <th>Data do Cancelamento</th>
                             <th>Aluno</th>
                             <th>Turma</th>
                             <th>Ativo</th>
@@ -60,7 +59,6 @@
                         <tr>
                             <td id="center">{{$turma_aluno->id}}</td>
                             <td title="Data da Matrícula">{{$turma_aluno->created_at}}</td>
-                            <td title="Data de Cancelamento">{{$turma_aluno->dt_cancelamento}}</td>
                             @foreach($alunos as $aluno)
                             @if($aluno->id == $turma_aluno->aluno_id)
                             <td title="Aluno">{{$aluno->nome}}</td>
@@ -78,13 +76,13 @@
                             @endif
                             <td id="center">
                                 <!-- Botão para acionar modal -->
-                                <button data-toggle="modal" data-target="#ModalCentralizado<?php echo ($turma_aluno->id); ?>" class="btn_5">
+                                <button data-toggle="modal" data-target="#ModalCentralizado<?php echo ($turma_aluno->id); ?>" class="btn btn-primary">
                                     Visualizar
                                 </button>&nbsp;
-                                <a href="{{route('turmaAluno.edit', $turma_aluno->id)}}" data-toggle="tooltip" data-placement="top" title="Alterar" class="btn_2">Editar</a>
+                                <a href="{{route('turmaAluno.edit', $turma_aluno->id)}}" data-toggle="tooltip" data-placement="top" title="Alterar" class="btn btn-success">Editar</a>
                                 &nbsp;<form style="display: inline-block;" method="POST" action="{{route('turmaAluno.delete', $turma_aluno->id)}}" data-toggle="tooltip" data-placement="top" title="Excluir" onsubmit="return confirm('Confirma exclusão?')">
                                     {{method_field('DELETE')}}{{ csrf_field() }}
-                                    <button class="btn_4" type="submit" style="background-color: #fff">
+                                    <button class="btn btn-danger" type="submit" >
                                         Apagar
                                     </button></form>
                             </td>
@@ -125,7 +123,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Fechar</button>
                                     </div>
                                 </div>
                             </div>

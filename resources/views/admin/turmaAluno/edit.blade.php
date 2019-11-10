@@ -25,9 +25,9 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="aluno_id">Aluno</label>
-                        <select class="form-control" id="aluno_id" name="aluno_id">
+                        <select class="form-control" id="aluno_id" name="aluno_id" required>
                             @foreach($alunos as $aluno)
                                 @if($aluno->ativo == true)
                                     @if($aluno->id == $turma_aluno->aluno_id)
@@ -39,9 +39,9 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="turma_id">Turma</label>
-                        <select class="form-control" id="turma_id" name="turma_id">
+                        <select class="form-control" id="turma_id" name="turma_id" required>
                             @foreach($turmas as $turma)
                                 @if($turma->ativo == true)
                                     @if($turma->id == $turma_aluno->turma_id)
@@ -53,16 +53,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-md-3">
-                        @if($turma_aluno->dt_cancelamento == null)
-                            <label for="dt_cancelamento">Data do Cancelamento</label>
-                            <input type="date" id="dt_cancelamento" name="dt_cancelamento" class="form-control"/>
-                        @else
-                            <label for="dt_cancelamento">Data do Cancelamento</label>
-                            <input type="date" id="dt_cancelamento" name="dt_cancelamento" value="{{$turma_aluno->dt_cancelamento}}" class="form-control"/>
-                        @endif
-                    </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label for="ativo">Ativo</label>
                         <select class="form-control" id="ativo" name="ativo">
                             @if($turma_aluno->ativo == true)
@@ -76,8 +67,8 @@
                     </div>  
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.turmaAluno') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.turmaAluno') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

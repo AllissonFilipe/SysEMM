@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="form-group col-md-1" style="margin-top:2rem;">
-                        <button type="submit" class="btn_2">Alterar</button>
+                        <button type="submit" class="btn btn-success">Alterar</button>
                     </div>
 
 
@@ -77,7 +77,7 @@
                 onsubmit="return confirm('Confirma exclusão?')">
                 {{method_field('DELETE')}}{{ csrf_field() }}
                 <div class="form-group col-md-1">
-                    <button class="btn_4" type="submit" style="margin-top:2rem;">
+                    <button class="btn btn-danger" type="submit" style="margin-top:2rem;">
                         Apagar
                     </button>
                 </div>

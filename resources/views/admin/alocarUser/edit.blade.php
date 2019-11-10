@@ -28,7 +28,7 @@
 
                     <div class="form-group col-md-4">
                         <label for="turma_id">Turma</label>
-                        <select class="form-control" id="turma_id" name="turma_id">
+                        <select class="form-control" id="turma_id" name="turma_id" required>
                             @foreach($turmas as $turma)
                                 @if($turma->ativo == true)
                                     @if($alocar_user->turma_id == $turma->id)
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="disciplina_id">Disciplina</label>
-                        <select class="form-control" id="disciplina_id" name="disciplina_id">
+                        <select class="form-control" id="disciplina_id" name="disciplina_id" required>
                             @foreach($disciplinas as $disciplina)
                                 @if($alocar_user->disciplina_id == $disciplina->id)
                                     <option value="{{$disciplina->id}}" selected>{{$disciplina->nome}}</option>
@@ -68,8 +68,8 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.alocarUser') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.alocarUser') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

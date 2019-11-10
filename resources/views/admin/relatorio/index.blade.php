@@ -17,18 +17,18 @@
     <div class="box-header">
         <div class="form-group input-group">
             <div class="col-md-6">
-                <form action="{{ route('admin.relatorio') }}" method="POST" role="search">
+                <form action="{{ route('admin.relatorioSearch') }}" method="POST" role="search">
                     {{ csrf_field() }}
                     <input type="number" class="form-control" name="q" placeholder="Matricula"><span
                         class="input-group-btn">
-                        <button type="submit" class="btn_1" style="margin-top: 0.5rem;">
+                        <button type="submit" class="btn btn-warning" style="margin-top: 0.5rem;">
                             <span class="glyphicon glyphicon-search"> Buscar</span>
                         </button>
                     </span>
                 </form>
             </div>
             <div class="col-md-6">
-                <form action="{{ route('admin.relatorio') }}" method="POST" role="search">
+                <form action="{{ route('admin.relatorioSearch') }}" method="POST" role="search">
                     {{ csrf_field() }}
                     <select class="form-control" id="turma_id" name="turma_id">
                         <option selected disabled>Escolha uma turma</option>
@@ -40,7 +40,7 @@
                     </select>
                     <!-- <input type="number" class="form-control" name="q" placeholder="Matricula"><span
                         class="input-group-btn"> -->
-                    <button type="submit" class="btn_1" style="margin-top: 0.5rem;">
+                    <button type="submit" class="btn btn-warning" style="margin-top: 0.5rem;">
                         <span class="glyphicon glyphicon-search"> Buscar</span>
                     </button>
                     </span>

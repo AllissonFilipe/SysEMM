@@ -15,12 +15,8 @@
 @section('content')
 <div class="box">
     <div class="box-header">
-        <a href="{{route('alocarUser.create')}}" class="btn_1">
+        <a href="{{route('alocarUser.create')}}" class="btn btn-warning">
             <span class="glyphicon glyphicon-plus"></span> Adicionar</a><br><br>
-        <div class="form-group input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-            <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
-        </div>
     </div>
     @if (session('message'))
     <div class="alert alert-success alert-dismissible">
@@ -65,10 +61,10 @@
                                 @endif
                                 @endforeach
                                 <td id="center">
-                                    <a href="{{route('alocarUser.edit', $alocar_user->id)}}" data-toggle="tooltip" data-placement="top" title="Alterar" class="btn_2">Editar</a>
+                                    <a href="{{route('alocarUser.edit', $alocar_user->id)}}" data-toggle="tooltip" data-placement="top" title="Alterar" class="btn btn-success">Editar</a>
                                     &nbsp;<form style="display: inline-block;" method="POST" action="{{route('alocarUser.delete', $alocar_user->id)}}" data-toggle="tooltip" data-placement="top" title="Excluir" onsubmit="return confirm('Confirma exclusão?')">
                                         {{method_field('DELETE')}}{{ csrf_field() }}
-                                        <button class="btn_4" type="submit" style="background-color: #fff">
+                                        <button class="btn btn-danger" type="submit" >
                                             Apagar
                                         </button></form>
                                 </td>

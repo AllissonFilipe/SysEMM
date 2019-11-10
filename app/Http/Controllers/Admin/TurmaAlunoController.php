@@ -27,7 +27,7 @@ class TurmaAlunoController extends Controller
         $alunos = Aluno::all();
         $turmas = Turma::all();
         $q = Input::get ( 'q' );
-        $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->orWhere('dt_cancelamento','LIKE','%'.$q.'%')->paginate(10);
+        $turma_alunos = TurmaAluno::where('id','LIKE','%'.$q.'%')->paginate(10);
         $total = count($turma_alunos);
         if(count($turma_alunos) > 0)
             return view('admin.turmaAluno.index', compact('turma_alunos','total','alunos','turmas'));
@@ -46,7 +46,11 @@ class TurmaAlunoController extends Controller
 
     public function createPost(TurmaAlunoValidationFormRequest $request)
     {   
-
+        $qtd_vagas = Turma::select('qtd_vagas')->where('id', 1)->value('qtd_vagas');
+        $qnt_alunos = TurmaAluno::where('turma_id', 1)->count();
+        if($qnt_alunos >= $qtd_vagas) {
+            return redirect()->back()->with('error','A turma já atingiu a quantidade limite de alunos');
+        }
         try {
             DB::beginTransaction();
             $turma_aluno = new TurmaAluno();
@@ -79,7 +83,6 @@ class TurmaAlunoController extends Controller
             $turma_aluno = TurmaAluno::findOrFail($id); 
             $turma_aluno->aluno_id = $request->aluno_id;
             $turma_aluno->turma_id = $request->turma_id;
-            $turma_aluno->dt_cancelamento = $request->dt_cancelamento;
             $turma_aluno->ativo = $request->ativo; 
             $turma_aluno->save();
 

@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            // $table->string('image', 100)->nullable();
             $table->enum('tipo', ['Professor', 'Coordenador']);
             $table->bigInteger('cpf')->unique();
             $table->date('data_de_nascimento');

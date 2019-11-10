@@ -32,7 +32,8 @@ class ResponsavelValidationFormRequest extends FormRequest
             'logradouro' => 'required',
             'bairro' => 'required',
             'cidade' => 'required',
-            'uf' => 'required'
+            'uf' => 'required',
+            'senha' => 'required|max:20'
         ];
     }
 }

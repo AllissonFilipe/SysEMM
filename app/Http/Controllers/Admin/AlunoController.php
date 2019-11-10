@@ -51,7 +51,6 @@ class AlunoController extends Controller
             $aluno->sexo = $request->sexo;
             $aluno->rg = $request->rg;
             $aluno->cpf = $request->cpf;
-            $aluno->senha = bcrypt($request->senha);
             $aluno->save();
 
             if(is_array($request->responsavel)) {
@@ -90,7 +89,6 @@ class AlunoController extends Controller
             $aluno->sexo = $request->sexo;
             $aluno->rg = $request->rg;
             $aluno->cpf = $request->cpf;
-            $aluno->senha = bcrypt($request->senha);
             $aluno->ativo = $request->ativo;
             $aluno->save();
             $aluno->responsavels()->detach();

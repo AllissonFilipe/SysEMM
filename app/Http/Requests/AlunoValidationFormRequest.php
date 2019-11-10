@@ -27,9 +27,8 @@ class AlunoValidationFormRequest extends FormRequest
             'nome' => 'required|string|max:255',
             'data_de_nascimento' => 'required|date|before:today',
             'sexo' => 'required',
-            'rg' => 'required|numeric',
-            'cpf' => 'required|numeric|cpf',
-            'senha' => 'required|max:20'
+            'rg' => 'numeric',
+            'cpf' => 'numeric|cpf'
         ];
     }
 }

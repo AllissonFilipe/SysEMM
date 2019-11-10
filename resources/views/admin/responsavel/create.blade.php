@@ -42,6 +42,14 @@
                         <label for="grau_de_parentesco">Grau de Parentesco</label>
                         <input class="form-control" id="grau_de_parentesco" type="text" placeholder="Grau de Parentesco" name="grau_de_parentesco" required/>
                     </div>
+                    <div class="form-group col-md-6">
+                        <label for="senha">Senha para acesso ao sistema</label>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                            <label for="password_confirm">Confirmar a Senha</label>
+                            <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control" required/>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <legend>Endereço</legend> 
@@ -73,7 +81,7 @@
                         </div>
                         <div class="form-group col-md-4">
                         <label for="uf">Estado</label>
-                            <select class="form-control" id="uf" name="uf">
+                            <select class="form-control" id="uf" name="uf" required>
                                 <option selected disabled>Escolha uma opção</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -107,8 +115,8 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.responsavel') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.responsavel') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

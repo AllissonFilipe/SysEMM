@@ -19,6 +19,7 @@ class CreateResponsavelsTable extends Migration
             $table->bigInteger('cpf')->unique();
             $table->bigInteger('telefone');
             $table->string('grau_de_parentesco');
+            $table->string('senha');
             $table->bigInteger('cep');
             $table->bigInteger('numero')->nullable();
             $table->string('logradouro');

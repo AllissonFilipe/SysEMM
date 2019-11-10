@@ -16,6 +16,7 @@
     <div class="box-header">
         <h3>Adicionar Notas</h3>
     </div>
+    @include('admin.includes.alerts')
     @if (session('message'))
     <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -60,7 +61,13 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="unidade">Unidade</label>
-                <input type="number" id="unidade" name="unidade" class="form-control">
+                <select class="form-control" id="unidade" name="unidade" required>
+                    <option selected disabled>Escolha uma opção</option>
+                    <option value="I Unidade">I Unidade</option>
+                    <option value="II Unidade">II Unidade</option>
+                    <option value="III Unidade">III Unidade</option>
+                    <option value="IV Unidade">IV Unidade</option>
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="tipo">Tipo</label>
@@ -72,7 +79,7 @@
                 </select>
             </div>
             <div class="col-md-12">
-                <button type="submit" class="btn_2">Cadastrar</button>&nbsp;&nbsp;
+                <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;
             </div>
         </form>
         <form id="formAluno" method="POST" action="{{ route('nota.post') }}">
@@ -91,8 +98,14 @@
                 </select>
             </div>
             <div class="form-group col-md-2">
-                <label for="unidade">Unidade</label>
-                <input type="number" id="unidade" name="unidade" class="form-control" required>
+            <label for="unidade">Unidade</label>
+                <select class="form-control" id="unidade" name="unidade" required>
+                    <option selected disabled>Escolha uma opção</option>
+                    <option value="I Unidade">I Unidade</option>
+                    <option value="II Unidade">II Unidade</option>
+                    <option value="III Unidade">III Unidade</option>
+                    <option value="IV Unidade">IV Unidade</option>
+                </select>
             </div>
             <div class="form-group col-md-2">
                 <label for="tipo">Tipo</label>
@@ -108,7 +121,7 @@
                 <input type="number" step="0.01" id="nota" name="nota" class="form-control" required />
             </div>
             <div class="form-group col-md-6">
-                <button type="submit" class="btn_2">Cadastrar</button>
+                <button type="submit" class="btn btn-success">Cadastrar</button>
             </div>
         </form>
     </div>
@@ -139,7 +152,13 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="unidade">Unidade</label>
-                <input type="number" id="unidade" name="unidade" class="form-control">
+                <select class="form-control" id="unidade" name="unidade" required>
+                    <option selected disabled>Escolha uma opção</option>
+                    <option value="I Unidade">I Unidade</option>
+                    <option value="II Unidade">II Unidade</option>
+                    <option value="III Unidade">III Unidade</option>
+                    <option value="IV Unidade">IV Unidade</option>
+                </select>
             </div>
             <div class="form-group col-md-3">
                 <label for="tipo">Tipo</label>
@@ -152,7 +171,7 @@
             </div>
             <div class="form-group col-md-12">
                 <button type="submit" formaction="{{ route('nota.edit') }}"
-                    class="btn_2">Buscar</button>
+                    class="btn btn-success">Buscar</button>
             </div>
         </form>
         <form id="formAlunoEdit" method="GET" action="{{ route('nota.list') }}">
@@ -170,7 +189,7 @@
                 </select>
             </div>
             <div class="form-group col-md-12">
-                <button type="submit" class="btn_2">Buscar</button>
+                <button type="submit" class="btn btn-success">Buscar</button>
             </div>
         </form>
     </div>

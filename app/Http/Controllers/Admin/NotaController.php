@@ -40,6 +40,16 @@ class NotaController extends Controller
         $tipo = $request->tipo;
         $turmas = Turma::all();
         $turma_alunos = TurmaAluno::where('turma_id',$turma_id)->get();
+        $turma_alunos_count = TurmaAluno::where('turma_id',$turma_id)->count();
+        for($i = 0; $i < $turma_alunos_count; $i++) {
+            $qtdNota = Nota::where('turma_aluno_id',$turma_alunos[$i]->id)->where('disciplina_id',$disciplina_id)->where('unidade',$unidade)->where('tipo',$tipo)->count();
+            if($qtdNota > 0) {
+                unset($turma_alunos[$i]);
+            }
+        }
+        if(count($turma_alunos) == 0) {
+            return redirect()->back()->with('error', 'Todos os alunos já possuem nota para essa disciplina, neste tipo de avaliação, nesta unidade.');
+        }
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
         return view('admin.nota.create', compact('disciplina_id','unidade','tipo','turmas','turma_alunos','disciplinas','alunos'));
@@ -51,6 +61,9 @@ class NotaController extends Controller
         $disciplinas = Disciplina::all();
         $turma_aluno_id = $request->turma_aluno_id;
         $disciplina_id = $request->disciplina_id;
+        if(count($notas) == 0) {
+            return redirect()->back()->with('error', 'Não existem notas cadastradas !');
+        }
         return view('admin.nota.list', compact('notas','disciplinas','turma_aluno_id','disciplina_id','total'));
     }
 
@@ -64,6 +77,13 @@ class NotaController extends Controller
             $nota->unidade = $request->unidade;
             $nota->disciplina_id = $request->disciplina_id;
             $nota->turma_aluno_id = $request->turma_aluno_id;
+
+
+            $qtdNota = Nota::where('turma_aluno_id',$request->turma_aluno_id)->where('disciplina_id',$request->disciplina_id)->where('unidade',$request->unidade)->where('tipo',$request->tipo)->count();
+            if($qtdNota > 0) {
+                return redirect()->back()->with('error', 'Nota Já existe !');
+            }
+
             $nota->save();
 
             DB::commit();
@@ -130,6 +150,9 @@ class NotaController extends Controller
         }
 
         $notas = Nota::whereIn('turma_aluno_id', $array_turma_aluno_id)->where('disciplina_id',$turma_id)->where('unidade',$unidade)->where('tipo',$tipo)->get();
+        if(count($notas) == 0) {
+            return redirect()->back()->with('error', 'Não existem notas cadastradas !');
+        }
         return view('admin.nota.edit', compact('turma_id','disciplina_id','unidade','tipo','turmas','notas','alunos','disciplinas','turma_alunos'));
     }
 
@@ -146,8 +169,7 @@ class NotaController extends Controller
             $nota->save();
 
             DB::commit();
-            return redirect()->back()->with('message', 'Nota alterada com sucesso!');s;
-            // route('admin.nota')->with('message', 'Nota alterada com sucesso!');
+            return redirect()->back()->with('message', 'Nota alterada com sucesso!');
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());
@@ -193,7 +215,6 @@ class NotaController extends Controller
             $nota = Nota::findOrFail($id);
             $nota->delete();
             return redirect()->back()->with('message', 'Nota excluída com sucesso!');;
-            // route('admin.nota')->with('message', 'Nota excluída com sucesso!');
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('error', $e->getMessage() . " " . $e->getFile() . " " . $e->getLine());

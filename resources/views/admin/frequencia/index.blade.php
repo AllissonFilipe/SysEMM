@@ -18,6 +18,14 @@
         <li><a href="">Home</a></li>
         <li><a href="">Frequências</a></li>
     </ol>
+    <br><br>
+    @include('admin.includes.alerts')
+    @if (session('message'))
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{ session('message') }}
+        </div>
+    @endif
 @stop
 
 @section('content')
@@ -49,7 +57,7 @@
                         <input type="date" id="data_frequencia" name="data_frequencia" class="form-control">
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn_1">Criar</button>
+                        <button type="submit" class="btn btn-warning">Criar</button>
                     </div>
                 </div>
             </form>
@@ -84,7 +92,7 @@
                         <input type="date" id="data_frequencia" name="data_frequencia" class="form-control">
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn_1">Visualizar</button>
+                        <button type="submit" class="btn btn-warning">Visualizar</button>
                     </div>
                 </div>
             </form>
@@ -119,7 +127,7 @@
                         <input type="date" id="data_frequencia" name="data_frequencia" class="form-control">
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn_1">Exluir</button>
+                        <button type="submit" class="btn btn-warning">Exluir</button>
                     </div>
                 </div>
             </form>

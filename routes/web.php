@@ -109,7 +109,7 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 
     //Relatório
     Route::get('relatorio', 'RelatorioController@index')->name('admin.relatorio');
-    Route::post('relatorio', 'DisciplinaController@search')->name('admin.relatorio');
+    Route::post('relatorio', 'RelatorioController@search')->name('admin.relatorioSearch');
 
 
     Route::get('/', 'AdminController@index')->name('admin.home');

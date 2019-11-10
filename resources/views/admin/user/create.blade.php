@@ -29,27 +29,27 @@
                         <legend>Informações Pessoais</legend>
                         <div class="col-md-6">
                             <label for="name">Nome</label> 
-                            <input type="text" id="name" name="name" placeholder="Nome" class="form-control"/>
+                            <input type="text" id="name" name="name" placeholder="Nome" class="form-control" required/>
                         </div>
                         <div class="col-md-6">
                             <label for="data_de_nascimento">Data de Nascimento</label>
-                            <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control"/>
+                            <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control"/>
+                            <input type="text" id="cpf" name="cpf" placeholder="CPF" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="telefone">Telefone</label>
-                            <input class="form-control" id="telefone" name="telefone" type="text" placeholder="Telefone">
+                            <input class="form-control" id="telefone" name="telefone" type="text" placeholder="Telefone" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="E-mail" class="form-control"/>
+                            <input type="email" id="email" name="email" placeholder="E-mail" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="tipo">Tipo</label>
-                            <select class="form-control" id="tipo" name="tipo">
+                            <select class="form-control" id="tipo" name="tipo" required>
                                 <option selected disabled>Escolha uma opção</option>
                                 <option value="professor">Professor</option>
                                 <option value="coordenador">Coordenador</option>
@@ -57,11 +57,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="password">Senha</label>
-                            <input type="password" id="password" name="password" placeholder="Senha" class="form-control"/>
+                            <input type="password" id="password" name="password" placeholder="Senha" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="password_confirm">Confirmar a Senha</label>
-                            <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control"/>
+                            <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control" required/>
                         </div>
                     </fieldset>
                     <fieldset class="form-group">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="uf">Estado</label>
-                            <select class="form-control" id="uf" name="uf">
+                            <select class="form-control" id="uf" name="uf" required>
                                 <option selected disabled>Escolha uma opção</option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -130,8 +130,8 @@
                     </fieldset>
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.user') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.user') }}" class="btn btn-default">Cancelar</a>
                 </div>
                 <div class="form-group col-md-6">
                     

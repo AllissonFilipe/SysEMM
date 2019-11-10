@@ -67,8 +67,8 @@
                 @endforeach
             </div>
             <div class="form-group col-md-3">
-                <button type="submit" class="btn_2">Alterar</button>&nbsp;&nbsp;&nbsp;
-                <a href="{{ route('admin.nota') }}" class="btn_3">Cancelar</a>
+                <button type="submit" class="btn btn-success">Alterar</button>&nbsp;&nbsp;&nbsp;
+                <a href="{{ route('admin.nota') }}" class="btn btn-default">Cancelar</a>
             </div>
         </form>
         <form style="display: inline-block;" method="POST" action="{{route('notaTurma.delete')}}"
@@ -96,7 +96,7 @@
             <input type="hidden" step="0.01" id="nota" value="{{$nota->nota}}" name="nota[]" class="form-control" />
             @endforeach
             <div class="form-group col-md-1">
-                <button class="btn_4" type="submit" style="background-color: #fff">
+                <button class="btn btn-danger" type="submit" >
                     Apagar
                 </button>
             </div>

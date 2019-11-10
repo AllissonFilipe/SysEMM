@@ -70,8 +70,8 @@
                             </tbody>
                         </table>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_4">Excluir</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.frequencia') }}" class="btn_3">Cancelar</a>&nbsp&nbsp&nbsp
+                    <button type="submit" class="btn btn-danger">Excluir</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.frequencia') }}" class="btn btn-default">Cancelar</a>&nbsp&nbsp&nbsp
                 </div>
             </form>                      
         </div>

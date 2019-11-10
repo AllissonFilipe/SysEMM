@@ -17,13 +17,13 @@ class RelatorioController extends Controller
         return view('admin.relatorio.index', compact('turmas'));
     }
 
-    public function search() {
+    public function search(Request $request) {
         
-        // $q = Input::get ( 'q' );
+        // $turma_id = $request->turma_id;
         // $disciplinas = Disciplina::where('nome','LIKE','%'.$q.'%')->paginate(10);
         // $total = count($disciplinas);
         // if(count($disciplinas) > 0)
-        //     return view('admin.disciplina.index', compact('disciplinas','total'));
+        //     return view('admin.relatorio.index', compact('disciplinas','total'));
         // else 
         //     return redirect()->back();
         

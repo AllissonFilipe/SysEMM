@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="aluno_id">Aluno</label>
-                        <select class="form-control" id="aluno_id" name="aluno_id">
+                        <select class="form-control" id="aluno_id" name="aluno_id" required>
                             <option selected disabled>Escolha uma opção</option>
                             @foreach($alunos as $aluno)
                                 @if($aluno->ativo == true)
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="turma_id">Turma</label>
-                        <select class="form-control" id="turma_id" name="turma_id">
+                        <select class="form-control" id="turma_id" name="turma_id" required>
                             <option selected disabled>Escolha uma opção</option>
                             @foreach($turmas as $turma)
                                 @if($turma->ativo == true)
@@ -48,8 +48,8 @@
                     </div> 
                 </div>
                 <div class="form-group col-md-6">
-                    <button type="submit" class="btn_2">Cadastrar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.turmaAluno') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.turmaAluno') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>

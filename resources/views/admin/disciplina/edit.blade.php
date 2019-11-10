@@ -26,13 +26,13 @@
 
                 <div class="form-group">
                     <label for="nome">Nome</label> 
-                        <input type="text" id="nome" value="{{$disciplina->nome}}" name="nome" class="form-control">
+                        <input type="text" id="nome" value="{{$disciplina->nome}}" name="nome" class="form-control" required/>
                     <label for="descricao">Descrição</label>
-                        <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao">{{$disciplina->descricao}}</textarea>
+                        <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao" required>{{$disciplina->descricao}}</textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn_2">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.disciplina') }}" class="btn_3">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                    <a href="{{ route('admin.disciplina') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>
         </div>
