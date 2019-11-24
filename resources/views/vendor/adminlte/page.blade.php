@@ -39,7 +39,20 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">
-                            @each('adminlte::partials.menu-item-top-nav', $adminlte->menu(), 'item')
+                            <!-- @each('adminlte::partials.menu-item-top-nav', $adminlte->menu(), 'item') -->
+                            @if(Auth::user()->tipo == "Professor")
+                                @foreach($adminlte->menu() as $item)
+                                    @if($item['permission'] == "professor")
+                                        @include('adminlte::partials.menu-item-top-nav', $item)
+                                    @endif
+                                @endforeach
+                            @elseif(Auth::user()->tipo == "Coordenador")
+                                @foreach($adminlte->menu() as $item)
+                                    @if($item['permission'] == "coordenador")
+                                        @include('adminlte::partials.menu-item-top-nav', $item)
+                                    @endif
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

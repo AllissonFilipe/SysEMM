@@ -112,10 +112,18 @@ return [
             'text'        => 'Home',
             'url'         => 'admin',
             'icon'        => 'home',
+            'permission'  => 'professor'
+        ],
+        [
+            'text'        => 'Home',
+            'url'         => 'admin',
+            'icon'        => 'home',
+            'permission'  => 'coordenador'
         ],
         [
             'text' => 'Cadastros de Pessoas',
             'icon' => 'id-card',
+            'permission'  => 'coordenador',
             'submenu' => [
                 [
                     'text'  => 'Usuário',
@@ -138,6 +146,7 @@ return [
         [
             'text' => 'Acadêmico',
             'icon' => 'building',
+            'permission'  => 'coordenador',
             'submenu' => [
                 [
                     'text'  => 'Disciplina',
@@ -173,19 +182,47 @@ return [
         ],
 
         [
+            'text' => 'Acadêmico',
+            'icon' => 'building',
+            'permission'  => 'professor',
+            'submenu' => [
+                [
+                    'text'  => 'Nota',
+                    'url'   => 'admin/nota',
+                    'icon'  => 'sticky-note '
+                ],
+                [
+                    'text'  => 'Frequência',
+                    'url'   => 'admin/frequencia',
+                    'icon'  => 'check-square '
+                ]
+            ]
+        ],
+
+        [
             'text' => 'Notificações',
             'url'  => 'admin/notificacao',
+            'permission'  => 'professor',
+            'icon' => 'bell'     
+        ],
+
+        [
+            'text' => 'Notificações',
+            'url'  => 'admin/notificacao',
+            'permission'  => 'coordenador',
             'icon' => 'bell'     
         ],
 
         [
             'text' => 'Relatórios',
             'url'   => 'admin/relatorio',
+            'permission'  => 'coordenador',
             'icon' => 'pie-chart'
         ],
 
         [
             'text' => 'Configurações',
+            'permission'  => 'coordenador',
             'icon' => 'cogs',
             'submenu' => [
                 [

@@ -13,28 +13,35 @@
 @stop
 
 @section('content')
-    <div class="box">
-        <div class="box-header">
-            <h3>Fazer Edição</h3>
-        </div>
-        <div class="box-body">
-            @include('admin.includes.alerts')
+    @if(Auth::user()->tipo == "Coodenador")
+        <div class="box">
+            <div class="box-header">
+                <h3>Fazer Edição</h3>
+            </div>
+            <div class="box-body">
+                @include('admin.includes.alerts')
 
-            <form method="POST" action="{{ route('disciplina.put', $disciplina->id) }}">
-                {{ method_field('PUT') }}
-                {!! csrf_field() !!}
+                <form method="POST" action="{{ route('disciplina.put', $disciplina->id) }}">
+                    {{ method_field('PUT') }}
+                    {!! csrf_field() !!}
 
-                <div class="form-group">
-                    <label for="nome">Nome</label> 
-                        <input type="text" id="nome" value="{{$disciplina->nome}}" name="nome" class="form-control" required/>
-                    <label for="descricao">Descrição</label>
-                        <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao" required>{{$disciplina->descricao}}</textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
-                    <a href="{{ route('admin.disciplina') }}" class="btn btn-default">Cancelar</a>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="nome">Nome</label> 
+                            <input type="text" id="nome" value="{{$disciplina->nome}}" name="nome" class="form-control" required/>
+                        <label for="descricao">Descrição</label>
+                            <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao" required>{{$disciplina->descricao}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Alterar</button>&nbsp&nbsp&nbsp
+                        <a href="{{ route('admin.disciplina') }}" class="btn btn-default">Cancelar</a>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="text-center">
+            <p><h1><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h1></p>
+            <p><h2>Você não tem acesso a esta página !</h2></p>
+        </div>
+    @endif
 @stop

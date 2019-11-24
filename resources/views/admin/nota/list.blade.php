@@ -47,9 +47,9 @@
                     @endif
                     @endforeach
 
-                    <div class="form-group col-md-1">
+                    <div class="form-group col-md-2">
                         <label for="unidade">Unidade</label>
-                        <input class="form-control col-md-3" name="unidade" type="number" value="{{$nota->unidade}}"
+                        <input class="form-control col-md-3" name="unidade" type="text" value="{{$nota->unidade}}"
                             readOnly>
                     </div>
 

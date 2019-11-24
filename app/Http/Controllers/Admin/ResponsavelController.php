@@ -48,7 +48,7 @@ class ResponsavelController extends Controller
             $responsavel->cpf = $request->cpf;
             $responsavel->telefone = intval($request->telefone);
             $responsavel->grau_de_parentesco = $request->grau_de_parentesco;
-            $aluno->senha = bcrypt($request->senha);
+            $responsavel->senha = bcrypt($request->senha);
             $responsavel->cep = intval($request->cep);
             $responsavel->numero = $request->numero;
             $responsavel->logradouro = $request->logradouro;
@@ -86,7 +86,7 @@ class ResponsavelController extends Controller
             $responsavel->cpf = $request->cpf;
             $responsavel->telefone = intval($request->telefone);
             $responsavel->grau_de_parentesco = $request->grau_de_parentesco;
-            $aluno->senha = bcrypt($request->senha);
+            $responsavel->senha = bcrypt($request->senha);
             $responsavel->cep = intval($request->cep);
             $responsavel->numero = $request->numero;
             $responsavel->logradouro = $request->logradouro;

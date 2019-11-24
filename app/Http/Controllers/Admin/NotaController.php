@@ -19,16 +19,12 @@ class NotaController extends Controller
     
     public function index(Request $request)
     {
-        $turma_aluno_id = $request->turma_aluno_id;
-        if(!$turma_aluno_id) {
-            $turma_aluno_id = 0;
-        }
         $notas = Nota::all();
         $turma_alunos = TurmaAluno::all();
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
         $turmas = Turma::all();
-        return view('admin.nota.index', compact('notas','turma_alunos','disciplinas','alunos','turmas','turma_aluno_id'));
+        return view('admin.nota.index', compact('notas','turma_alunos','disciplinas','alunos','turmas'));
     }
 
     public function create(Request $request)
@@ -48,7 +44,7 @@ class NotaController extends Controller
             }
         }
         if(count($turma_alunos) == 0) {
-            return redirect()->back()->with('error', 'Todos os alunos já possuem nota para essa disciplina, neste tipo de avaliação, nesta unidade.');
+            return redirect()->back()->with('error', 'Não existem alunos para cadastrar notas');
         }
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
@@ -144,12 +140,13 @@ class NotaController extends Controller
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
         $turma_alunos = TurmaAluno::where('turma_id',$turma_id)->get();
+        $turma_alunos_count = TurmaAluno::where('turma_id',$turma_id)->count();
         $array_turma_aluno_id = array();
-        foreach($turma_alunos as $turma_aluno) {
-            array_push($array_turma_aluno_id, $turma_aluno->id);
+        for($i = 0; $i < $turma_alunos_count; $i++) {
+            array_push($array_turma_aluno_id, $turma_alunos[$i]->id);
         }
 
-        $notas = Nota::whereIn('turma_aluno_id', $array_turma_aluno_id)->where('disciplina_id',$turma_id)->where('unidade',$unidade)->where('tipo',$tipo)->get();
+        $notas = Nota::whereIn('turma_aluno_id', $array_turma_aluno_id)->where('disciplina_id',$disciplina_id)->where('unidade',$unidade)->where('tipo',$tipo)->get();
         if(count($notas) == 0) {
             return redirect()->back()->with('error', 'Não existem notas cadastradas !');
         }

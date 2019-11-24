@@ -24,7 +24,6 @@
             @endif
         @endforeach
         <h4>Método de Avaliação: <b>{{$tipo}}</b></h4>
-        <h4></h4>
     </div>
     <div class="box-body">
         @include('admin.includes.alerts')
@@ -57,7 +56,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <button type="submit" class="btn btn-success">Cadastrar</button>&nbsp;&nbsp;&nbsp;
                 <a href="{{ route('admin.nota') }}" class="btn btn-default">Cancelar</a>
             </div>
