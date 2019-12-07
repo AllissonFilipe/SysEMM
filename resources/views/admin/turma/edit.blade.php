@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-    @if(Auth::user()->tipo == "Coodenador")
+    @if(Auth::user()->tipo == "Coordenador")
         <div class="box">
             <div class="box-header">
                 <h3>Fazer Edição</h3>
@@ -21,7 +21,7 @@
             <div class="box-body">
                 @include('admin.includes.alerts')
 
-                <form method="POST" action="{{ route('turma.put', $turma->id) }}">
+                <form method="POST" action="{{ route('turma.put', $turma->id) }}" onsubmit="return confirm('Confirma a alteração ?')">
                     {{ method_field('PUT') }}
                     {!! csrf_field() !!}
 

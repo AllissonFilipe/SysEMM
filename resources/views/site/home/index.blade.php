@@ -99,7 +99,7 @@
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-4 col-xl-3">
                     <div class="single-footer-widget footer_1">
-                    <a href="#"> <img src="{{asset('template/img/Code_Date.png')}}" alt=""></a>
+                    <a href="https://code-date.herokuapp.com/"> <img src="{{asset('template/img/Code_Date.png')}}" alt=""></a>
                         <p>Desde de 2019 a Code Date Soluções Inteligentes proporciona 
                         aos seus clientes produtos de alta  tecnologia com foco na 
                         qualidade e segurança, contribuindo de forma significativa na vida 

@@ -29,11 +29,12 @@
             <h5><b>Total: {{$total}}</b></h5>
             <br>
             @foreach($notas as $nota)
-            <form method="POST" action="{{route('nota.put', $nota->id)}}">
+            <form method="POST" action="{{route('nota.put', $nota->id)}}" onsubmit="return confirm('Confirma a alteração ?')">
                 {{ method_field('PUT') }}
                 {!! csrf_field() !!}
                 <input type="hidden" name="disciplina_id" value="{{$nota->disciplina_id}}">
                 <input type="hidden" name="turma_aluno_id" value="{{$nota->turma_aluno_id}}">
+                <input type="hidden" name="turma_id" value="{{$nota->turma_id}}">
                 <div clas="form-group">
 
                     @foreach($disciplinas as $disciplina)
@@ -74,7 +75,7 @@
             </form>
             <form style="display: inline-block;" method="POST" action="{{route('nota.delete', $nota->id)}}"
                 data-toggle="tooltip" data-placement="top" title="Excluir"
-                onsubmit="return confirm('Confirma exclusão?')">
+                onsubmit="return confirm('Confirma a exclusão ?')">
                 {{method_field('DELETE')}}{{ csrf_field() }}
                 <div class="form-group col-md-1">
                     <button class="btn btn-danger" type="submit" style="margin-top:2rem;">

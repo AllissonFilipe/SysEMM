@@ -66,7 +66,7 @@
                                     Visualizar
                                 </button>&nbsp;
                                 <a href="{{route('notificacaoColab.edit', $notificacao_colab->id)}}" data-toggle="tooltip" data-placement="top" title="Alterar" class="btn btn-success">Editar</a>
-                                &nbsp;<form style="display: inline-block;" method="POST" action="{{route('notificacaoColab.delete', $notificacao_colab->id)}}" data-toggle="tooltip" data-placement="top" title="Excluir" onsubmit="return confirm('Confirma exclusão?')">
+                                &nbsp;<form style="display: inline-block;" method="POST" action="{{route('notificacaoColab.delete', $notificacao_colab->id)}}" data-toggle="tooltip" data-placement="top" title="Excluir" onsubmit="return confirm('Confirma a exclusão ?')">
                                     {{method_field('DELETE')}}{{ csrf_field() }}
                                     <button class="btn btn-danger" type="submit" >
                                         Apagar

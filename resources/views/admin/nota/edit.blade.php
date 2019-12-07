@@ -28,7 +28,7 @@
     <div class="box-body">
         @include('admin.includes.alerts')
 
-        <form method="POST" action="{{ route('notaTurma.put') }}">
+        <form method="POST" action="{{ route('notaTurma.put') }}" onsubmit="return confirm('Confirma a alteração ?')">
             {{ method_field('PUT') }}
             {!! csrf_field() !!}
 
@@ -49,6 +49,8 @@
                 </div>
                 @endif
                 @endforeach
+
+                <input type="hidden" id="turma_id" name="turma_id[]" value="{{$turma_id}}">
 
                 <input type="hidden" id="disciplina_id" name="disciplina_id[]" value="{{$nota->disciplina_id}}">
 

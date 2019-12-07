@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-    @if(Auth::user()->tipo == "Coodenador")
+    @if(Auth::user()->tipo == "Coordenador")
         <div class="box">
             <div class="box-header">
                 <a href="{{route('alocarUser.create')}}" class="btn btn-warning">
@@ -63,7 +63,7 @@
                                         @endforeach
                                         <td id="center">
                                             <a href="{{route('alocarUser.edit', $alocar_user->id)}}" data-toggle="tooltip" data-placement="top" title="Alterar" class="btn btn-success">Editar</a>
-                                            &nbsp;<form style="display: inline-block;" method="POST" action="{{route('alocarUser.delete', $alocar_user->id)}}" data-toggle="tooltip" data-placement="top" title="Excluir" onsubmit="return confirm('Confirma exclusão?')">
+                                            &nbsp;<form style="display: inline-block;" method="POST" action="{{route('alocarUser.delete', $alocar_user->id)}}" data-toggle="tooltip" data-placement="top" title="Excluir" onsubmit="return confirm('Confirma a exclusão ?')">
                                                 {{method_field('DELETE')}}{{ csrf_field() }}
                                                 <button class="btn btn-danger" type="submit" >
                                                     Apagar

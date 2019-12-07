@@ -48,7 +48,7 @@ class NotaController extends Controller
         }
         $disciplinas = Disciplina::all();
         $alunos = Aluno::all();
-        return view('admin.nota.create', compact('disciplina_id','unidade','tipo','turmas','turma_alunos','disciplinas','alunos'));
+        return view('admin.nota.create', compact('disciplina_id','unidade','tipo','turmas','turma_alunos','disciplinas','alunos','turma_id'));
     }
 
     public function editList(Request $request) {
@@ -73,6 +73,7 @@ class NotaController extends Controller
             $nota->unidade = $request->unidade;
             $nota->disciplina_id = $request->disciplina_id;
             $nota->turma_aluno_id = $request->turma_aluno_id;
+            $nota->turma_id = TurmaAluno::select('turma_id')->where('id', $nota->turma_aluno_id)->value('turma_id');
 
 
             $qtdNota = Nota::where('turma_aluno_id',$request->turma_aluno_id)->where('disciplina_id',$request->disciplina_id)->where('unidade',$request->unidade)->where('tipo',$request->tipo)->count();
@@ -110,6 +111,7 @@ class NotaController extends Controller
                     $nota->unidade = $dataForm['unidade'][$i],
                     $nota->tipo = $dataForm['tipo'][$i],
                     $nota->nota = $dataForm['nota'][$i],
+                    $nota->turma_id = $dataForm['turma_id'][$i],
 
                     $nota->save()
                 );
@@ -163,6 +165,7 @@ class NotaController extends Controller
             $nota->unidade = $request->unidade;
             $nota->disciplina_id = $request->disciplina_id;
             $nota->turma_aluno_id = $request->turma_aluno_id;
+            $nota->turma_id = $request->turma_id;
             $nota->save();
 
             DB::commit();
@@ -188,6 +191,7 @@ class NotaController extends Controller
                     $nota->unidade = $dataForm['unidade'][$i],
                     $nota->tipo = $dataForm['tipo'][$i],
                     $nota->nota = $dataForm['nota'][$i],
+                    $nota->turma_id = $dataForm['turma_id'][$i],
 
                     $nota->save()
                 );

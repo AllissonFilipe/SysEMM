@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Frequencia extends Model
 {
     protected $fillable = [
-		'data_frequencia', 'presenca', 'disciplina_id','turma_aluno_id'
+		'data_frequencia', 'ausencia', 'disciplina_id','turma_aluno_id'
     ];
     protected $guarded = ['id','created_at','update_at'];
 }

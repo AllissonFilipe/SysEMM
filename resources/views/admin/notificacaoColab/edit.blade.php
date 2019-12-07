@@ -20,7 +20,7 @@
         <div class="box-body">
             @include('admin.includes.alerts')
 
-            <form method="POST" action="{{ route('notificacaoColab.put', $notificacao_colab->id) }}">
+            <form method="POST" action="{{ route('notificacaoColab.put', $notificacao_colab->id) }}" onsubmit="return confirm('Confirma a alteração ?')">
                 {{ method_field('PUT') }}
                 {!! csrf_field() !!}
 

@@ -20,7 +20,7 @@
         <div class="box-body">
             @include('admin.includes.alerts')
 
-            <form method="POST" action="{{ route('frequencia.delete') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('frequencia.delete') }}" enctype="multipart/form-data" onsubmit="return confirm('Confirma a exclusão ?')">
                 {{method_field('DELETE')}}
                 {!! csrf_field() !!}    
                 <div class="table-responsive">
@@ -54,15 +54,15 @@
                                             @endif
                                         @endforeach
                                         </td>
-                                        @if($frequencia->presenca == 1)
-                                            <td title="Frequência" class="tdPresenca">
-                                                <input type="checkbox" id="presenca" name="presenca[]"  value="on" class="presenca" onclick="return false;" checked> Presente
-                                                <input type="hidden" id="presencaHidden" name="presenca[]" value="off" class="presencaHidden">
+                                        @if($frequencia->ausencia == 1)
+                                            <td title="Frequência" class="tdausencia">
+                                                <input type="checkbox" id="ausencia" name="ausencia[]"  value="on" class="ausencia" onclick="return false;" checked> Presente
+                                                <input type="hidden" id="ausenciaHidden" name="ausencia[]" value="off" class="ausenciaHidden">
                                             </td>
-                                        @elseif($frequencia->presenca == 0)
-                                            <td title="Frequência" class="tdPresenca">
-                                                <input type="checkbox" id="presenca" name="presenca[]" value="on" class="presenca" onclick="return false;"> Presente
-                                                <input type="hidden" id="presencaHidden" name="presenca[]" value="off" class="presencaHidden">
+                                        @elseif($frequencia->ausencia == 0)
+                                            <td title="Frequência" class="tdausencia">
+                                                <input type="checkbox" id="ausencia" name="ausencia[]" value="on" class="ausencia" onclick="return false;"> Presente
+                                                <input type="hidden" id="ausenciaHidden" name="ausencia[]" value="off" class="ausenciaHidden">
                                             </td>
                                         @endif
                                        
@@ -80,8 +80,8 @@
     <script>
         $(document).ready(function() {
 
-            $(".tdPresenca").each(function() {
-                $(".presenca").each(function() {
+            $(".tdausencia").each(function() {
+                $(".ausencia").each(function() {
                     if($(this).is(':checked')) {
                         $(this).next('input').prop("disabled",true);
                     }

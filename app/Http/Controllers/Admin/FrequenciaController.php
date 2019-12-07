@@ -93,10 +93,10 @@ class FrequenciaController extends Controller
             { 
                 $frequencia = new Frequencia();
 
-                if($dataForm['presenca'][$i] == "on") {
-                    $frequencia->presenca = 1;
+                if($dataForm['ausencia'][$i] == "on") {
+                    $frequencia->ausencia = 1;
                 }else {
-                    $frequencia->presenca = 0;
+                    $frequencia->ausencia = 0;
                 }
 
                 $array[] = array (
@@ -104,7 +104,7 @@ class FrequenciaController extends Controller
                     $frequencia->data_frequencia = $dataForm['data_frequencia'][$i],
                     $frequencia->turma_aluno_id = $dataForm['turma_aluno_id'][$i],
                     $frequencia->turma_id = $dataForm['turma_id'][$i],
-                    $frequencia->presenca,
+                    $frequencia->ausencia,
 
                     $frequencia->save()
                 );
@@ -136,10 +136,10 @@ class FrequenciaController extends Controller
             { 
                 $frequencia = Frequencia::findOrFail($dataForm['frequencia_id'][$i]);
 
-                if($dataForm['presenca'][$i] == "on") {
-                    $frequencia->presenca = 1;
+                if($dataForm['ausencia'][$i] == "on") {
+                    $frequencia->ausencia = 1;
                 }else {
-                    $frequencia->presenca = 0;
+                    $frequencia->ausencia = 0;
                 }
 
                 $array[] = array (
@@ -147,7 +147,7 @@ class FrequenciaController extends Controller
                     $frequencia->data_frequencia = $dataForm['data_frequencia'][$i],
                     $frequencia->turma_aluno_id = $dataForm['turma_aluno_id'][$i],
                     $frequencia->turma_id = $dataForm['turma_id'][$i],
-                    $frequencia->presenca,
+                    $frequencia->ausencia,
 
                     $frequencia->save()
                 );

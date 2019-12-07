@@ -8,6 +8,7 @@
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
+  @if(Auth::user()->tipo == "Coordenador")
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -83,30 +84,12 @@
         </div>
         <!-- ./col -->
       </div>
-      <!-- /.row -->
-     
-      <!-- <div class="row">
-    
-        <section class="col-lg-12 connectedSortable">
-         
-          <div class="nav-tabs-custom">
-        
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#LineChart" data-toggle="tab">Area</a></li>
-              <li><a href="#donutChart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="ion ion-university"></i> Alunos</li>
-            </ul>
-            <div class="tab-content no-padding">
-      
-              <div id="LineChart" class="chart tab-pane active" style="position: relative; height: 500px"></div>
-              CODIGO DO GRAFICO DE LINHA VAI AQUI
-
-              <div id="donutChart" class="chart tab-pane" style="position: relative; height: 500px;"></div>
-              CODIGO DO GRAFICO DE PIZZA VAI AQUI
-            </div>
-          </div>
-        </section>
-      </div> -->
     </section>
   </div>
+  @else
+    <div class="content-wrapper text-center">
+      <h3><b>PERFIL PROFESSOR</b></h3>
+      <h1><i class="fa fa-graduation-cap fa-5x" aria-hidden="true"></i></h1>
+    </div>
+  @endif
 @stop

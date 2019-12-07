@@ -14,7 +14,7 @@
 @stop
 
 @section('content')
-    @if(Auth::user()->tipo == "Coodenador")
+    @if(Auth::user()->tipo == "Coordenador")
         <div class="box">
             <div class="box-header">
                 <h3>Fazer Cadastro</h3>

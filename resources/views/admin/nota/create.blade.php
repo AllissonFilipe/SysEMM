@@ -43,6 +43,8 @@
                     @endif
                     @endforeach
                 </div>
+
+                <input type="hidden" id="turma_id" name="turma_id[]" value="{{$turma_id}}">
     
                 <input type="hidden" id="disciplina_id" name="disciplina_id[]" value="{{$disciplina_id}}">
                     

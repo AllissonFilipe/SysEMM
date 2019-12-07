@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-    @if(Auth::user()->tipo == "Coodenador")
+    @if(Auth::user()->tipo == "Coordenador")
         <div class="box">
             <div class="box-header">
                 <h3>Fazer Edição da Alocação</h3>
@@ -21,7 +21,7 @@
             <div class="box-body">
                 @include('admin.includes.alerts')
 
-                <form method="POST" action="{{ route('alocarUser.put', $alocar_user->id) }}">
+                <form method="POST" action="{{ route('alocarUser.put', $alocar_user->id) }}" onsubmit="return confirm('Confirma a alteração ?')">
                     {{ method_field('PUT') }}
                     {!! csrf_field() !!}
 

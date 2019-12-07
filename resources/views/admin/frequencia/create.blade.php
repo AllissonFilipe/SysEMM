@@ -49,9 +49,9 @@
                                                 @endif
                                             @endforeach
                                         </td>
-                                        <td title="Frequência" class="tdPresenca">
-                                            <input type="checkbox" id="presenca" name="presenca[]" class="presenca" value="on"> Presente
-                                            <input type="hidden" id="presencaHidden" name="presenca[]" value="off" class="presencaHidden"> 
+                                        <td title="Frequência" class="tdausencia">
+                                            <input type="checkbox" id="ausencia" name="ausencia[]" class="ausencia" value="on"> Ausente
+                                            <input type="hidden" id="ausenciaHidden" name="ausencia[]" value="off" class="ausenciaHidden"> 
                                         </td>
                                 @endif
                             @endforeach
@@ -67,7 +67,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(".tdPresenca").each(function() {
+            $(".tdausencia").each(function() {
                 $("input").click(function() {
                     if($(this).is(':checked')) {
                         $(this).next('input').prop("disabled",true);
