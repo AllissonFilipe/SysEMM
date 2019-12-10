@@ -27,15 +27,15 @@
 
                     <div class="form-group">
                         <div class="form-group col-md-4">
-                            <label for="nome">Nome</label> 
+                            <label for="nome">Nome <span class="text-danger">*</span></label> 
                             <input type="text" id="nome" name="nome" value="{{$aluno->nome}}" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="data_de_nascimento">Data de Nascimento</label>
+                            <label for="data_de_nascimento">Data de Nascimento <span class="text-danger">*</span></label>
                             <input type="date" id="data_de_nascimento" class="form-control" name="data_de_nascimento" value="{{$aluno->data_de_nascimento}}" required/>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="sexo">Sexo</label>
+                            <label for="sexo">Sexo <span class="text-danger">*</span></label>
                             <select class="form-control" id="sexo" name="sexo" required>
                                     <option value="{{$aluno->sexo}}" selected>{{$aluno->sexo}}</option>
                                     <option value="Feminino">Feminino</option>

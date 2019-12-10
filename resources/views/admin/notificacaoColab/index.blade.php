@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Notificação do Colaborador')
+@section('title', 'Avisos')
 
 @section('content_header')
 
-<h1>Notificações dos Colaboradores</h1>
+<h1>Avisos</h1>
 
 <ol class="breadcrumb">
     <li><a href="">Home</a></li>
-    <li><a href="">Notificações dos Colaboradores</a></li>
+    <li><a href="">Avisos</a></li>
 </ol>
 @stop
 

@@ -28,28 +28,28 @@
                         <fieldset class="form-froup">
                             <legend>Informações Pessoais</legend>
                             <div class="form-group col-md-6">
-                                <label for="name">Nome</label> 
+                                <label for="name">Nome <span class="text-danger">*</span></label> 
                                 <input type="text" id="name" name="name" class="form-control" value="{{$user->name}}" required/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="data_de_nascimento">Data de Nascimento</label>
+                                <label for="data_de_nascimento">Data de Nascimento <span class="text-danger">*</span></label>
                                 <input type="date" id="data_de_nascimento" name="data_de_nascimento" class="form-control" 
                                 value="{{$user->data_de_nascimento}}" required/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="cpf">CPF</label>
+                                <label for="cpf">CPF <span class="text-danger">*</span></label>
                                 <input type="text" id="cpf" name="cpf" class="form-control" value="{{$user->cpf}}" required/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="telefone">Telefone</label>
+                                <label for="telefone">Telefone <span class="text-danger">*</span></label>
                                 <input class="form-control" id="telefone" name="telefone" type="text" value="{{$user->telefone}}" required/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="email">E-mail</label>
+                                <label for="email">E-mail <span class="text-danger">*</span></label>
                                 <input type="email" id="email" name="email" class="form-control" value="{{$user->email}}" required/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="tipo">Tipo</label>
+                                <label for="tipo">Tipo <span class="text-danger">*</span></label>
                                 <select class="form-control" id="tipo" name="tipo" required>
                                     <option value="{{$user->tipo}}" selected>{{$user->tipo}}</option>
                                     <option value="professor">Professor</option>
@@ -57,11 +57,11 @@
                                 </select><br>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="password">Senha</label>
+                                <label for="password">Senha <span class="text-danger">*</span></label>
                                 <input type="password" id="password" name="password" class="form-control" value="{{$user->password}}" required/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="password_confirm">Confirmar a Senha</label>
+                                <label for="password_confirm">Confirmar a Senha <span class="text-danger">*</span></label>
                                 <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control" required/>
                             </div>                                   
                             <div class="form-group col-md-2">
@@ -81,12 +81,12 @@
                             <legend>Endereço</legend>
                             <div class="row">
                                 <div style="margin-left: 15px;" class="form-group col-md-2">
-                                    <label for="cep">CEP</label>
+                                    <label for="cep">CEP <span class="text-danger">*</span></label>
                                     <input class="form-control" id="cep" name="cep" type="text" value="{{$user->cep}}" required/>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="logradouro">Logradouro</label>
+                                <label for="logradouro">Logradouro <span class="text-danger">*</span></label>
                                 <input class="form-control" id="logradouro" name="logradouro" type="text" value="{{$user->logradouro}}" required/>
                             </div>
                             <div class="form-group col-md-4">
@@ -98,15 +98,15 @@
                                 <input class="form-control" id="complemento" name="complemento" type="text" value="{{$user->complemento}}"/>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="bairro">Bairro</label>
+                                <label for="bairro">Bairro <span class="text-danger">*</span></label>
                                 <input class="form-control" id="bairro" name="bairro" type="text" value="{{$user->bairro}}" required/>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="cidade">Cidade</label>
+                                <label for="cidade">Cidade <span class="text-danger">*</span></label>
                                 <input class="form-control" id="cidade" name="cidade" type="text" value="{{$user->cidade}}" required/>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="uf">Estado</label>
+                                <label for="uf">Estado <span class="text-danger">*</span></label>
                                 <select class="form-control" id="uf" name="uf" required>
                                     <option value="{{$user->uf}}" selected>{{$user->uf}}</option>
                                     <option value="AC">Acre</option>

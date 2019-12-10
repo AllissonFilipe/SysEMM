@@ -3,11 +3,11 @@
 @section('title', 'Novo Cadastro')
 
 @section('content_header')
-    <h1>Cadastrar Notificação do Colaborador</h1>
+    <h1>Cadastrar Aviso</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Notificações dos Colaboradores</a></li>
+        <li><a href="">Avisos</a></li>
         <li><a href="">Cadastrar</a></li>
     </ol>
 @stop
@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <div class="form-group col-md-6">
-                        <label for="tipo">Tipo de Notificação</label>
+                        <label for="tipo">Tipo de Aviso <span class="text-danger">*</span></label>
                         <select class="form-control" id="tipo" name="tipo">
                             <option value="Geral" selected>Geral</option>
                             <option value="Turma">Turma</option>
@@ -33,11 +33,11 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="titulo">Título</label> 
+                        <label for="titulo">Título <span class="text-danger">*</span></label> 
                         <input type="text" id="titulo" name="titulo" placeholder="Título" class="form-control"/>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="categoria">Categoria</label>
+                        <label for="categoria">Categoria <span class="text-danger">*</span></label>
                         <select class="form-control" id="categoria" name="categoria">
                             <option selected disabled>Escolha uma opção</option>
                             <option value="Evento">Evento</option>
@@ -46,7 +46,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label id="label_user_id" for="user_id">Colaborador</label>
+                        <label id="label_user_id" for="user_id">Colaborador <span class="text-danger">*</span></label>
                         <select class="form-control" id="user_id" name="user_id">
                             <option selected disabled>Escolha uma opção</option>
                             @foreach($users as $user)
@@ -79,7 +79,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="descricao">Descrição</label>
+                        <label for="descricao">Descrição <span class="text-danger">*</span></label>
                         <textarea class="form-control" id="descricao" name="descricao" cols="30" rows="10"></textarea>
                     </div>
                 </div>

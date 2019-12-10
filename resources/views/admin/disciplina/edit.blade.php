@@ -26,9 +26,9 @@
                     {!! csrf_field() !!}
 
                     <div class="form-group">
-                        <label for="nome">Nome</label> 
+                        <label for="nome">Nome <span class="text-danger">*</span></label> 
                             <input type="text" id="nome" value="{{$disciplina->nome}}" name="nome" class="form-control" required/>
-                        <label for="descricao">Descrição</label>
+                        <label for="descricao">Descrição <span class="text-danger">*</span></label>
                             <textarea id="descricao" cols="30" rows="6" class="form-control" name="descricao" required>{{$disciplina->descricao}}</textarea>
                     </div>
                     <div class="form-group">

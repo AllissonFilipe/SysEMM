@@ -42,7 +42,7 @@
         </div>
         <form id="formTurma" method="GET" action="{{ route('nota.create') }}">
             <div class="form-group col-md-3">
-                <label for="turma_id">Turma</label>
+                <label for="turma_id">Turma <span class="text-danger">*</span></label>
                 <select name="turma_id" id="turma_id" class="form-control">
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($turmas as $turma)
@@ -51,7 +51,7 @@
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <label for="disciplina_id">Disciplina</label>
+                <label for="disciplina_id">Disciplina <span class="text-danger">*</span></label>
                 <select name="disciplina_id" id="disciplina_id" class="form-control">
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($disciplinas as $disciplina)
@@ -60,7 +60,7 @@
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <label for="unidade">Unidade</label>
+                <label for="unidade">Unidade <span class="text-danger">*</span></label>
                 <select class="form-control" id="unidade" name="unidade" required>
                     <option selected disabled>Escolha uma opção</option>
                     <option value="I Unidade">I Unidade</option>
@@ -70,7 +70,7 @@
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <label for="tipo">Tipo</label>
+                <label for="tipo">Tipo <span class="text-danger">*</span></label>
                 <select class="form-control" id="tipo" name="tipo">
                     <option selected disabled>Escolha uma opção</option>
                     <option value="Prova">Prova</option>
@@ -85,11 +85,11 @@
         <form id="formAluno" method="POST" action="{{ route('nota.post') }}">
             {!! csrf_field() !!}
             <div class="form-group col-md-3">
-                <label for="turma_aluno_id">Matrícula</label>
+                <label for="turma_aluno_id">Matrícula <span class="text-danger">*</span></label>
                 <input type="number" id="turma_aluno_id" name="turma_aluno_id" class="form-control" required>
             </div>
             <div class="form-group col-md-3">
-                <label for="disciplina_id">Disciplina</label>
+                <label for="disciplina_id">Disciplina <span class="text-danger">*</span></label>
                 <select name="disciplina_id" id="disciplina_id" class="form-control" required>
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($disciplinas as $disciplina)
@@ -98,7 +98,7 @@
                 </select>
             </div>
             <div class="form-group col-md-2">
-            <label for="unidade">Unidade</label>
+            <label for="unidade">Unidade <span class="text-danger">*</span></label>
                 <select class="form-control" id="unidade" name="unidade" required>
                     <option selected disabled>Escolha uma opção</option>
                     <option value="I Unidade">I Unidade</option>
@@ -108,7 +108,7 @@
                 </select>
             </div>
             <div class="form-group col-md-2">
-                <label for="tipo">Tipo</label>
+                <label for="tipo">Tipo <span class="text-danger">*</span></label>
                 <select class="form-control" id="tipo" name="tipo" required>
                     <option selected disabled>Escolha uma opção</option>
                     <option value="Prova">Prova</option>
@@ -117,7 +117,7 @@
                 </select>
             </div>
             <div class="form-group col-md-2">
-                <label for="nota">Nota</label>
+                <label for="nota">Nota <span class="text-danger">*</span></label>
                 <input type="number" step="0.01" id="nota" name="nota" class="form-control" required />
             </div>
             <div class="form-group col-md-6">
@@ -133,7 +133,7 @@
     <div class="box-body">
         <form id="formTurmaEdit" method="GET" action="{{ route('nota.edit') }}">
             <div class="form-group col-md-3">
-                <label for="turma_id">Turma</label>
+                <label for="turma_id">Turma <span class="text-danger">*</span></label>
                 <select name="turma_id" id="turma_id" class="form-control">
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($turmas as $turma)
@@ -142,7 +142,7 @@
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <label for="disciplina_id">Disciplina</label>
+                <label for="disciplina_id">Disciplina <span class="text-danger">*</span></label>
                 <select name="disciplina_id" id="disciplina_id" class="form-control">
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($disciplinas as $disciplina)
@@ -151,7 +151,7 @@
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <label for="unidade">Unidade</label>
+                <label for="unidade">Unidade <span class="text-danger">*</span></label>
                 <select class="form-control" id="unidade" name="unidade" required>
                     <option selected disabled>Escolha uma opção</option>
                     <option value="I Unidade">I Unidade</option>
@@ -161,7 +161,7 @@
                 </select>
             </div>
             <div class="form-group col-md-3">
-                <label for="tipo">Tipo</label>
+                <label for="tipo">Tipo <span class="text-danger">*</span></label>
                 <select class="form-control" id="tipo" name="tipo">
                     <option selected disabled>Escolha uma opção</option>
                     <option value="Prova">Prova</option>
@@ -176,11 +176,11 @@
         </form>
         <form id="formAlunoEdit" method="GET" action="{{ route('nota.list') }}">
             <div class="form-group col-md-4">
-                <label for="turma_aluno_id">Matrícula</label>
+                <label for="turma_aluno_id">Matrícula <span class="text-danger">*</span></label>
                 <input type="number" id="turma_aluno_id" name="turma_aluno_id" class="form-control" required>
             </div>
             <div class="form-group col-md-4">
-                <label for="disciplina_id">Disciplina</label>
+                <label for="disciplina_id">Disciplina <span class="text-danger">*</span></label>
                 <select name="disciplina_id" id="disciplina_id" class="form-control" required>
                     <option selected disabled>Escolha uma opção</option>
                     @foreach($disciplinas as $disciplina)

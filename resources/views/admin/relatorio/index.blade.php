@@ -23,7 +23,7 @@
                             {{ csrf_field() }}
                             
                             <div class="col-md-3">
-                                <input type="number" class="form-control" id="turma_aluno_id" name="turma_aluno_id" placeholder="Matricula" required>
+                                <input type="number" onkeypress="return event.charCode >= 48" min="1" class="form-control" id="turma_aluno_id" name="turma_aluno_id" placeholder="Matricula" required>
                             </div>
                             
                             <div class="col-md-3">

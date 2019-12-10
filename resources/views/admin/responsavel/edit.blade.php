@@ -29,27 +29,27 @@
                         <fieldset class="form-group">
                         <legend>Informações Pessoais</legend> 
                         <div class="form-group col-md-6">
-                            <label for="nome">Nome</label> 
+                            <label for="nome">Nome <span class="text-danger">*</span></label> 
                             <input type="text" id="nome" value="{{$responsavel->nome}}" name="nome" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="cpf">CPF</label>
+                            <label for="cpf">CPF <span class="text-danger">*</span></label>
                             <input type="text" id="cpf" value="{{$responsavel->cpf}}" name="cpf" class="form-control" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="telefone">Telefone</label>
+                            <label for="telefone">Telefone <span class="text-danger">*</span></label>
                             <input class="form-control" id="telefone" type="text" value="{{$responsavel->telefone}}" name="telefone" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="grau_de_parentesco">Grau de Parentesco</label>
+                            <label for="grau_de_parentesco">Grau de Parentesco <span class="text-danger">*</span></label>
                             <input class="form-control" id="grau_de_parentesco" type="text" value="{{$responsavel->grau_de_parentesco}}" name="grau_de_parentesco" required/>
                         </div>  
                         <div class="form-group col-md-6">
-                            <label for="senha">Senha para acesso ao sistema</label>
+                            <label for="senha">Senha para acesso ao sistema <span class="text-danger">*</span></label>
                             <input type="password" id="senha" name="senha" value="{{$responsavel->senha}}" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="password_confirm">Confirmar a Senha</label>
+                            <label for="password_confirm">Confirmar a Senha <span class="text-danger">*</span></label>
                             <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmar a Senha" class="form-control" required/>
                         </div>  
                         <div class="form-group col-md-2">
@@ -69,12 +69,12 @@
                             <legend>Endereço</legend> 
                             <div class="row">
                                 <div style="margin-left:15px;" class="form-group col-md-2">
-                                    <label for="cep">CEP</label>
+                                    <label for="cep">CEP <span class="text-danger">*</span></label>
                                     <input class="form-control" id="cep" type="text" value="{{$responsavel->cep}}" name="cep" required/>
                                 </div> 
                             </div> 
                             <div class="form-group col-md-4">
-                                <label for="logradouro">Logradouro</label>
+                                <label for="logradouro">Logradouro <span class="text-danger">*</span></label>
                                 <input class="form-control" id="logradouro" type="text" value="{{$responsavel->logradouro}}" name="logradouro" required/>
                             </div>
                             <div class="form-group col-md-4">
@@ -86,15 +86,15 @@
                                 <input class="form-control" id="complemento" type="text" value="{{$responsavel->complemento}}" name="complemento"/>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="bairro">Bairro</label>
+                                <label for="bairro">Bairro <span class="text-danger">*</span></label>
                                 <input class="form-control" id="bairro" type="text" value="{{$responsavel->bairro}}" name="bairro" required/>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="cidade">Cidade</label>
+                                <label for="cidade">Cidade <span class="text-danger">*</span></label>
                                 <input class="form-control" id="cidade" type="text" value="{{$responsavel->cidade}}" name="cidade" required/>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="uf">Estado</label>
+                                <label for="uf">Estado <span class="text-danger">*</span></label>
                                 <select class="form-control" id="uf" name="uf" required>
                                     <option value="{{$responsavel->uf}}" selected>{{$responsavel->uf}}</option>
                                     <option value="AC">Acre</option>

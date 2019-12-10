@@ -27,11 +27,11 @@
 
                     <div class="form-group">
                         <div class="form-group col-md-6">
-                            <label for="nome">Nome</label> 
+                            <label for="nome">Nome <span class="text-danger">*</span></label> 
                             <input type="text" id="nome" name="nome" value="{{$turma->nome}}" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="turno">Turno</label>
+                            <label for="turno">Turno <span class="text-danger">*</span></label>
                             <select class="form-control" id="turno" name="turno" required>
                                 <option value="{{$turma->turno}}" selected>{{$turma->turno}}</option>
                                 <option value="Manhã">Manhã</option>
@@ -40,11 +40,11 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="qtd_vagas">Quantidade de Vagas</label>
+                            <label for="qtd_vagas">Quantidade de Vagas <span class="text-danger">*</span></label>
                             <input type="number" id="qtd_vagas" name="qtd_vagas" value="{{$turma->qtd_vagas }}" class="form-control" required/>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="ano_letivo">Ano Letivo</label>
+                            <label for="ano_letivo">Ano Letivo <span class="text-danger">*</span></label>
                             <input class="form-control" id="ano_letivo" name="ano_letivo" type="number" value="{{$turma->ano_letivo}}" required/>
                         </div>
                         <div class="form-group col-md-4">

@@ -27,7 +27,7 @@
 
                     <div class="form-group">
                         <div class="form-group col-md-4">
-                            <label for="aluno_id">Aluno</label>
+                            <label for="aluno_id">Aluno <span class="text-danger">*</span></label>
                             <select class="form-control" id="aluno_id" name="aluno_id" required>
                                 @foreach($alunos as $aluno)
                                     @if($aluno->ativo == true)
@@ -41,7 +41,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="turma_id">Turma</label>
+                            <label for="turma_id">Turma <span class="text-danger">*</span></label>
                             <select class="form-control" id="turma_id" name="turma_id" required>
                                 @foreach($turmas as $turma)
                                     @if($turma->ativo == true)

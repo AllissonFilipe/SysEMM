@@ -45,10 +45,7 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Sobre</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contato</a>
+                                    <a class="nav-link" href="https://code-date.herokuapp.com/">Visite o nosso site</a>
                                 </li>
                                 @if (Route::has('login'))
                                     @auth

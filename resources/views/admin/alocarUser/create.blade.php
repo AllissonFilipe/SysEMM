@@ -26,7 +26,7 @@
 
                     <div class="form-group">
                         <div class="form-group col-md-4">
-                            <label for="turma_id">Turma</label>
+                            <label for="turma_id">Turma <span class="text-danger">*</span></label>
                             <select class="form-control" id="turma_id" name="turma_id" required>
                                 <option selected disabled>Escolha uma opção</option>
                                 @foreach($turmas as $turma)
@@ -37,7 +37,7 @@
                             </select>
                         </div> 
                         <div class="form-group col-md-4">
-                            <label for="disciplina_id">Disciplina</label>
+                            <label for="disciplina_id">Disciplina <span class="text-danger">*</span></label>
                             <select class="form-control" id="disciplina_id" name="disciplina_id" required>
                                 <option selected disabled>Escolha uma opção</option>
                                 @foreach($disciplinas as $disciplina)
@@ -46,7 +46,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="user_id">Professor</label>
+                            <label for="user_id">Professor <span class="text-danger">*</span></label>
                             <select class="form-control" id="user_id" name="user_id" required>
                                 <option selected disabled>Escolha uma opção</option>
                                 @foreach($users as $user)

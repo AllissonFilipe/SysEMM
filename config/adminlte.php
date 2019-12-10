@@ -174,7 +174,7 @@ return [
                     'icon'  => 'check-square '
                 ],
                 [
-                    'text'  => 'Alocar Professores',
+                    'text'  => 'Gestão de Professores',
                     'url'   => 'admin/alocarUser',
                     'icon'  => 'exchange '
                 ],
@@ -200,14 +200,14 @@ return [
         ],
 
         [
-            'text' => 'Notificações',
+            'text' => 'Avisos',
             'url'  => 'admin/notificacao',
             'permission'  => 'professor',
             'icon' => 'bell'     
         ],
 
         [
-            'text' => 'Notificações',
+            'text' => 'Avisos',
             'url'  => 'admin/notificacao',
             'permission'  => 'coordenador',
             'icon' => 'bell'     
@@ -220,18 +220,18 @@ return [
             'icon' => 'pie-chart'
         ],
 
-        [
-            'text' => 'Configurações',
-            'permission'  => 'coordenador',
-            'icon' => 'cogs',
-            'submenu' => [
-                [
-                    'text'  => 'Parâmetro',
-                    'url'   => 'admin/parametro',
-                    'icon'  => 'cog'
-                ]
-            ]
-        ],
+        // [
+        //     'text' => 'Configurações',
+        //     'permission'  => 'coordenador',
+        //     'icon' => 'cogs',
+        //     'submenu' => [
+        //         [
+        //             'text'  => 'Parâmetro',
+        //             'url'   => 'admin/parametro',
+        //             'icon'  => 'cog'
+        //         ]
+        //     ]
+        // ],
         
     ],
 

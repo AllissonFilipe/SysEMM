@@ -3,11 +3,11 @@
 @section('title', 'Editar Cadastro')
 
 @section('content_header')
-    <h1>Editar Notificação do Colaborador</h1>
+    <h1>Editar Aviso</h1>
 
     <ol class="breadcrumb">
         <li><a href="">Home</a></li>
-        <li><a href="">Notificações dos Colaboradores</a></li>
+        <li><a href="">Avisos</a></li>
         <li><a href="">Editar</a></li>
     </ol>
 @stop
@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                     <div class="form-group col-md-6">
-                        <label for="tipo">Tipo de Notificação</label>
+                        <label for="tipo">Tipo de Aviso <span class="text-danger">*</span></label>
                         <select class="form-control" id="tipo" name="tipo" readOnly>
                             <option value="{{$notificacao_colab->tipo}}" selected>{{$notificacao_colab->tipo}}</option>
                             <option value="Geral">Geral</option>
@@ -35,11 +35,11 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="titulo">Título</label> 
+                        <label for="titulo">Título <span class="text-danger">*</span></label> 
                         <input type="text" id="titulo" name="titulo" value="{{$notificacao_colab->titulo}}" class="form-control"/>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="categoria">Categoria</label>
+                        <label for="categoria">Categoria <span class="text-danger">*</span></label>
                         <select class="form-control" id="categoria" name="categoria">
                             <option value="{{$notificacao_colab->categoria}}" selected>{{$notificacao_colab->categoria}}</option>
                             <option value="Evento">Evento</option>
@@ -48,7 +48,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label id="label_user_id" for="user_id">Colaborador</label>
+                        <label id="label_user_id" for="user_id">Colaborador <span class="text-danger">*</span></label>
                         <select class="form-control" id="user_id" name="user_id">
                             @foreach($users as $user)
                                 @if($user->ativo == true)
@@ -104,7 +104,7 @@
                         </select>
                     </div>   
                     <div class="form-group col-md-12">
-                        <label for="descricao">Descrição</label>
+                        <label for="descricao">Descrição <span class="text-danger">*</span></label>
                         <textarea class="form-control" id="descricao" name="descricao" cols="30" rows="10">{{$notificacao_colab->descricao}}</textarea>
                     </div>
                 </div>

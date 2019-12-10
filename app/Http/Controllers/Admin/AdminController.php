@@ -19,6 +19,12 @@ class AdminController extends Controller
         $total_professores = User::where('tipo','Professor')->count();
         $total_users = User::all()->count();
         $total_turmas = Turma::all()->count();
+
+        // $mysqli = mysqli_connect('sql186.main-hosting.eu', 'u890619145_sysemmdb', '12345', 'u890619145_sysemmdb');
+        // $res = mysqli_query($mysqli, 'SELECT * FROM alunos');
+        // $itens = mysqli_fetch_all($res, MYSQLI_ASSOC);
+
+        // echo json_encode( $itens );
         
         // // $alunos = Aluno::select(DB::raw("COUNT(*) as count , MONTHNAME(created_at) as month")) mysql
         // $alunos = Aluno::select(DB::raw("COUNT(*) as count , to_char(created_at, 'Month') as month"))
